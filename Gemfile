@@ -6,7 +6,7 @@ gem "simple_form"
 gem "show_for"
 # gem "table_for"
 gem "cancan"
-gem "jammit"
+#gem "jammit"
 gem 'omniauth'
 
 
