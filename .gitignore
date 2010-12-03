@@ -1,0 +1,7 @@
+nbproject
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+public/index.html
+
