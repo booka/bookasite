@@ -1,0 +1,88 @@
+
+/** CONSTANTS **/
+@color-background: #eee;
+@color-text: #333;
+@color-link: #678098;
+@color-hover: #53677A;
+@color-hoverbg: #cddfe8;
+@color-header: #E1E1E1;
+@color-sombra: #CBCBCB;
+@font-action: "Helvetica";
+@font-sans: "Lobster", Arial, serif;
+@font-serif: Georgia, serif;
+ 
+/* 1.1 Defaults */
+html {background-color: @color-background; }
+body { background: #eee; 
+       color: @color-text;
+       font-family: @font-sans;
+       font-size: 14px;}
+h1, h2, h3, h4, h5, h6  { margin: 0;  color: @color-link; font-weight:normal; }
+h1  {font-size: 38px; text-shadow: rgba(255, 255, 255, 0, 496094) 0px 1px 0px;}
+h2 {font-size: 24px; margin-top: 1em;}
+h3  {font-size: 18px;} h4  {font-size: 16px;} h5  {font-size: 14px;} h6  {font-size: 12px;}
+p {margin: 0;
+   line-height: 1.8em;
+   text-shadow: rgba(255, 255, 255, 0, 296875) 0px 1px 0px;
+}
+hr { background-color: #e6e6e6; border:0; height: 1px; margin-bottom: 20px; }
+
+/* 1.2 Hyperlinks */
+a:link, a:visited  { color: @color-link; text-decoration:none; text-shadow: rgba(255, 255, 255, 0, 496094) 0px 1px 0px;}
+a:hover { color:#53677A; }
+h1 a:link, h1 a:visited, h2 a:link, h2 a:visited, h3 a:link, h3 a:visited,
+h4 a:link, h4 a:visited, h5 a:link, h5 a:visited, h6 a:link, h6 a:visited  { text-decoration: none; }
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  { text-decoration: underline; }
+
+
+/** 2. LAYOUT **/
+.container {width: 960px; margin: 0 auto;}
+
+/** 2.1 Head **/
+#navigation {
+    width: 100%; overflow: hidden;
+    background-color: @color-header;
+    padding: 10px;
+    border-top: 0px solid #282828;
+    border-bottom: 1px solid @color-sombra;
+    margin-bottom: 1em;
+}
+
+ul.admin {float: right;}
+ul.admin li {float: left; margin-right: 1em; list-style: none;}
+
+/** 3. CONTENT **/
+
+/* 3.1 Actions */
+.action_shape {
+    -webkit-box-shadow: rgba(255, 255, 255, 0, 746094) 0px 1px 0px;
+    -webkit-transition: background-color 400ms ease-out;
+    border-bottom-left-radius: 4px 4px;
+    border-bottom-right-radius: 4px 4px;
+    border-top: 1px solid @color-sombra;
+    border-top-left-radius: 4px 4px;
+    border-top-right-radius: 4px 4px;
+    background-color: @color-header;
+}
+div.actions {width: 100%; overflow: hidden;}
+div.actions a {float: left; margin-right: 1em; padding: 3px 10px;  .action_shape;}
+div.actions a:hover {background-color: @color-hoverbg;}
+/* 3.2 Tables */
+table {width: 100%; margin: 20px 0; text-align: left;}
+thead {border-bottom: 1px solid @color-sombra;}
+td, th {padding: 3px 10px; text-align: left;}
+tr.odd {background-color: @color-header;}
+table h1 a:link, table h2 a:link {color: @color-sombra;}
+td.actions {font-family: @font-action;}
+
+/* 3.3 Forms */
+form {margin: 20px 0;}
+select {padding: 7px 0 7px 7px;}
+input[type=text], input[type=password], textarea {
+    padding: 7px 0 7px 7px; border-color: #ccc #efefef #efefef #ccc; border-width:1px; border-style:solid; }
+
+div.input {width: 100%; overflow: hidden;}
+div.input label {float: left; display: block; width: 8em; margin-right: 1em; text-align: right; padding-top: 10px;}
+form .controls {margin-left: 9em;}
+form .controls input {float: left; padding: 5px 10px;}
+form .controls a {float: left; padding: 10px 10px;}

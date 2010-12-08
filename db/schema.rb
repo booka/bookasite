@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101203192533) do
+ActiveRecord::Schema.define(:version => 20101208193910) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "action"
+    t.string   "model"
+    t.integer  "model_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -20,8 +29,33 @@ ActiveRecord::Schema.define(:version => 20101203192533) do
     t.datetime "updated_at"
   end
 
+  create_table "boks", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.integer  "position"
+    t.string   "type",         :limit => 32
+    t.string   "title",        :limit => 300
+    t.string   "description",  :limit => 1024
+    t.string   "content_type", :limit => 64
+    t.string   "properties"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "boks", ["title"], :name => "index_boks_on_title"
+  add_index "boks", ["type"], :name => "index_boks_on_type"
+
+  create_table "projects", :force => true do |t|
+    t.string   "title",       :limit => 300
+    t.string   "description", :limit => 1024
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.string   "roles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,2 @@
+class Call < Bok
+end

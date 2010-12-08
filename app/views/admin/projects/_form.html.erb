@@ -1,0 +1,9 @@
+<%= simple_form_for([:admin, @project]) do |form| %>
+  <div class="inputs">
+    <%= form.input :title %>
+    <%= form.input :description %>
+  </div>
+  <div class="controls">
+    <%= form.submit %><%= link_to 'Cancelar', (@project.new_record? ? admin_projects_path : [:admin, @project])%>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<%= title 'Usuarios' %>
+
+<table>
+  <thead>
+    <tr>
+      <td>Nombre</td>
+      <td>Roles</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td><%= link_to user.name, [:admin, user] %></td>
+        <td><%= user.roles %></td>
+        <td class="actions">
+          <%= link_to 'Editar', edit_admin_user_path(user) %>
+          <%= link_to 'Borrar', admin_user_path(user), :method => :delete,
+          :confirm => "Quieres borrar el usuario '#{user.name}'!! No se puede volver atrás!!. ¿Segura?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

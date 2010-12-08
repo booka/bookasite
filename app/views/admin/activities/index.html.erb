@@ -1,0 +1,22 @@
+<%= title 'Actividad' %>
+
+
+<table>
+  <thead>
+    <tr>
+      <td>Usuario</td>
+      <td>Actividad</td>
+      <td>Enlace</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td><%= activity.user ? activity.user.name : '' %></td>
+        <td>Ha <%= activity.action %> un <%= activity.model %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

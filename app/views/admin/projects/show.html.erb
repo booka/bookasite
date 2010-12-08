@@ -1,0 +1,11 @@
+<h3><%= link_to 'Libros', [:admin, :projects] %> > Libro</h3>
+<%= title @project.title %>
+<div class="property description"><%= @project.description %></div>
+<br/>
+<div class="actions">
+  <%= link_to 'Editar', edit_admin_project_path(@project) %>
+</div>
+
+<h2>Convocatorias</h2>
+<% @calls = @project.calls %>
+<%= render '/admin/calls/calls' %>

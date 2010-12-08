@@ -4,9 +4,11 @@ gem 'rails', '3.0.3'
 gem 'inherited_resources', '1.1.2'
 gem "simple_form"
 gem "show_for"
+gem "acts_as_list"
+gem 'table_for_collection'
 # gem "table_for"
 gem "cancan"
-#gem "jammit"
+# #gem "jammit"
 gem 'omniauth'
 
 
