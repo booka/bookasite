@@ -1,0 +1,14 @@
+<%= simple_form_for(@proposal, :url => project_proposal_path(@project)) do |form| %>
+  <div class="inputs">
+    <%= form.input :title %>
+    <%= form.input :authors %>
+    <%= form.input :description, :as => :text, :input_html => { :rows => 5 } %>
+    <%= form.input :body %>
+  </div>
+  <div class="assets">
+    (próximamente se podrán subir archivos)
+  </div>
+  <div class="controls">
+    <%= form.submit %><%= link_to 'Cancelar', project_call_path(@project) %>
+  </div>
+<% end %>

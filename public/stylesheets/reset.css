@@ -50,3 +50,5 @@ input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
 .ie6 input { vertical-align: text-bottom; }
 /* hand cursor on clickable input elements */
 label, input[type=button], input[type=submit], button { cursor: pointer; }
+
+li {list-style: none;}

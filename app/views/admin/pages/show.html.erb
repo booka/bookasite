@@ -1,0 +1,14 @@
+<h3><%= link_to 'Páginas', [:admin, :pages] %> > Página</h3>
+<%= title @page.title %>
+<ul class="properties">
+  <li>Dirección <%= link_to @page.slug, @page.slug %></li>
+</ul>
+<div class="actions">
+  <%= link_to 'Editar', edit_admin_page_path(@page) %>
+</div>
+
+<h2>Contenido</h2>
+<div class="page">
+  <%= @page.body.html_safe %>
+</div>
+

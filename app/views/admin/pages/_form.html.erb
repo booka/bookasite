@@ -1,0 +1,10 @@
+<%= simple_form_for([:admin, @page]) do |form| %>
+  <div class="inputs">
+    <%= form.input :title %>
+    <%= form.input :slug %>
+    <%= form.input :body %>
+  </div>
+  <div class="controls">
+    <%= form.submit %><%= link_to 'Cancelar', (@page.new_record? ? admin_pages_path : [:admin, @page])%>
+  </div>
+<% end %>

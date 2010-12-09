@@ -1,5 +1,5 @@
 class Bok < ActiveRecord::Base
-  acts_as_list # :scope => "ancestry"
+  acts_as_list :scope => "project_id"
   serialize :properties
 
   belongs_to :user
@@ -7,4 +7,8 @@ class Bok < ActiveRecord::Base
 
   validates :user, :presence => true
   validates :project, :presence => true
+
+  def to_param
+    title ? "#{id}-#{title.parameterize}" : id.to_s
+  end
 end

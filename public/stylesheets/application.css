@@ -1,0 +1,27 @@
+
+/** STRUCTURE **/
+#header {height: 40px; padding-top: 10px;}
+#header h1 {font-size:18px;}
+#header #session {float: right; margin-right: 3%;}
+.center {margin: 0 25%;}
+.page {border: 1px solid gray; padding: 1em; margin-bottom: 1em;}
+
+.browser {position: fixed; top: 50px; left: 3%; bottom: 0px; width: 20%;}
+.browser h3 {margin-bottom: 1em;}
+
+.places {position: fixed; top: 50px; right: 3%; bottom: 0px; width: 20%;}
+.places a {display: block; margin-bottom: 1em;}
+/** PAGE CONTENTS **/
+.page p {margin: 1em 0; line-height: 1.5em;}
+.page h1 {font-size: 24px;}
+.page img {display: block; margin: 5px auto;}
+.page ul {margin: 1em 0;}
+.page ul li {list-style-type: disc; list-style-position: inside; margin: 0.5em 1em;}
+
+/** FORMS **/
+form {margin-left: 10%;}
+form .input {margin: 0.5em 0;}
+form .input label {display: block; font-weight: bold;}
+form .assets {margin: 2em 0;}
+.inputs input, .inputs textarea {width: 80%; padding: 2px; border: 1px solid black;}
+form .controls input {margin-right: 1em;}

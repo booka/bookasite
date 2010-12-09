@@ -1,0 +1,2 @@
+class Content < Bok
+end

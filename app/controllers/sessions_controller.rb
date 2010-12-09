@@ -10,6 +10,11 @@ class SessionsController < ApplicationController
     end
     self.current_user = @auth.user
 
-    render :text => "Welcome, #{current_user.name}."
+    redirect_to stored_or(root_path)
+  end
+
+  def destroy
+    self.clear_user
+    redirect_to root_path
   end
 end

@@ -1,0 +1,18 @@
+<div class="center">
+  <div class="page">
+    <h2>Booka '<%= @project.title %>'</h2>
+    <%= title "Añadir una propuesta de #{@proposal.rol}" %>
+    <p>Las propuestas deben cumplir las siguientes condiciones:</p>
+    <ul>
+      <li>Deben tener un título y sus autoras y autores deben estar identificados</li>
+      <li>Se pide un breve resúmen del contenido</li>
+      <li>(próximamente) Puede contener hasta 8 archivos de menos de 2MB</li>
+    </ul>
+    <br/> 
+    <% if current_user %>
+      <%= render 'form' %>
+    <% else %>
+      <p>Para poder aportar una propuesta debes estar <%= link_to 'identificado', login_path %></p>
+    <% end %>
+  </div>
+</div>

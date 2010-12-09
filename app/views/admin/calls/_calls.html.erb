@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <td>Posición</td>
       <td>Título</td>
       <td>Descripción</td>
       <td></td>
@@ -13,6 +14,7 @@
   <tbody>
     <% @calls.each do |call| %>
       <tr class="<%= cycle('even', 'odd') %>">
+        <td><%= call.position %></td>
         <td><%= link_to call.title, [:admin, @project, call] %></td>
         <td><%= call.description %></td>
         <td class="actions">
