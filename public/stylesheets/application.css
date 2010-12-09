@@ -5,12 +5,14 @@
 #header #session {float: right; margin-right: 3%;}
 .center {margin: 0 25%;}
 .page {border: 1px solid gray; padding: 1em; margin-bottom: 1em;}
-
+.page.noborder {border-color: white;}
 .browser {position: fixed; top: 50px; left: 3%; bottom: 0px; width: 20%;}
 .browser h3 {margin-bottom: 1em;}
+.browser li {margin: 1em 0;}
 
 .places {position: fixed; top: 50px; right: 3%; bottom: 0px; width: 20%;}
 .places a {display: block; margin-bottom: 1em;}
+
 /** PAGE CONTENTS **/
 .page p {margin: 1em 0; line-height: 1.5em;}
 .page h1 {font-size: 24px;}
@@ -25,3 +27,4 @@ form .input label {display: block; font-weight: bold;}
 form .assets {margin: 2em 0;}
 .inputs input, .inputs textarea {width: 80%; padding: 2px; border: 1px solid black;}
 form .controls input {margin-right: 1em;}
+form .hint {display: block; font-size: 90%; color: gray;}

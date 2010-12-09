@@ -2,12 +2,12 @@ Bookasite::Application.routes.draw do
   root :to => 'projects#index'
 
   namespace :admin do
-    resources :pages
-    resources :projects do
-      resources :calls
+    resources :pages, :path => 'paginas'
+    resources :projects, :path => 'bookas' do
+      resources :calls, :path => 'convocatorias'
     end
-    resources :activities
-    resources :users
+    resources :activities, :path => 'actividad'
+    resources :users, :path => 'participantes'
   end
 
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do

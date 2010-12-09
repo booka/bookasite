@@ -2,7 +2,7 @@
   <div class="inputs">
     <%= form.input :title %>
     <%= form.input :description %>
-    <%= form.input :content_type %>
+    <%= form.input :content_type, :collection => [['html', 'text/html']], :include_blank => false %>
     <%= form.input :body %>
   </div>
   <div class="controls">

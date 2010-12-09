@@ -1,2 +1,13 @@
 <h3><%= breadcrumbs @project, 'Convocatoria:' %></h3>
 <%= title @call.title %>
+<ul class="properties">
+  <li>Descripción: <%= @call.description %></li>
+</ul>
+<div class="actions">
+  <%= link_to 'Editar', edit_admin_page_path(@page) %>
+</div>
+
+<h2>Contenido</h2>
+<div class="page">
+  <%= @call.body.html_safe %>
+</div>

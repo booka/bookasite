@@ -1,0 +1,50 @@
+es:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Some errors were found, please take a look:"
+    # Labels and hints examples
+    labels:
+      password: 'Password'
+      title: 'Título'
+      description: 'Descripción'
+      body: 'Texto'
+      slug: 'Dirección'
+      content_type: 'Tipo de texto'
+      name: 'Nombre'
+      proposal:
+        authors: 'Autorxs'
+      project:
+        content_state: 'Fase de presentación de propuestas'
+      user:
+        new:
+          email: 'E-mail para efetuar o sign in.'
+        edit:
+          email: 'E-mail.'
+    hints:
+      username: 'User name to sign in.'
+      password: 'No special characters, please.'
+      authors: 'Por favor, indica todas las personas que tienen autoría'
+      title: '300 caracteres como máximo'
+      description: 'Haz un resúmen. 500 caracteres máximo'
+      slug: 'En esta dirección se mostrará esta página. Por ejemplo /ayuda ser podrá leer en http://plataformabooka.net/ayuda'
+  helpers:
+    submit:
+      proposal:
+        create: 'Añadir propuesta'
+        update: 'Guardar propuesta'
+      call:
+        create: 'Crear convocatoria'
+        update: 'Guardar convocatoria'
+      user:
+        update: 'Guardar participante'
+      project:
+        create: 'Crear booka'
+        update: 'Guardar booka'

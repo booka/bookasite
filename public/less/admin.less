@@ -2,7 +2,7 @@
 /** CONSTANTS **/
 @color-background: #eee;
 @color-text: #333;
-@color-link: #678098;
+@color-link: #333333; /*#678098;*/
 @color-hover: #53677A;
 @color-hoverbg: #cddfe8;
 @color-header: #E1E1E1;
@@ -12,8 +12,8 @@
 @font-serif: Georgia, serif;
  
 /* 1.1 Defaults */
-html {background-color: @color-background; }
-body { background: #eee; 
+html {background-color: white; }
+body { 
        color: @color-text;
        font-family: @font-sans;
        font-size: 14px;}
@@ -64,19 +64,20 @@ ul.admin li {float: left; margin-right: 1em; list-style: none;}
     border-top-right-radius: 4px 4px;
     background-color: @color-header;
 }
-div.actions {width: 100%; overflow: hidden;}
+div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
 div.actions a {float: left; margin-right: 1em; padding: 3px 10px;  .action_shape;}
 div.actions a:hover {background-color: @color-hoverbg;}
 /* 3.2 Tables */
 table {width: 100%; margin: 20px 0; text-align: left;}
 thead {border-bottom: 1px solid @color-sombra;}
 td, th {padding: 3px 10px; text-align: left;}
-tr.odd {background-color: @color-header;}
+tr.odd {background-color: #efefef;}
 table h1 a:link, table h2 a:link {color: @color-sombra;}
-td.actions {font-family: @font-action;}
-
+td.actions {font-family: @font-action; font-size: 80%;}
+td.actions a {float: left; margin: 2px 1em -1px 0; padding: 2px 10px 3px 10px;  .action_shape;}
+td.actions a:hover {background-color: @color-hoverbg;}
 /* 3.X Properties */
-ul.properties {margin: 1em;}
+ul.properties {margin-bottom: 1em;}
 ul.properties li {list-style: none;}
 
 /* 3.3 Forms */
@@ -87,9 +88,11 @@ input[type=text], input[type=password], textarea {
     padding: 7px 0 7px 7px; border-color: #ccc #efefef #efefef #ccc; border-width:1px; border-style:solid; }
 
 div.input {width: 100%; overflow: hidden;}
-div.input label {float: left; display: block; width: 8em; margin-right: 1em; text-align: right; padding-top: 10px;}
+div.input label {float: left; display: block; width: 8em; margin-right: 0.5em; text-align: right; padding-top: 10px;}
 form .controls {margin-left: 9em;}
 form .controls input {float: left; padding: 5px 10px;}
 form .controls a {float: left; padding: 10px 10px;}
+form .hint {margin-left: 10em; font-size: 90%; width: 600px; display: block; margin-bottom: 1em;
+color: @color-sombra;}
 
-.page {background-color: white; width: 700px; margin: 1em; padding: 1em; border: 1px solid gray;}
+div.page {background-color: white; width: 700px; margin: 1em; padding: 1em; border: 1px solid gray;}

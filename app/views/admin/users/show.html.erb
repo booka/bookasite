@@ -1,5 +1,8 @@
-<%= title "Usuario '#{@user.name}'" %>
-
+<h3><%= link_to 'Participantes', admin_users_path %> > Participante: </h3>
+<%= title @user.name %>
+<ul class="properties">
+  <li>Roles: <%= @user.roles %></li>
+</ul>
 <div class="actions">
   <%= link_to 'Editar', edit_admin_project_path(@project) %>
 </div>

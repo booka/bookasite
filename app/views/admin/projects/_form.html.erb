@@ -2,6 +2,7 @@
   <div class="inputs">
     <%= form.input :title %>
     <%= form.input :description %>
+    <%= form.input :content_state, :collection => [['cerrada', 'closed'],['abierta', 'open']], :include_blank => false %>
   </div>
   <div class="controls">
     <%= form.submit %><%= link_to 'Cancelar', (@project.new_record? ? admin_projects_path : [:admin, @project])%>

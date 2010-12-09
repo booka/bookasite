@@ -1,7 +1,9 @@
 <h3><%= link_to 'Libros', [:admin, :projects] %> > Libro</h3>
 <%= title @project.title %>
-<div class="property description"><%= @project.description %></div>
-<br/>
+<ul class="properties">
+  <li>Descripción: <%= @project.description %></li>
+  <li>Fase de presentación de propuestas: <%= @project.content_state == 'open' ? 'abierta' : 'cerrada' %></li>
+</ul>
 <div class="actions">
   <%= link_to 'Editar', edit_admin_project_path(@project) %>
 </div>
