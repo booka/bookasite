@@ -24,4 +24,5 @@ Bookasite::Application.routes.draw do
   match "/cerrar" => "sessions#destroy", :as => :signout
   match "/identificarse" => "sessions#new", :as => :login
   match "/admin" => "admin/projects#index"
+  match "/ccc" => "pages#ccc"
 end

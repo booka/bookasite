@@ -8,6 +8,10 @@
   </head>
   <body>
     <div id="header">
+      <div id="stages">
+        <%= link_to 'Convocatorias', root_path %>
+        <%= link_to('Materiales', [@project, :contents]) if @project %>
+      </div>
       <div id="session">
         <% if current_user %>
           Eres: <%= current_user.name %> <%= link_to 'Salir', signout_path %>
@@ -15,7 +19,7 @@
           <%= link_to 'Identificarse', login_path %>
         <% end %>
       </div>
-      <h1 class="center">Plataformabooka.net</h1>
+      <h1 class="center"><%= @project ? @project.title : 'Plataformabooka.net' %></h1>
     </div>
     <%= yield %>
   </body>

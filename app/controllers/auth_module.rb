@@ -5,8 +5,21 @@ module AuthModule
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
+  def require_admin
+    unless current_user
+      store_location
+      redirect_to login_path
+    end
+  end
+
+  def store_location
+    session[:return_to] = request.request_uri
+  end
+
   def stored_or(default_path)
-    default_path
+    path = session[:return_to] || default_path
+    session[:return_to] = nil
+    path
   end
 
   def signed_in?

@@ -1,4 +1,4 @@
-<% title 'Convocatorias'%>
+<% title(@content ? @content.title : "Materiales - #{@project.title}") %>
 <div class="browser">
   <h3>Materiales</h3>
   <ul class="contents">
@@ -6,6 +6,7 @@
       <li class="content">
         <%= link_to content.title, project_content_path(content.project, content) %>
         <div class="property description"><%= content.description %></div>
+        <div class="property authors"><%= content.authors %></div>
       </li>
     <% end %>
   </ul>
@@ -14,6 +15,7 @@
   <% if @content %>
     <div class="page">
       <h1><%= @content.title %></h1>
+      <div class="authors"><%= @content.authors %></div>
       <%= @content.body.html_safe %>
     </div>
   <% end %>
