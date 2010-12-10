@@ -6,6 +6,7 @@ class CreateBoks < ActiveRecord::Migration
       t.integer :position
       t.string :type, :limit => 32
       t.string :title, :limit => 300
+      t.string :authors, :limit => 300
       t.string :description, :limit => 1024
       t.string :content_type, :limit => 64
       t.string :properties, :length => 1024

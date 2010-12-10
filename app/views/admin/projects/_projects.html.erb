@@ -16,8 +16,8 @@
         <td><%= link_to project.title, [:admin, project] %></td>
         <td><%= project.description %></td>
         <td class="actions">
-          <%= link_to 'Editar', edit_admin_project_path(project) %>
-          <%= link_to 'Borrar', admin_project_path(project), :method => :delete,
+          <%= link_to 'Administrar', admin_project_path(project) %>
+          <%#= link_to 'Borrar', admin_project_path(project), :method => :delete,
           :confirm => "Quieres borrar el proyecto '#{project.title}'!! No se puede volver atrás!!. ¿Segura?" %>
         </td>
       </tr>

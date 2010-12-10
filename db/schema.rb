@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20101208230913) do
     t.integer  "position"
     t.string   "type",         :limit => 32
     t.string   "title",        :limit => 300
+    t.string   "authors",      :limit => 300
     t.string   "description",  :limit => 1024
     t.string   "content_type", :limit => 64
     t.string   "properties"
@@ -68,9 +69,10 @@ ActiveRecord::Schema.define(:version => 20101208230913) do
   add_index "pages", ["slug"], :name => "index_pages_on_slug"
 
   create_table "projects", :force => true do |t|
-    t.string   "title",       :limit => 300
-    t.string   "description", :limit => 1024
-    t.string   "properties",  :limit => 1024
+    t.string   "title",         :limit => 300
+    t.string   "description",   :limit => 1024
+    t.string   "properties",    :limit => 1024
+    t.string   "stage_content", :limit => 8,    :default => "closed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -19,10 +19,9 @@ es:
       slug: 'Dirección'
       content_type: 'Tipo de texto'
       name: 'Nombre'
-      proposal:
-        authors: 'Autorxs'
+      authors: 'Por'
       project:
-        content_state: 'Fase de presentación de propuestas'
+        stage_content: 'Fase de presentación de propuestas'
       user:
         new:
           email: 'E-mail para efetuar o sign in.'
@@ -48,3 +47,6 @@ es:
       project:
         create: 'Crear booka'
         update: 'Guardar booka'
+      content:
+        create: 'Crear artículo'
+        update: 'Guardar artículo'

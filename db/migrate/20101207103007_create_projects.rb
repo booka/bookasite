@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :title, :limit => 300
       t.string :description, :limit => 1024
       t.string :properties, :limit => 1024
+      t.string :stage_content, :limit => 8, :default => 'closed'
       t.timestamps
     end
   end

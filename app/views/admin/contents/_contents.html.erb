@@ -1,0 +1,28 @@
+<div class="actions">
+  <%= link_to 'Subir material', [:new, :admin, @project, :content] %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <td>Posición</td>
+      <td>Título</td>
+      <td>Descripción</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td><%= content.position %></td>
+        <td><%= link_to content.title, [:admin, @project, content] %></td>
+        <td><%= content.description %></td>
+        <td class="actions">
+          <%= link_to 'Editar', [:edit, :admin, @project, content] %>
+          <%= link_to 'Borrar', [:admin, @project, content], :method => :delete,
+          :confirm => "Quieres borrar el proyecto '#{content.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

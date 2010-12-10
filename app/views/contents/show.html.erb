@@ -1,0 +1,22 @@
+<% title 'Convocatorias'%>
+<div class="browser">
+  <h3>Materiales</h3>
+  <ul class="contents">
+    <% @contents.each do |content| %>
+      <li class="content">
+        <%= link_to content.title, project_content_path(content.project, content) %>
+        <div class="property description"><%= content.description %></div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="center">
+  <% if @content %>
+    <div class="page">
+      <h1><%= @content.title %></h1>
+      <%= @content.body.html_safe %>
+    </div>
+  <% end %>
+</div>
+<div class="places">
+</div>

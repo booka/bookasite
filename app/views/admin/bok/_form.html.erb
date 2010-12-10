@@ -1,0 +1,10 @@
+<div class="inputs">
+  <%= form.input :title %>
+  <%= form.input :description %>
+  <%= form.input :authors %>
+  <%= form.input :content_type, :collection => [['html', 'text/html']], :include_blank => false %>
+  <%= form.input :body %>
+</div>
+<div class="controls">
+  <%= form.submit %><%= link_to 'Cancelar', (@project.new_record? ? admin_projects_path : [:admin, @project])%>
+</div>

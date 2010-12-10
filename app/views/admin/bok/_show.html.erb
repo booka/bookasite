@@ -1,0 +1,14 @@
+<%= title show.title %>
+<ul class="properties">
+  <li>Descripción: <%= show.description %></li>
+  <li>Por: <%= show.authors %></li>
+  <li>Posición: <%= show.position %></li>
+</ul>
+<div class="actions">
+  <%= link_to 'Editar', [:edit, :admin, @project, show] %>
+</div>
+
+<h2>Contenido</h2>
+<div class="page">
+  <%= show.body.html_safe %>
+</div>

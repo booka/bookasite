@@ -11,6 +11,9 @@
   </ul>
 </div>
 <div class="center">
+  <div class="stages">
+    <%= link_to('La fase de presentación de propuestas está abierta', project_contents_path(@project)) if @project.stage_content == 'open' %>
+  </div>
     <div class="page">
       <h1><%= @call.title %></h1>
       <%= @call.body.html_safe %>
