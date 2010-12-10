@@ -2,8 +2,7 @@
 <html>
   <head>
     <title><%= yield :title %> - Plataformabooka.net </title>
-    <%= include_stylesheets :public, :media => 'all' %>
-    <%= include_javascripts :common %>
+    <%= stylesheet_link_tag 'reset', 'application', :media => 'all' %>
     <%= csrf_meta_tag %>
   </head>
   <body>
@@ -22,5 +21,9 @@
       <h1 class="center"><%= @project ? @project.title : 'Plataformabooka.net' %></h1>
     </div>
     <%= yield %>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript">!window.jQuery && document.write('<script src="/javascripts/jquery-1.4.4.min.js"><\/script>')</script>
+    <%= javascript_include_tag 'rails.js '%>
+
   </body>
 </html>

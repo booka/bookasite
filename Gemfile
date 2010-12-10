@@ -8,7 +8,7 @@ gem "acts_as_list"
 gem 'table_for_collection'
 # gem "table_for"
 gem "cancan"
-gem "jammit"
+#gem "jammit"
 gem 'omniauth'
 gem 'paperclip'
 
