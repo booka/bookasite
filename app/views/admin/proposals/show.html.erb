@@ -1,6 +1,7 @@
 <h3><%= breadcrumbs @project, 'Propuestas' %></h3>
 <%= title @proposal.title %>
 <ul class="properties">
+  <li>Tipo de propueta: <%= @proposal.rol %></li>
   <li>Subido por: <%= @proposal.user.name %></li>
   <li>Descripción: <%= @proposal.description %></li>
   <li>Autores: <%= @proposal.authors %></li>

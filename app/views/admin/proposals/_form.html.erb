@@ -1,0 +1,12 @@
+<%= simple_form_for([:admin, @project, @proposal]) do |form| %>
+  <div class="inputs">
+    <%= form.input :title %>
+    <%= form.input :description %>
+    <%= form.input :authors %>
+    <%= form.input :rol, :collection => [['edición', 'edicion'], ['contenido', 'contenido']], :include_blank => false %>
+    <%= form.input :body %>
+  </div>
+  <div class="controls">
+    <%= form.submit %><%= link_to 'Cancelar', (@project.new_record? ? admin_projects_path : [:admin, @project])%>
+  </div>
+<% end %>

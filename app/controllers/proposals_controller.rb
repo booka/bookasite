@@ -7,7 +7,7 @@ class ProposalsController < ApplicationController
   
   def edit
     load_project
-    @rol = params[:rol] == 'edicion' ? 'edición' : 'contenido'
+    @rol = params[:rol] == 'edicion' ? 'edicion' : 'contenido'
     if current_user
       @proposal = @project.proposal(@rol, current_user)
     else
