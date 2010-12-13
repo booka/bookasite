@@ -20,9 +20,11 @@
         <td class="title"><%= link_to call.title, [:admin, @project, call] %></td>
         <td><%= call.description %></td>
         <td class="actions">
-          <%= button_to 'Editar', [:edit, :admin, @project, call] %>
-          <%= button_to 'Borrar', [:admin, @project, call], :method => :delete,
-          :confirm => "Quieres borrar el proyecto '#{call.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+          <%= button_to 'Editar', edit_admin_project_call_path(@project, call), :method => :get %>
+          <% if calls.size > 1 %>
+            <%= button_to 'Borrar', [:admin, @project, call], :method => :delete,
+              :confirm => "Quieres borrar el proyecto '#{call.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+          <% end %>
         </td>
       </tr>
     <% end %>

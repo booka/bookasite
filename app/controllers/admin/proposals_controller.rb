@@ -10,6 +10,6 @@ class Admin::ProposalsController < Admin::AdminController
   end
 
   def destroy
-    destroy! { admin_projects_path(@project) }
+    destroy! { admin_project_path(@project) }
   end
 end

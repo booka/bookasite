@@ -4,7 +4,7 @@
   <li>Descripción: <%= @call.description %></li>
 </ul>
 <div class="actions">
-  <%= button_to 'Editar', edit_admin_page_path(@page) %>
+  <%= button_to 'Editar', edit_admin_project_call_path(@project, @call), :method => :get %>
 </div>
 
 <h2>Contenido</h2>

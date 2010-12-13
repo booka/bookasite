@@ -1,6 +1,7 @@
 Bookasite::Application.routes.draw do
   root :to => 'projects#index'
 
+  # ADMIN
   scope(:path_names => { :new => "crear", :edit => "editar" }) do
     namespace :admin do
       resources :pages, :path => 'paginas'
@@ -15,6 +16,7 @@ Bookasite::Application.routes.draw do
     end
   end
 
+  # PUBLIC
   scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
     resources :projects, :path => 'bookas' do
       resources :contents, :path => 'materiales'

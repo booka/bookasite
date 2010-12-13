@@ -18,14 +18,14 @@ class ProposalsController < ApplicationController
   def create
     params[:proposal][:project_id] = params[:project_id]
     params[:proposal][:user_id] = current_user.id
-    create! { edit_project_proposal_path(@project, @proposal, :rol => @proposal.rol)}
+    create! { edit_project_proposal_path(@project, :rol => @proposal.rol)}
   end
 
   def update
     load_project
     @rol = params[:proposal][:rol]
     @proposal = @project.proposal(@rol, current_user)
-    update! { edit_project_proposal_path(@project, @proposal, :rol => @proposal.rol )}
+    update! { edit_project_proposal_path(@project, :rol => @proposal.rol )}
   end
 
 end

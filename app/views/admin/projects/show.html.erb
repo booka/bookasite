@@ -5,8 +5,8 @@
   <li>Fase de presentación de propuestas: <%= @project.stage_content == 'open' ? 'abierta' : 'cerrada' %></li>
 </ul>
 <div class="actions">
-  <%= button_to 'Editar', edit_admin_project_path(@project) %>
-  <%= button_to 'Ver en la web', project_call_path(@project)  %>
+  <%= button_to 'Editar', edit_admin_project_path(@project), :method => :get %>
+  <%= button_to 'Ver en la web', project_call_path(@project), :method => :get  %>
 </div>
 
 <h2><%= link_to 'Convocatorias', [:admin, @project, :calls] %></h2>
