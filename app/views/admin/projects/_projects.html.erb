@@ -13,7 +13,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr class="<%= cycle('even', 'odd') %>">
-        <td><%= link_to project.title, [:admin, project] %></td>
+        <td class="title"><%= link_to project.title, [:admin, project] %></td>
         <td><%= project.description %></td>
         <td class="actions">
           <%= button_to 'Administrar', admin_project_path(project) %>

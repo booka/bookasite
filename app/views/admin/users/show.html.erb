@@ -1,6 +1,8 @@
-<h3><%= link_to 'Participantes', admin_users_path %> > Participante: </h3>
+<h3><%= link_to 'Participantes', admin_users_path %> > Participante </h3>
 <%= title @user.name %>
+<%= image_tag avatar_url(@user, 96) %>
 <ul class="properties">
+  <li>Email: <%= @user.email %></li>
   <li>Roles: <%= @user.roles %></li>
 </ul>
 <div class="actions">

@@ -3,7 +3,9 @@
 <table>
   <thead>
     <tr>
+      <td></td>
       <td>Nombre</td>
+      <td>Email</td>
       <td>Roles</td>
       <td></td>
     </tr>
@@ -11,7 +13,9 @@
   <tbody>
     <% @users.each do |user| %>
       <tr class="<%= cycle('even', 'odd') %>">
+        <td class="avatar"><%= image_tag avatar_url(user) %></td>
         <td><%= link_to user.name, [:admin, user] %></td>
+        <td><%= user.email %></td>
         <td><%= user.roles %></td>
         <td class="actions">
           <%= link_to 'Editar', edit_admin_user_path(user) %>

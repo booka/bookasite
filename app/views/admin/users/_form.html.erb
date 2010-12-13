@@ -1,7 +1,9 @@
 <%= simple_form_for([:admin, @user]) do |form| %>
   <div class="inputs">
     <%= form.input :name %>
+    <%= form.input :email %>
     <%= form.input :roles %>
+    <%= form.input :avatar_url %>
   </div>
   <div class="controls">
     <%= form.submit %><%= link_to 'Cancelar', (@user.new_record? ? admin_users_path : [:admin, @user])%>
