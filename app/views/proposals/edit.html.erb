@@ -1,6 +1,8 @@
 <div class="center">
   <div class="page noborder">
-    <%= title "Añadir una propuesta de #{@proposal.rol}" %>
+    <%= title(@proposal ?
+        "Editar tu propuesta de #{@rol}" :
+        "Añadir una propuesta de #{@rol}") %>
     <p>Las propuestas deben cumplir las siguientes condiciones:</p>
     <ul>
       <li>Deben tener un título y sus autoras y autores deben estar identificados</li>

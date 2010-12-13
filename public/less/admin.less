@@ -5,7 +5,8 @@
 @color-link: #333333; /*#678098;*/
 @color-hover: #53677A;
 @color-hoverbg: #cddfe8;
-@color-header: #E1E1E1;
+@color-header: white;
+@color-button: #eee;
 @color-sombra: #CBCBCB;
 @font-action: "Helvetica";
 @font-sans: "Lobster", Arial, serif;
@@ -62,20 +63,24 @@ ul.admin li {float: left; margin-right: 1em; list-style: none;}
     border-top: 1px solid @color-sombra;
     border-top-left-radius: 4px 4px;
     border-top-right-radius: 4px 4px;
-    background-color: @color-header;
+    background-color: @color-button;
 }
 div.actions {width: 100%; overflow: hidden; margin: 1em 0;}
 div.actions a {float: left; margin-right: 1em; padding: 3px 10px;  .action_shape;}
 div.actions a:hover {background-color: @color-hoverbg;}
+div.actions form {margin: 0 0 1em 0; float: left;}
+
 /* 3.2 Tables */
 table {width: 100%; margin: 20px 0; text-align: left;}
 thead {border-bottom: 1px solid @color-sombra;}
-td, th {padding: 3px 10px; text-align: left;}
+td, th {padding: 1px 5px 3px 5px; text-align: left; margin: 0; vertical-align: middle;}
 tr.odd {background-color: #efefef;}
 table h1 a:link, table h2 a:link {color: @color-sombra;}
 td.actions {font-family: @font-action; font-size: 80%;}
-td.actions a {float: left; margin: 2px 1em -1px 0; padding: 2px 10px 3px 10px;  .action_shape;}
+td.actions a {float: left; margin: 2px 1em 0px 0; padding: 2px 10px 3px 10px;  .action_shape;}
 td.actions a:hover {background-color: @color-hoverbg;}
+td.title a {font-size: 100%; font-weight: bold;}
+td form {margin: 0; padding: 0; float: left;}
 
 /* 3.X Properties */
 ul.properties {margin-bottom: 1em; font-style: italic; }

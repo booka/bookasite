@@ -5,6 +5,13 @@ module AuthModule
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
+  def require_user
+    unless current_user
+      store_location
+      redirect_to login_path
+    end
+  end
+
   def require_admin
     unless current_user
       store_location
@@ -13,7 +20,7 @@ module AuthModule
   end
 
   def store_location
-    session[:return_to] = request.request_uri
+    session[:return_to] = request.fullpath
   end
 
   def stored_or(default_path)

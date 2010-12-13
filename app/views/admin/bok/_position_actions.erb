@@ -1,0 +1,4 @@
+<td class="actions">
+  <%= button_to 'Subir', admin_bok_actions_path(:bok_id => bok, :name => 'move_higher', :url => request.fullpath) %>
+  <%= button_to 'Bajar', admin_bok_actions_path(:bok_id => bok, :name => 'move_lower', :url => request.fullpath) %>
+</td>

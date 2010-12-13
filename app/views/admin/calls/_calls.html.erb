@@ -1,25 +1,27 @@
 <div class="actions">
-  <%= link_to 'Añadir convocatoria', [:new, :admin, @project, :call] %>
+  <%= button_to 'Añadir convocatoria', [:new, :admin, @project, :call], :method => 'get' %>
 </div>
 
 <table>
   <thead>
     <tr>
       <td>Posición</td>
+      <td></td>
       <td>Título</td>
       <td>Descripción</td>
       <td></td>
     </tr>
   </thead>
   <tbody>
-    <% @calls.each do |call| %>
+    <% calls.each do |call| %>
       <tr class="<%= cycle('even', 'odd') %>">
+        <%= position_actions(call) %>
         <td><%= call.position %></td>
-        <td><%= link_to call.title, [:admin, @project, call] %></td>
+        <td class="title"><%= link_to call.title, [:admin, @project, call] %></td>
         <td><%= call.description %></td>
         <td class="actions">
-          <%= link_to 'Editar', [:edit, :admin, @project, call] %>
-          <%= link_to 'Borrar', [:admin, @project, call], :method => :delete,
+          <%= button_to 'Editar', [:edit, :admin, @project, call] %>
+          <%= button_to 'Borrar', [:admin, @project, call], :method => :delete,
           :confirm => "Quieres borrar el proyecto '#{call.title}'!! No se puede volver atrás!!. ¿Segura?" %>
         </td>
       </tr>

@@ -9,7 +9,8 @@ class Bok < ActiveRecord::Base
   validates :project, :presence => true
 
   def scope_condition
-    "project_id = #{project_id} AND #{connection.quote_column_name("type")} = #{quote_value(self.class.name)}"
+    type = self.type || self.class.name
+    "project_id = #{project_id} AND #{connection.quote_column_name("type")} = #{quote_value(type)}"
   end
 
   def to_param

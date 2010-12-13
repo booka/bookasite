@@ -29,7 +29,6 @@
 .page ul li {list-style-type: disc; list-style-position: inside; margin: 0.5em 1em;}
 
 /** FORMS **/
-form {margin-left: 10%;}
 form .input {margin: 0.5em 0;}
 form .input label {display: block; font-weight: bold;}
 form .assets {margin: 2em 0;}

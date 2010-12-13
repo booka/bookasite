@@ -8,8 +8,7 @@
   <body>
     <div id="header">
       <div id="stages">
-        <%= link_to 'Convocatorias', root_path %>
-        <%= link_to('Materiales', [@project, :contents]) if @project %>
+        <%= link_to 'Todas las convocatorias', root_path %>
       </div>
       <div id="session">
         <% if current_user %>
@@ -18,7 +17,15 @@
           <%= link_to 'Identificarse', login_path %>
         <% end %>
       </div>
-      <h1 class="center"><%= @project ? @project.title : 'Plataformabooka.net' %></h1>
+      <div class="center">
+        <% if @project %>
+          <h1><%= @project.title %></h1>
+          <%= link_to_unless_current 'Convocatoria', [@project, :call] %> |
+          <%= link_to_unless_current('Materiales', [@project, :contents]) %>
+        <% else %>
+          <h1><%= link_to 'Plataformabooka.net', root_path %></h1>
+        <% end %>
+      </div>
     </div>
     <%= yield %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>

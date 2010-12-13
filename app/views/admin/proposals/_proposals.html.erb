@@ -1,0 +1,29 @@
+
+<table>
+  <thead>
+    <tr>
+      <td>Participante</td>
+      <td>Título</td>
+      <td>Tipo</td>
+      <td>Descripción</td>
+      <td>Fecha de presentación</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% proposals.each do |proposal| %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td><%= proposal.user.name %></td>
+        <td class="title"><%= link_to proposal.title, [:admin, @project, proposal] %></td>
+        <td><%= proposal.rol %></td>
+        <td><%= proposal.description %></td>
+        <td><%= I18n.l proposal.created_at, :format => :short %></td>
+        <td class="actions">
+          <%= button_to 'Editar', [:edit, :admin, @project, proposal] %>
+          <%= button_to 'Borrar', [:admin, @project, proposal], :method => :delete,
+          :confirm => "Quieres borrar la propuesta '#{proposal.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<h3><%= breadcrumbs @project, 'Propuestas' %></h3>
+<%= title @proposal.title %>
+<ul class="properties">
+  <li>Subido por: <%= @proposal.user.name %></li>
+  <li>Descripción: <%= @proposal.description %></li>
+  <li>Autores: <%= @proposal.authors %></li>
+</ul>
+
+
+<h2>Contenido</h2>
+<div class="page">
+  <%= @proposal.body.html_safe %>
+</div>
+
+<h2>Archivos</h2>
+<p>En construcción</p>
