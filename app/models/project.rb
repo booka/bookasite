@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   has_many :calls, :order => 'position DESC'
   has_many :contents, :order => 'position'
   has_many :proposals
+  has_many :assets
 
   # find or build a project user proposal
   def proposal(rol, user)

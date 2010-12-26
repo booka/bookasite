@@ -5,8 +5,8 @@
   <li>Fase de presentación de propuestas: <%= @project.stage_content == 'open' ? 'abierta' : 'cerrada' %></li>
 </ul>
 <div class="actions">
-  <%= button_to 'Editar', edit_admin_project_path(@project), :method => :get %>
-  <%= button_to 'Ver en la web', project_call_path(@project), :method => :get  %>
+  <%= link_to 'Editar', edit_admin_project_path(@project), :method => :get %>
+  <%= link_to 'Ver en la web', project_call_path(@project), :method => :get  %>
 </div>
 
 <h2><%= link_to 'Convocatorias', [:admin, @project, :calls] %></h2>
@@ -16,5 +16,7 @@
 <%= render :partial => '/admin/proposals/proposals', :object => @project.proposals %>
 
 <h2><%= link_to 'Artículos', [:admin, @project, :contents] %></h2>
-<% @contents = @project.contents %>
 <%= render :partial => '/admin/contents/contents', :object => @project.contents %>
+
+<h2><%= link_to 'Ficheros', [:admin, @project, :assets] %></h2>
+<%= render :partial => '/admin/assets/assets', :object => @project.assets %>

@@ -1,5 +1,5 @@
 <div class="actions">
-  <%= button_to 'Subir material', [:new, :admin, @project, :content], :method => :get %>
+  <%= link_to 'Subir material', [:new, :admin, @project, :content], :method => :get %>
 </div>
 
 <table>
@@ -22,9 +22,9 @@
         <td><%= content.authors %></td>
         <td><%= content.description %></td>
         <td class="actions">
-          <%= button_to 'Editar', [:edit, :admin, @project, content], :method => :get %>
-          <%= button_to 'Borrar', [:admin, @project, content], :method => :delete,
-          :confirm => "Quieres borrar el proyecto '#{content.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+          <%= link_to 'Editar', [:edit, :admin, @project, content], :method => :get %>
+          <%= link_to 'Borrar', [:admin, @project, content], :method => :delete,
+          :confirm => "Quieres borrar el material '#{content.title}'!! No se puede volver atrás!!. ¿Segura?" %>
         </td>
       </tr>
     <% end %>

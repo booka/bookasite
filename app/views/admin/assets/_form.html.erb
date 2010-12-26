@@ -1,0 +1,11 @@
+<%= simple_form_for(:asset, @asset, :url => admin_project_assets_path(@project),
+  :html => { :multipart => true}) do |form| %>
+  <div class="inputs">
+    <%= form.input :title %>
+    <%= form.input :description %>
+    <%= form.file_field :asset %>
+  </div>
+  <div class="controls">
+    <%= form.submit %><%= link_to 'Cancelar', (@project.new_record? ? admin_projects_path : [:admin, @project])%>
+  </div>
+<% end %>

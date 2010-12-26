@@ -19,8 +19,8 @@
         <td><%= proposal.description %></td>
         <td><%= I18n.l proposal.created_at, :format => :short %></td>
         <td class="actions">
-          <%= button_to 'Editar', [:edit, :admin, @project, proposal], :method => :get %>
-          <%= button_to 'Borrar', [:admin, @project, proposal], :method => :delete,
+          <%= link_to 'Editar', [:edit, :admin, @project, proposal], :method => :get %>
+          <%= link_to 'Borrar', [:admin, @project, proposal], :method => :delete,
           :confirm => "Quieres borrar la propuesta '#{proposal.title}'!! No se puede volver atrás!!. ¿Segura?" %>
         </td>
       </tr>

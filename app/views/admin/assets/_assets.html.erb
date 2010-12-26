@@ -1,0 +1,29 @@
+<div class="actions">
+  <%= link_to 'Subir fichero', [:new, :admin, @project, :asset] %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <td>Título</td>
+      <td>Descripción</td>
+      <td>Propietario</td>
+      <td>Tipo</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% assets.each do |asset| %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td class="title"><%= link_to asset.title, [:admin, @project, asset] %></td>
+        <td><%= asset.description %></td>
+        <td><%= asset.user_id %></td>
+        <td class="actions">
+          <%= link_to 'Editar', [:edit, :admin, @project, asset], :method => :get %>
+          <%= link_to 'Borrar', [:admin, @project, asset], :method => :delete,
+          :confirm => "Quieres borrar el fichero '#{asset.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

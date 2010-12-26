@@ -11,6 +11,8 @@ gem "cancan"
 #gem "jammit"
 gem 'omniauth'
 gem 'paperclip'
+gem 's3'
+
 
 # Bundle edge Rails instead: gem 'rails', :git => 'git://github.com/rails/rails.git'
 

@@ -1,5 +1,5 @@
 <div class="actions">
-  <%= button_to 'Crear libro', new_admin_project_path %>
+  <%= link_to 'Crear libro', new_admin_project_path %>
 </div>
 
 <table>
@@ -16,7 +16,7 @@
         <td class="title"><%= link_to project.title, [:admin, project] %></td>
         <td><%= project.description %></td>
         <td class="actions">
-          <%= button_to 'Administrar', admin_project_path(project) %>
+          <%= link_to 'Administrar', admin_project_path(project) %>
           <%#= link_to 'Borrar', admin_project_path(project), :method => :delete,
           :confirm => "Quieres borrar el proyecto '#{project.title}'!! No se puede volver atrás!!. ¿Segura?" %>
         </td>

@@ -9,6 +9,7 @@ Bookasite::Application.routes.draw do
         resources :calls, :path => 'convocatorias'
         resources :contents, :path => 'materiales'
         resources :proposals, :path => 'propuestas'
+        resources :assets, :path => 'ficheros'
       end
       resources :activities, :path => 'actividad'
       resources :users, :path => 'participantes'
