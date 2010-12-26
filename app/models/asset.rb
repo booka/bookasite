@@ -5,7 +5,11 @@ class Asset < ActiveRecord::Base
   has_attached_file :asset,
     :styles => {    :thumb=> "100x100#",     :small  => "400x400>" },
     :storage => :s3,
-    :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
+    :s3_credentials => {
+    :access_key_id => S3Config.access_key_id,
+    :secret_access_key => S3Config.secret_access_key
+  },
+    :bucket => S3Config.bucket,
     :path => "/:style/:filename"
 
   before_asset_post_process :allow_only_images
