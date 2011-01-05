@@ -30,6 +30,7 @@ module Paperclip
 
         base.instance_eval do
           @s3_credentials   = parse_credentials(@options[:s3_credentials])
+          log("S3 CREDENTIALS '#{@s3_credentials[:access_key_id]}' '#{@s3_credentials[:secret_access_key]}'")
           @bucket_name      = @options[:bucket]           || @s3_credentials[:bucket]
           @bucket_name      = @bucket_name.call(self) if @bucket_name.is_a?(Proc)
           @s3_options       = @options[:s3_options]       || {}
@@ -44,7 +45,7 @@ module Paperclip
             :secret_access_key => @s3_credentials[:secret_access_key],
             :use_ssl => @s3_protocol == "https"
           ))
-          @bucket = @service.buckets.build(@bucket_name)
+          @bucket = @service.buckets.find(@bucket_name)
         end
         Paperclip.interpolates(:s3_alias_url) do |attachment, style|
           "#{attachment.s3_protocol}://#{attachment.s3_host_alias}/#{attachment.path(style).gsub(%r{^/}, "")}"
@@ -114,7 +115,9 @@ module Paperclip
           begin
             log("saving #{path(style)}")
             log("saving s3 #{@s3_permissions}")
+            log("s3 bucket #{bucket.host}")
             object = bucket.objects.build(path(style))
+            log("s3 object #{object.url}")
             file.rewind
             object.content = file.read
             object.acl = @s3_permissions
