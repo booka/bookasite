@@ -113,6 +113,7 @@ module Paperclip
         @queued_for_write.each do |style, file|
           begin
             log("saving #{path(style)}")
+            log("saving s3 #{@s3_permissions}")
             object = bucket.objects.build(path(style))
             file.rewind
             object.content = file.read
