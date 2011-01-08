@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101220122657) do
+ActiveRecord::Schema.define(:version => 20110108192417) do
 
   create_table "activities", :force => true do |t|
     t.string   "action"
@@ -23,16 +23,12 @@ ActiveRecord::Schema.define(:version => 20101220122657) do
 
   create_table "assets", :force => true do |t|
     t.string   "title"
-    t.string   "description",        :limit => 300
-    t.string   "asset_file_name"
-    t.string   "asset_content_type"
-    t.string   "asset_file_size"
-    t.string   "asset_updated_at"
+    t.string   "description", :limit => 300
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "project_id"
-    t.string   "rol",                :limit => 16
+    t.string   "file"
   end
 
   create_table "authorizations", :force => true do |t|

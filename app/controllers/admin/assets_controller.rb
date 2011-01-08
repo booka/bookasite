@@ -6,6 +6,6 @@ class Admin::AssetsController < Admin::AdminController
 
   def create
     params[:asset][:user_id] = current_user.id
-    create!
+    create! { admin_project_assets_path(@project)}
   end
 end

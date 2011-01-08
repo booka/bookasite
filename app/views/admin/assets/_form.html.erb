@@ -3,7 +3,7 @@
   <div class="inputs">
     <%= form.input :title %>
     <%= form.input :description %>
-    <%= form.file_field :asset %>
+    <%= form.file_field :file %>
   </div>
   <div class="controls">
     <%= form.submit %><%= link_to 'Cancelar', (@project.new_record? ? admin_projects_path : [:admin, @project])%>

@@ -6,8 +6,8 @@ class AddInfoToAssets < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :assets, :user
-    remove_column :assets, :project
+    remove_column :assets, :user_id
+    remove_column :assets, :project_id
     remove_column :assets, :rol
   end
 end
