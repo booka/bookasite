@@ -20,6 +20,10 @@ es:
       content_type: 'Tipo de texto'
       name: 'Nombre'
       authors: 'Por'
+      file1: 'Fichero 1'
+      file2: 'Fichero 2'
+      file3: 'Fichero 3'
+      file4: 'Fichero 4'
       project:
         stage_content: 'Fase de presentación de propuestas'
       user:
@@ -34,6 +38,10 @@ es:
       title: '300 caracteres como máximo'
       description: 'Haz un resúmen. 500 caracteres máximo'
       slug: 'En esta dirección se mostrará esta página. Por ejemplo /ayuda ser podrá leer en http://plataformabooka.net/ayuda'
+      file1: 'Sube un fichero o sustituye al actual'
+      file2: 'Sube un fichero o sustituye al actual'
+      file3: 'Sube un fichero o sustituye al actual'
+      file4: 'Sube un fichero o sustituye al actual'
   helpers:
     submit:
       proposal:

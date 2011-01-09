@@ -13,5 +13,12 @@
   <%= @proposal.body.html_safe %>
 </div>
 
-<h2>Archivos</h2>
-<p>En construcción</p>
+<h2>Ficheros</h2>
+<ul class="properties">
+  <% 1.upto(4) do |n| %>
+    <li><span>Fichero <%= n %>:</span>
+      <% file = @proposal.send("file#{n}") %>
+      <%= link_to_if file.url, file.url, file.url %>
+    </li>
+  <% end %>
+</ul>

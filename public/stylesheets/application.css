@@ -1,9 +1,14 @@
 
+html {background-color: #ffffff; }
+
+
 /** STRUCTURE **/
-#header {height: 40px; padding-top: 10px;}
+#header {position: fixed; left: 0 ; right: 0; top: 0; height: 40px; padding-top: 10px;
+  background-color: #ffffff;}
 .center {margin: 0 25%;}
-.page {border: 1px solid lightgray; padding: 1em; margin-bottom: 1em;}
-.page.noborder {border-color: white;}
+.page {margin-top: 60px; border: 1px solid lightgray; padding: 1em; margin-bottom: 1em;
+  border-color: gray; background-color: white;}
+.page.noborder {border-color: #ffffff; background-color: #ffffff;}
 
 /** BROWSER **/
 .browser {position: fixed; top: 50px; left: 3%; bottom: 0px; width: 20%;}

@@ -1,8 +1,8 @@
 <div class="center">
   <div class="page noborder">
-    <%= title(@proposal ?
-        "Editar tu propuesta de #{t @rol}" :
-        "Añadir una propuesta de #{t @rol}") %>
+    <%= title(!@proposal.new_record? ?
+        "Editar tu propuesta de #{t @rol} para '#{@project.title}'" :
+        "Añadir una propuesta de #{t @rol} para '#{@project.title}'") %>
     <p>Las propuestas deben cumplir las siguientes condiciones:</p>
     <ul>
       <li>Deben tener un título y sus autoras y autores deben estar identificados</li>

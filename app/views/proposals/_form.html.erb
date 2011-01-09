@@ -1,4 +1,4 @@
-<%= simple_form_for(@proposal, :url => [@project, :proposal]) do |form| %>
+<%= simple_form_for(@proposal, :url => [@project, :proposal], :html => { :multipart => true}) do |form| %>
   <div class="inputs">
     <%= form.input :title %>
     <%= form.input :authors %>
@@ -7,7 +7,15 @@
     <%= form.input :rol, :as => :hidden  %>
   </div>
   <div class="assets">
-    (próximamente se podrán subir archivos)
+    <% 1.upto(4) do |n| %>
+      <% file = @proposal.send("file#{n}") %>
+      <%= form.input "file#{n}", :as => :file %>
+      <% if file.url %>
+        <div class="current_file" style="margin-bottom: 1em;">
+          <label>Fichero <%= n %> actual: </label><%= link_to File.basename(file.path), file.url %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
   <div class="controls">
     <%= form.submit %><%= link_to 'Cancelar', project_call_path(@project) %>
