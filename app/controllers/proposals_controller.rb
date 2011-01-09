@@ -3,7 +3,7 @@ class ProposalsController < ApplicationController
   actions :create, :update
   respond_to :html, :xml, :json
   belongs_to :project
-  before_filter :require_user, :except => 'edit'
+  before_filter :require_user #, :except => 'edit'
   
   def edit
     load_project
