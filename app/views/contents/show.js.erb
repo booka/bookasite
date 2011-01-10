@@ -1,0 +1,4 @@
+document.title = "<%= escape_javascript("#{@content.title}") %>";
+$(".center .page").html("<%= escape_javascript(render("page")) %>");
+$(".center .page").show("slide", {direction: "right"}, 500);
+

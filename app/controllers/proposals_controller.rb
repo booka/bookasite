@@ -8,11 +8,7 @@ class ProposalsController < ApplicationController
   def edit
     load_project
     @rol = params[:rol] == 'edicion' ? 'edicion' : 'contenido'
-    if current_user
-      @proposal = @project.proposal(@rol, current_user)
-    else
-      store_location unless current_user
-    end
+    @proposal = @project.proposal(@rol, current_user)
   end
 
   def create

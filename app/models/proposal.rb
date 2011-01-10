@@ -1,3 +1,4 @@
+# Una propuesta para un booka
 class Proposal < ActiveRecord::Base
   belongs_to :user
   belongs_to :project

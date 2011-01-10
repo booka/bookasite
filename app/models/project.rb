@@ -1,3 +1,4 @@
+# Un Booka
 class Project < ActiveRecord::Base
   serialize :properties
   has_many :calls, :order => 'position DESC'

@@ -4,7 +4,8 @@
   <ul class="contents">
     <% @contents.each do |content| %>
       <li class="content">
-        <%= link_to content.title, project_content_path(content.project, content) %>
+        <%= link_to content.title, project_content_path(content.project, content),
+          :"data-page" => bok_path(content.id) %>
         <div class="property description"><%= content.description %></div>
         <div class="property authors"><%= content.authors %></div>
       </li>
@@ -14,9 +15,7 @@
 <div class="center">
   <% if @content %>
     <div class="page">
-      <h1><%= @content.title %></h1>
-      <div class="authors"><%= @content.authors %></div>
-      <%= @content.body.html_safe %>
+      <%= render 'page' %>
     </div>
   <% end %>
 </div>

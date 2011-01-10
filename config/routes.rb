@@ -26,6 +26,9 @@ Bookasite::Application.routes.draw do
     end
   end
 
+  # AJAX
+  resources :boks
+
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/cerrar" => "sessions#destroy", :as => :signout

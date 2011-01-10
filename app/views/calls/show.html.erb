@@ -4,7 +4,8 @@
   <ul class="calls">
     <% @calls.each do |call| %>
       <li class="call">
-        <%= link_to call.title, project_call_path(call.project) %>
+        <%= link_to call.title, project_call_path(call.project), 
+          :"data-page" => bok_path(call.id) %>
         <div class="property description"><%= call.description %></div>
       </li>
     <% end %>
