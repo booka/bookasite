@@ -2,3 +2,13 @@
 es:
   edicion: 'edición'
   contenido:  'contenido'
+
+  activity:
+    action:
+      create: 'creado'
+      update: 'modificado'
+      destroy: 'borrado'
+    model:
+      Asset: 'un fichero'
+      Proposal: 'una propuesta'
+      Content: 'un contenido'
