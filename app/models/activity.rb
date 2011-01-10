@@ -2,6 +2,9 @@ class Activity < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 
+  scope :system, :conditions => {:project_id => nil}
+
+  default_scope :order => 'id DESC'
 
   def self.report(user, project, action, model_class, model_id)
     user_id = user ? user.id : nil

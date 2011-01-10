@@ -12,3 +12,4 @@ es:
       Asset: 'un fichero'
       Proposal: 'una propuesta'
       Content: 'un contenido'
+      UserSession: 'una sesión de usuario'

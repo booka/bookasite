@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       @auth = Authorization.create_from_auth(auth, current_user)
     end
     self.current_user = @auth.user
-
+    Activity.report(@auth.user, nil, :create, 'UserSession', nil)
     redirect_to stored_or(root_path)
   end
 
