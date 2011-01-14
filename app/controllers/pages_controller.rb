@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  http_cache :index, :show
+
   def index
     @page = Page.find_by_slug('/')
     render :action => 'show'
