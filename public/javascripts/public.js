@@ -1,6 +1,6 @@
 
 $(function() {
-  if (history && history.pushState) {
+  if (false && history && history.pushState) {
     $(".browser .content a").click(function(e) {
       $(".center .page").hide("slide", {direction: "left"}, 500);
       $.getScript(this.href);
