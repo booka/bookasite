@@ -16,6 +16,10 @@
     <h1><%= @call.title %></h1>
     <%= @call.body.html_safe %>
   </div>
+  
+  
+  <%= disqus(@call, [@call.project, @call])%>
+  
 </div>
 <div class="places">
   <%= link_to 'Presentar una propuesta de edición', edit_project_proposal_path(@call.project, :rol => 'edicion') %>

@@ -20,13 +20,13 @@ html {
   background-color: #f0f0f0;
 }
 ul {list-style-type: none;}
-a {color: black; text-decoration: none; .zaptextshadow;}
-h1 {font-size: 150%; .zaptextshadow;}
-h2.section {font-size: 130%; margin-top: 1em; .zaptextshadow; }
+a {color: black; text-decoration: none;}
+h1 {font-size: 150%; }
+h2 {font-size: 130%; margin-top: 2em;  }
 
 /* 3.2 Tables */
 table {width: 100%; margin: 20px 0; text-align: left;}
-thead {border-bottom: 1px solid #efefef;}
+thead {border-bottom: 1px solid #efefef; font-weight: bold;}
 td, th {padding: 1px 5px; text-align: left; margin: 0; vertical-align: middle;}
 tr.odd {background-color: #efefef;}
 table h1 a:link, table h2 a:link {color: black;}
@@ -54,9 +54,9 @@ div.model .compact .property {float: left; width: 20%;}
 /** SITEBAR **/
 #sitebar ul {margin-top: 50px;border-bottom: 1px solid @grey;}
 #sitebar li {border-top: 1px solid @grey;}
-#sitebar li a {font-size: 90%; display: block; padding: 5px 15px; text-align: right;.zaptextshadow;}
+#sitebar li a { display: block; padding: 5px 15px; text-align: right;.zaptextshadow;}
 #sitebar li a:hover { background-color: @grey;}
-#sitebar li.top {font-size: 110%;}
+#sitebar li.top {font-size: 110%; }
 #sitebar li.top a {padding: 5px 5px;}
 
 #container {width: 1000px; margin: 1em auto; overflow: hidden;}
@@ -81,12 +81,7 @@ ul.properties li {width: 100%; overflow: hidden;}
 ul.properties li label {font-weight: bold; padding-right: 0.5em;}
 
 /** ACTIONS **/
-div.actions {width: 100%; overflow: hidden; margin: 10px 0;}
-.actions a {
-  cursor: default;
-  text-decoration: none;
-  font-size: 80%;
-  float: left;
+.button {
   border-radius: 3px;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#E5E5E5));
   line-height: 2em;
@@ -96,6 +91,14 @@ div.actions {width: 100%; overflow: hidden; margin: 10px 0;}
   color: #555;
   border: 1px solid #CCC;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  cursor: default;
+  text-decoration: none;
+}
+div.actions {width: 100%; overflow: hidden; margin: 10px 0;}
+.actions a {
+  font-size: 80%;
+  float: left;
+  .button;
 }
 .actions a:hover {
   color: #000;
@@ -109,13 +112,23 @@ td.actions a {font-size: 10px; padding: 0 5px;}
 .flash.notice {background-color: yellow; width: 770px; margin: 1em auto; padding: 0.5em 10px; text-align: center; .rounded;}
 
 /** FORMS **/
-form {margin: 2em 0;}
-form div.input {width: 100%; overflow: hidden; margin: 5px 0;}
-form .input label {float: left; width: 9.5em; text-align: right; padding-right: 0.5em;}
-form .controls {width: 100%; overflow: hidden; margin: 1em 0 0 10em;}
-form .controls input[type=submit] {padding: 2px 1em; margin-right: 0.5em;}
-input[type=text], input[type=email], input[type=url] {border: 1px solid @grey; padding: 1px 2px;}
+/* 3.3 Forms */
+form {margin: 20px 0;}
+select {padding: 7px 0 7px 7px;}
+input[type=text], input[type=password], input[type=url], input[type=email], textarea {
+  width: 600px;
+  padding: 7px 0 7px 7px; border-color: #ccc #efefef #efefef #ccc;
+  border-width:1px; border-style:solid;
+}
+input[type=submit] {.button; }
 
+div.input {width: 100%; overflow: hidden;}
+div.input label {float: left; display: block; width: 8em; margin-right: 0.5em; text-align: right; padding-top: 10px;}
+form .controls {margin-left: 8.3em; clear: both; width: 100%; overflow: hidden;}
+form .controls input {float: left; padding: 5px 10px;}
+form .controls a {float: left; padding: 10px 10px;}
+form .hint {margin-left: 10em; font-size: 90%; width: 600px; display: block; margin-bottom: 1em;
+            color: @grey;}
 
 
 /** AUDITS **/

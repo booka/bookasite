@@ -17,6 +17,7 @@
     <div class="page">
       <%= render 'page' %>
     </div>
+  <%= disqus @content, [@content.project, @content]%>
   <% end %>
 </div>
 <div class="places">

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20110110124513) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "project_id"
+    t.string   "rol",         :limit => 16
     t.string   "file"
   end
 
