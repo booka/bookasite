@@ -31,7 +31,7 @@ Bookasite::Application.routes.draw do
 
 
   match "/auth/:provider/callback" => "sessions#create"
-  match "/cerrar" => "sessions#destroy", :as => :signout
+  match "/cerrar" => "sessions#destroy", :as => :logout
   match "/identificarse" => "sessions#new", :as => :login
   match "/admin" => "admin/projects#index"
   match "/ccc" => "pages#ccc"

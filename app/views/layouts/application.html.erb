@@ -12,7 +12,7 @@
       </div>
       <div id="session">
         <% if current_user %>
-          Eres: <%= current_user.name %> <%= link_to 'Salir', signout_path %>
+          Eres: <%= current_user.name %> <%= link_to 'Salir', logout_path %>
         <% else %>
           <%= link_to 'Identificarse', login_path %>
         <% end %>
