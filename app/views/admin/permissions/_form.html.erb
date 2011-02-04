@@ -1,0 +1,10 @@
+<%= simple_form_for([:admin, @source, @permission]) do |form| %>
+  <div class="inputs">
+    <%= form.association :user %>
+    <%= form.association :project %>
+    <%= form.input :level, :collection => Permission::LEVELS.map {|l|[l,l]}, :include_blank => false %>
+  </div>
+  <div class="controls">
+    <%= form.submit %><%= link_to 'Cancelar', [:admin, @source] %>
+  </div>
+<% end %>

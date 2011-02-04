@@ -12,7 +12,9 @@ Bookasite::Application.routes.draw do
         resources :assets, :path => 'ficheros'
       end
       resources :activities, :path => 'actividad'
-      resources :users, :path => 'participantes'
+      resources :users, :path => 'participantes' do
+      	resources :permissions, :path => 'permisos'
+      end
       resources :bok_actions
     end
   end

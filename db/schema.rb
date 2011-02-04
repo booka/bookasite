@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110110124513) do
+ActiveRecord::Schema.define(:version => 20110204112528) do
 
   create_table "activities", :force => true do |t|
     t.string   "action"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(:version => 20110110124513) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "project_id"
-    t.string   "rol",         :limit => 16
     t.string   "file"
   end
 
@@ -68,6 +67,14 @@ ActiveRecord::Schema.define(:version => 20110110124513) do
   end
 
   add_index "pages", ["slug"], :name => "index_pages_on_slug"
+
+  create_table "permissions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.string   "level",      :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "title",         :limit => 300

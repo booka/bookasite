@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
   has_many :contents, :order => 'position'
   has_many :proposals
   has_many :assets
+  has_many :permissions
 
   # find or build a project user proposal
   def proposal(rol, user)

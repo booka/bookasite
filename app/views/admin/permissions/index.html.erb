@@ -1,0 +1,7 @@
+<%= title "Permisos de #{@source.title}" %>
+
+<div class="actions">
+  <%= link_to 'Añadir permiso', [:new, :admin, @source, :permission] %>
+</div>
+
+<%= render :partial => 'permission', :collection => @permissions %>
