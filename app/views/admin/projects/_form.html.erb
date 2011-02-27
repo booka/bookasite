@@ -3,6 +3,7 @@
     <%= form.input :title %>
     <%= form.input :description %>
     <%= form.input :stage_content, :collection => [['cerrada', 'closed'],['abierta', 'open']], :include_blank => false %>
+    <%= form.association :serie, :include_blank => false %>
   </div>
   <div class="controls">
     <%= form.submit %><%= link_to 'Cancelar', (@project.new_record? ? admin_projects_path : [:admin, @project])%>

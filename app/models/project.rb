@@ -5,6 +5,10 @@ class Project < ActiveRecord::Base
   has_many :contents, :order => 'position'
   has_many :proposals
   has_many :assets
+  belongs_to :serie
+
+  validates :serie_id, :presence => true
+  validates :title, :presence => true
 
   # find or build a project user proposal
   def proposal(rol, user)

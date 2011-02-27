@@ -1,8 +1,20 @@
 Bookasite::Application.routes.draw do
   root :to => 'projects#index'
 
+  # PUBLIC
+  scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
+    resources :projects, :path => 'bookas' do
+      resources :contents, :path => 'materiales'
+      resource :call, :path => "convocatoria"
+      resource :proposal, :path => 'propuesta'
+    end
+  end
+
+  # AJAX
+  resources :boks
+
   # ADMIN
-  scope(:path_names => { :new => "crear", :edit => "editar" }) do
+  scope(:path_names => {:new => "crear", :edit => "editar"}) do
     namespace :admin do
       resources :pages, :path => 'paginas'
       resources :projects, :path => 'bookas' do
@@ -16,18 +28,6 @@ Bookasite::Application.routes.draw do
       resources :bok_actions
     end
   end
-
-  # PUBLIC
-  scope(:path_names => { :new => "nuevo", :edit => "editar" }) do
-    resources :projects, :path => 'bookas' do
-      resources :contents, :path => 'materiales'
-      resource :call, :path => "convocatoria"
-      resource :proposal, :path => 'propuesta'
-    end
-  end
-
-  # AJAX
-  resources :boks
 
 
   match "/auth/:provider/callback" => "sessions#create"

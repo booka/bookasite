@@ -1,0 +1,59 @@
+
+/** VARIABLES **/
+@c-blue: #29256a;
+@font-title: 'Tinos', arial, serif;
+@font-subtitle: 'Tahoma', arial, sans-serif;
+@font-body: 'PT Sans Narrow', arial, serif;
+/** HELPERS **/
+
+/** ELEMENTS **/
+html {
+  color: @c-blue;
+  font-family: @font-body;
+}
+
+h1 {font-family: @font-title; line-height:1em;}
+h2 {font-family: @font-subtitle;}
+
+/** HEADER **/
+#header {
+    h1 {
+      margin: 30px 0 0 0;
+      font-style: italic;
+      font-size: 80px;
+      border-bottom: 2px dotted @c-blue;
+    }
+
+    h2 {
+        margin: 0 0 50px 0;
+    }
+}
+
+#title h1 {font-family:@font-title; font-size:30px;margin: 10px 0;}
+
+/** BODY **/
+.body {
+    font-family: @font-body; font-size:16px;
+
+    p {margin: 7px 0;}
+}
+
+
+/* Layout for mobile version */
+
+@media handheld, only screen and (max-width: 767px) {
+}
+
+
+/* Provide higher res assets for iPhone 4 */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+/* An example of how to override an image with one twice the size for iPhone 4. Specify the original pixel size with background-size.
+.download {
+background: url(../img/downarrow@2x.png) no-repeat;
+background-size: 27px 28px;
+}
+*/
+
+}

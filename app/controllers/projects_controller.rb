@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
+  layout 'grid1140'
+
   def index
-    @page = Page.find_by_slug('/')
-    @calls = Call.all
+    @page = Page.get('/')
+    @info = Page.get('info')
   end
 end

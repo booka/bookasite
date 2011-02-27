@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %> - Plataformabooka.net </title>
+  <%= csrf_meta_tag %>
+  <link rel="stylesheet/less" type="text/css" href="/stylesheets/style.less">
+  <script src="/javascripts/less-1.0.41.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="center">
+  <div class="row">
+    <div class="column-left"></div>
+    <div id="head" class="column-center"></div>
+  </div>
+</div>
+
+<div id="header">
+  <div id="stages">
+    <%= link_to 'Todas las convocatorias', root_path %>
+  </div>
+  <div id="session">
+    <% if current_user %>
+        Eres: <%= current_user.name %> <%= link_to 'Salir', logout_path %>
+    <% else %>
+        <%= link_to 'Identificarse', login_path %>
+    <% end %>
+  </div>
+  <div class="center">
+    <% if @project %>
+        <h1><%= @project.title %></h1>
+        <%= link_to_unless_current 'Convocatoria', [@project, :call] %> |
+        <%= link_to_unless_current('Materiales', [@project, :contents]) %>
+    <% else %>
+        <h1>Plataformabooka.net</h1>
+    <% end %>
+  </div>
+</div>
+<%= yield %>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript">!window.jQuery && document.write('<script src="/javascripts/jquery-1.4.4.min.js"><\/script>')</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
+<%= javascript_include_tag 'public.js' %>
+</body>
+</html>

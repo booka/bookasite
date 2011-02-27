@@ -1,20 +1,22 @@
-<% title 'Convocatorias'%>
-<div class="browser">
-  <h3>Convocatorias</h3>
-  <ul class="calls">
-    <% @calls.each do |call| %>
-      <li class="call">
-        <%= link_to call.title, project_call_path(call.project) %>
-        <div class="property description"><%= call.description %></div>
-      </li>
+<%= content_for :header do %>
+    <h1>booka</h1>
+    <h2>plataforma editorial abierta</h2>
+<% end %>
+
+<%= content_for :navigation do %>
+<%= image_tag 'iconos/booka.jpg', :alt => 'booka' %>
+    <h2>Series</h2>
+    <% Serie.all.each do |serie| %>
+        <%= div_for serie do %>
+            <h3><%= serie.name %></h3>
+        <% end %>
     <% end %>
-  </ul>
-</div>
-<div class="center">
-  <div class="page">
-    <h1><%= @page.title %></h1>
-    <%= @page.body.html_safe %>
-  </div>
-</div>
-<div class="places">
-</div>
+<% end %>
+
+<% title @page.title %>
+
+<%= @page.body_rendered %>
+
+<%= content_for :info do %>
+    <%= @info.body_rendered %>
+<% end %>

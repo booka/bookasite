@@ -1,3 +1,4 @@
+# Base class for other types
 class Bok < ActiveRecord::Base
   acts_as_list :scope => "project_id"
   serialize :properties
