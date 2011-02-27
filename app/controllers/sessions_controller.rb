@@ -1,16 +1,18 @@
 class SessionsController < ApplicationController
+
   def new
   end
 
   def show
-    
+
   end
 
   def create
     auth = request.env['rack.auth']
     unless @auth = Authorization.find_from_auth(auth)
-      @auth = Authorization.create_from_auth(auth, current_user)
+      @auth = Authorization.create_from_auth(auth, current_user) 
     end
+
     self.current_user = @auth.user
     Activity.report(@auth.user, nil, :create, 'UserSession', nil)
     redirect_to stored_or(root_path)

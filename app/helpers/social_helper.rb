@@ -1,4 +1,4 @@
-module ServicesHelper
+module SocialHelper
   def avatar_url(user, size = 48)
     if user.avatar_url.present?
     user.avatar_url
@@ -9,7 +9,11 @@ module ServicesHelper
     end
   end
 
-  def disqus(model, hash_path)
-    render :partial => '/shared/disqus', :locals => {:id => model.id, :model_name => model.class.to_s, :path => polymorphic_path(hash_path) }
+  def disqus(model)
+    render :partial => '/social/disqus', :locals => {:id => model.id, :model_name => model.class.to_s }
+  end
+  
+  def like_button
+  	render :partial => '/social/like_button'
   end
 end

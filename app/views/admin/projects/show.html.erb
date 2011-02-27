@@ -9,7 +9,7 @@
   <%= link_to 'Ver en la web', project_call_path(@project), :method => :get  %>
 </div>
 
-<h2><%= link_to 'Convocatorias', [:admin, @project, :calls] %></h2>
+<h2><%= link_to 'Presentaciones', [:admin, @project, :calls] %></h2>
 <%= render :partial => '/admin/calls/calls', :object => @project.calls %>
 
 <h2><%= link_to 'Propuestas presentadas', [:admin, @project, :proposals] %></h2>

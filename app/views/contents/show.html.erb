@@ -17,7 +17,8 @@
     <div class="page">
       <%= render 'page' %>
     </div>
-  <%= disqus @content, [@content.project, @content]%>
+  <%= like_button %>
+  <%= disqus @content %>
   <% end %>
 </div>
 <div class="places">

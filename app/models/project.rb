@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   has_many :proposals
   has_many :assets
   belongs_to :serie
+  has_many :permissions
 
   validates :serie_id, :presence => true
   validates :title, :presence => true
