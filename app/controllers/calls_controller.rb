@@ -5,5 +5,6 @@ class CallsController < ApplicationController
     @calls = Call.all
     @project = Project.find(params[:project_id])
     @call = @project.calls.first
+    @series = @project.series
   end
 end

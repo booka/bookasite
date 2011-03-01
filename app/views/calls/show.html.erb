@@ -3,5 +3,24 @@
 <%= content_for :header do %>
     <h1><%= @call.title %></h1>
     <ul class="navigator">
+      <li>Intro</li><span>|</span>
+      <li><%= link_to 'Materiales', project_contents_path(@project) %></li>
     </ul>
+<% end %>
+
+
+<%= content_for :navigation do %>
+    <%= link_to image_tag(@series.icon_path, :alt => @series.title), @series %>
+    <h2>Convocatorias </h2>
+    <% @series.projects.each do |project| %>
+        <%= div_for project do %>
+            <h3><%= link_to project.title, project %></h3>
+        <% end %>
+    <% end %>
+<% end %>
+
+<%= render_body @call %>
+
+<%= content_for :info do %>
+    que ponemos aquí
 <% end %>

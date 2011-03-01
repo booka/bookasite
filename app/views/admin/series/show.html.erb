@@ -1,9 +1,16 @@
 <h3><%= link_to 'Series', admin_series_index_path %> > Serie</h3>
-<%= title @series.name%>
+<%= title @series.title %>
 <ul class="properties">
-  <li>Nombre: <%= @series.name %></li>
+  <li>Icono: <%= @series.icon_path %></li>
 </ul>
 <div class="actions">
   <%= link_to 'Editar', edit_admin_series_path(@series), :method => :get %>
   <%= link_to 'Ver en la web', series_path(@series), :method => :get  %>
 </div>
+
+<h2>Contenido</h2>
+<div class="page">
+  <%= render_body @series %>
+</div>
+
+<h2>Bookas</h2>

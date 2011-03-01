@@ -1,6 +1,8 @@
 <%= simple_form_for([:admin, @series]) do |form| %>
   <div class="inputs">
-    <%= form.input :name %>
+    <%= form.input :title %>
+    <%= form.input :icon_path %>
+    <%= form.input :content_type, :collection => [['html', 'text/html']], :include_blank => false %>
     <%= form.input :body %>
   </div>
   <div class="controls">

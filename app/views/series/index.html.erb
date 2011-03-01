@@ -8,7 +8,7 @@
     <h2>Series</h2>
     <% @series.each do |serie| %>
         <%= div_for serie do %>
-            <h3><%= link_to serie.name, serie %></h3>
+            <h3><%= link_to serie.title, serie %></h3>
         <% end %>
     <% end %>
 <% end %>

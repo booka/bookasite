@@ -16,7 +16,7 @@
       <tr class="<%= cycle('even', 'odd') %>">
         <td class="title"><%= link_to project.title, [:admin, project] %></td>
         <td><%= project.description %></td>
-        <td><%= project.series.name %></td>
+        <td><%= project.series.title %></td>
         <td class="actions">
           <%= link_to 'Administrar', admin_project_path(project) %>
           <%#= link_to 'Borrar', admin_project_path(project), :method => :delete,

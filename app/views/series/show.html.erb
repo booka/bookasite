@@ -1,17 +1,17 @@
-<% title @series.name %>
+<% title @series.title %>
 
 <%= content_for :header do %>
-    <h1><%= @series.name %></h1>
+    <h1><%= @series.title %></h1>
     <ul class="navigator">
       <li><%= link_to 'booka', root_path %></li>
       <% Series.all.each do |serie| %>
-         <span>|</span><li><%= link_to_unless_current serie.name, serie %></li>
+         <span>|</span><li><%= link_to_unless_current serie.title, serie %></li>
       <% end %>
     </ul>
 <% end %>
 
 <%= content_for :navigation do %>
-    <%= image_tag 'iconos/booka.jpg', :alt => 'booka' %>
+    <%= link_to image_tag(@series.icon_path, :alt => @series.title), @series %>
     <h2>Convocatorias </h2>
     <% @series.projects.each do |project| %>
         <%= div_for project do %>

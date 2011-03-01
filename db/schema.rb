@@ -104,7 +104,8 @@ ActiveRecord::Schema.define(:version => 20110224161851) do
   end
 
   create_table "series", :force => true do |t|
-    t.string   "name"
+    t.string   "title",        :limit => 100
+    t.string   "icon_path",    :limit => 256
     t.string   "content_type", :limit => 64
     t.text     "body"
     t.datetime "created_at"
