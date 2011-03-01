@@ -1,12 +1,8 @@
 # SOURCES setup users: http://www.viget.com/extend/building-an-environment-from-scratch-with-capistrano-2/
 # setup deploy: http://www.capify.org/getting-started/from-the-beginning/
 
-
-require 'yaml'
-GIT = YAML.load_file("#{File.dirname(__FILE__)}/git.yml")
-
-default_run_options[:pty] = true
-set :application, "bookasite"
+# default_run_options[:pty] = true
+set :application, "Bookasite"
 set :deploy_to, "/home/deploy/#{application}"
 set :user, "deploy"
 set :use_sudo, false
@@ -15,12 +11,11 @@ set :scm, "git"
 set :repository,  "git://github.com/booka/bookasite.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
-set :scm_verbose, true
-set :scm_passphrase, GIT['password']
+set :scm_verbose, false
 
-role :app, "toami.net"
-role :web, "toami.net"
-role :db,  "toami.net", :primary => true
+role :app, "recortable.net"
+role :web, "recortable.net"
+role :db,  "recortable.net", :primary => true
 
 after "deploy:update_code", "config:copy_shared_configurations"
 after "deploy", "deploy:cleanup"
@@ -29,7 +24,7 @@ after "deploy", "deploy:cleanup"
 namespace :config do
   desc "copy shared configurations to current"
   task :copy_shared_configurations, :roles => [:app] do
-    %w[database.yml pusher.yml].each do |f|
+    %w[database.yml].each do |f|
       run "ln -nsf #{shared_path}/config/#{f} #{release_path}/config/#{f}"
     end
   end
@@ -54,8 +49,8 @@ namespace :mysql do
     filename = "#{application}.dump.#{Time.now.to_i}.sql.bz2"
     file = "/tmp/#{filename}"
     on_rollback { delete file }
-    production = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'database.yml'))).result)['production']
-    run "mysqldump -u #{production['username']} --password=#{production['password']} #{production['database']} | bzip2 -c > #{file}"  do |ch, stream, data|
+    db = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'database.yml'))).result)['production']
+    run "mysqldump -u #{db['username']} --password=#{db['password']} #{db['database']} | bzip2 -c > #{file}"  do |ch, stream, data|
       puts data
     end
     `mkdir -p #{File.dirname(__FILE__)}/../backups/`
@@ -71,7 +66,9 @@ namespace :mysql do
     on_rollback { delete file }
     db = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'database.yml'))).result)
     production = db['production']
-    run "mysqldump -u #{production['username']} --password=#{production['password']} #{production['database']} > #{file}"  do |ch, stream, data|
+
+    pass_ops = !production['password'].nil? ? "--password=#{production['password']}" : ''
+    run "mysqldump -u #{production['username']} #{pass_ops} #{production['database']} > #{file}"  do |ch, stream, data|
       puts data
     end
     get file, "tmp/#{filename}"
@@ -79,4 +76,3 @@ namespace :mysql do
     # delete file
   end
 end
-
