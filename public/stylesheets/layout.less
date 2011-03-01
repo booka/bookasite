@@ -1,10 +1,17 @@
 
 /** VARIABLES **/
 @c-blue: #29256a;
+@c-ltblue: #29256a;
+@c-green: #0f0;
+
 @font-title: 'Tinos', arial, serif;
 @font-subtitle: 'Tahoma', arial, sans-serif;
 @font-body: 'PT Sans Narrow', arial, serif;
+
+@b-dot: 2px dotted @c-blue;
+
 /** HELPERS **/
+
 
 /** ELEMENTS **/
 html {
@@ -14,6 +21,8 @@ html {
 
 h1 {font-family: @font-title; line-height:1em;}
 h2 {font-family: @font-subtitle;}
+a {color: @c-blue; text-decoration:none;border-bottom:none;}
+li {border:0;list-style: none;}
 
 /** HEADER **/
 #header {
@@ -27,7 +36,15 @@ h2 {font-family: @font-subtitle;}
     h2 {
         margin: 0 0 50px 0;
     }
+
+    .navigator {width: 100%; overflow: hidden;}
+    .navigator li {float: left; color: @c-green;}     
+    .navigator span {display:block;float:left; padding:0 0.5em;}
 }
+
+/** NAVIGATION **/
+#navigation h2 {border-bottom: @b-dot;}
+#navigation .serie {height: 2em; border-bottom: @b-dot;}
 
 #title h1 {font-family:@font-title; font-size:30px;margin: 10px 0;}
 
@@ -38,6 +55,9 @@ h2 {font-family: @font-subtitle;}
     p {margin: 7px 0;}
 }
 
+/** CONTACT **/
+#contact {margin-top: 2em; border-top: @b-dot;
+    font-family: 'Georgia', sans-serif; font-size: 10px; color: @c-ltblue; }
 
 /* Layout for mobile version */
 

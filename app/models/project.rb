@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
   has_many :contents, :order => 'position'
   has_many :proposals
   has_many :assets
-  belongs_to :serie
+  belongs_to :series
   has_many :permissions
 
   validates :serie_id, :presence => true

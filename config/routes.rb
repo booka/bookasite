@@ -1,5 +1,5 @@
 Bookasite::Application.routes.draw do
-  root :to => 'projects#index'
+  root :to => 'series#index'
 
   # PUBLIC
   scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
@@ -8,6 +8,7 @@ Bookasite::Application.routes.draw do
       resource :call, :path => "convocatoria"
       resource :proposal, :path => 'propuesta'
     end
+    resources :series
   end
 
   # AJAX
@@ -17,6 +18,7 @@ Bookasite::Application.routes.draw do
   scope(:path_names => {:new => "crear", :edit => "editar"}) do
     namespace :admin do
       resources :pages, :path => 'paginas'
+      resources :series
       resources :projects, :path => 'bookas' do
         resources :calls, :path => 'convocatorias'
         resources :contents, :path => 'materiales'

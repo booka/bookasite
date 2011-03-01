@@ -11,6 +11,7 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20110224161851) do
+
   create_table "activities", :force => true do |t|
     t.string   "action"
     t.string   "model"
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20110224161851) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "project_id"
+    t.string   "rol",         :limit => 16
     t.string   "file"
   end
 
@@ -82,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20110224161851) do
     t.string   "stage_content", :limit => 8,    :default => "closed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "serie_id",                      :default => 1
+    t.integer  "series_id",                     :default => 1
   end
 
   create_table "proposals", :force => true do |t|
@@ -104,7 +106,6 @@ ActiveRecord::Schema.define(:version => 20110224161851) do
   create_table "series", :force => true do |t|
     t.string   "name"
     t.string   "content_type", :limit => 64
-    t.string   "string",       :limit => 64
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"

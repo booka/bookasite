@@ -1,24 +1,20 @@
 <div class="actions">
-  <%= link_to 'Crear libro', new_admin_project_path %>
+  <%#= link_to 'Crear nueva serie', [:admin, :series] %>
 </div>
 
 <table>
   <thead>
     <tr>
-      <td>Título</td>
-      <td>Descripción</td>
-      <td>Serie</td>
+      <td>Nombre</td>
       <td></td>
     </tr>
   </thead>
   <tbody>
-    <% @projects.each do |project| %>
+    <% @series.each do |serie| %>
       <tr class="<%= cycle('even', 'odd') %>">
-        <td class="title"><%= link_to project.title, [:admin, project] %></td>
-        <td><%= project.description %></td>
-        <td><%= project.series.name %></td>
+        <td class="title"><%= link_to serie.name, [:admin, serie] %></td>
         <td class="actions">
-          <%= link_to 'Administrar', admin_project_path(project) %>
+          <%= link_to 'Administrar', admin_series_path(serie) %>
           <%#= link_to 'Borrar', admin_project_path(project), :method => :delete,
           :confirm => "Quieres borrar el proyecto '#{project.title}'!! No se puede volver atrás!!. ¿Segura?" %>
         </td>

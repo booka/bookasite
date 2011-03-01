@@ -41,4 +41,5 @@ group :development, :test do
   gem "rails3-generators"
   gem 'factory_girl_rails'
   gem "ruby-debug"
+  gem "taps"
 end
