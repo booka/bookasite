@@ -1,29 +1,7 @@
-<% title 'Convocatorias'%>
-<div class="browser">
-  <h3>Convocatorias</h3>
-  <ul class="calls">
-    <% @calls.each do |call| %>
-      <li class="call">
-        <%= link_to call.title, project_call_path(call.project), 
-          :"data-page" => bok_path(call.id) %>
-        <div class="property description"><%= call.description %></div>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<div class="center">
-  <div class="page">
-    <h1><%= @call.title %></h1>
-    <%= @call.body.html_safe %>
-  </div>
-  
-  
-  <%= like_button %>
-  <%= disqus(@call) %>
-  
-</div>
-<div class="places">
-  <%= link_to 'Presentar una propuesta de edición', edit_project_proposal_path(@call.project, :rol => 'edicion') %>
-  <%= link_to 'Presentar una propuesta de contenido', edit_project_proposal_path(@call.project, :rol => 'contenido') %>
+<% title @call.title %>
 
-</div>
+<%= content_for :header do %>
+    <h1><%= @call.title %></h1>
+    <ul class="navigator">
+    </ul>
+<% end %>
