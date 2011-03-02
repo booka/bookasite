@@ -21,7 +21,9 @@ Bookasite::Application.routes.draw do
       resources :series
       resources :projects, :path => 'bookas' do
         resources :calls, :path => 'convocatorias'
-        resources :contents, :path => 'materiales'
+        resources :contents, :path => 'materiales' do
+          resources :assets, :path => 'ficheros'
+        end
         resources :proposals, :path => 'propuestas'
         resources :assets, :path => 'ficheros'
       end

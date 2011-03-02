@@ -1,14 +1,17 @@
-<%= title show.title %>
+<%= title bok.title %>
 <ul class="properties">
-  <li>Descripción: <%= show.description %></li>
-  <li>Por: <%= show.authors %></li>
-  <li>Posición: <%= show.position %></li>
+  <li>Descripción: <%= bok.description %></li>
+  <li>Por: <%= bok.authors %></li>
+  <li>Posición: <%= bok.position %></li>
 </ul>
 <div class="actions">
-  <%= link_to 'Editar', [:edit, :admin, @project, show] %>
+  <%= link_to 'Editar', [:edit, :admin, @project, bok] %>
 </div>
 
 <h2>Contenido</h2>
 <div class="page">
-  <%= show.body.html_safe %>
+  <%= bok.body.html_safe %>
 </div>
+
+<h2><%= link_to 'Ficheros', [:admin, @project, bok, :assets] %></h2>
+<%= render_assets bok.assets, bok %>

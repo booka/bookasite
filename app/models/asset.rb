@@ -1,6 +1,13 @@
 class Asset < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
+  belongs_to :resource, :polymorphic => true
+
+  validates :file, :presence => true
+  validates :user_id, :presence => true
+  validates :project_id, :presence => true
+  validates :title, :presence => true
+
   mount_uploader :file, AssetUploader
   
 #  has_attached_file :asset,

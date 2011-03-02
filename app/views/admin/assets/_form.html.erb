@@ -1,9 +1,17 @@
+
+<ul class="properties">
+  <li>Pertenece a: <%= @project.title %></li>
+  <li>Se asocia a: <%= @resource.title %></li>
+  <li>Propietario: <%= current_user.name %></li>
+</ul>
+<div class="actions"></div>
+
 <%= simple_form_for(:asset, @asset, :url => admin_project_assets_path(@project),
   :html => { :multipart => true}) do |form| %>
   <div class="inputs">
     <%= form.input :title %>
     <%= form.input :description %>
-    <%= form.file_field :file %>
+    <%= form.input :file, :as => :file %>
   </div>
   <div class="controls">
     <%= form.submit %><%= link_to 'Cancelar', (@project.new_record? ? admin_projects_path : [:admin, @project])%>

@@ -1,6 +1,8 @@
 <h3><%= link_to 'Libros', [:admin, :projects] %> > Libro</h3>
 <%= title @project.title %>
 <ul class="properties">
+  <li>Propietario: <%= @project.user.name %></li>
+  <li>Serie: <%= @project.series.title %></li>
   <li>Descripción: <%= @project.description %></li>
   <li>Fase de presentación de propuestas: <%= @project.stage_content == 'open' ? 'abierta' : 'cerrada' %></li>
 </ul>
@@ -19,4 +21,4 @@
 <%= render :partial => '/admin/contents/contents', :object => @project.contents %>
 
 <h2><%= link_to 'Ficheros', [:admin, @project, :assets] %></h2>
-<%= render :partial => '/admin/assets/assets', :object => @project.assets %>
+<%= render_assets @project.assets %>

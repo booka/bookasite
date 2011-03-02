@@ -3,11 +3,12 @@ class ContentsController < ApplicationController
 
   def index
     @project = Project.find(params[:project_id])
-    @contents = @project.contents
+    redirect_to [@project, @project.contents.first]
   end
 
   def show
     @project = Project.find(params[:project_id])
+    @series = @project.series
     @contents = @project.contents
     @content = Content.find params[:id]
   end

@@ -5,6 +5,7 @@ class Bok < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :project, :class_name => 'Project'
+  has_many :assets, :as => :resource
 
   validates :user, :presence => true
   validates :project, :presence => true

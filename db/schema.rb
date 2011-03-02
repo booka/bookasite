@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110224161851) do
+ActiveRecord::Schema.define(:version => 20110302105915) do
 
   create_table "activities", :force => true do |t|
     t.string   "action"
@@ -24,13 +24,15 @@ ActiveRecord::Schema.define(:version => 20110224161851) do
 
   create_table "assets", :force => true do |t|
     t.string   "title"
-    t.string   "description", :limit => 300
+    t.string   "description",   :limit => 300
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "project_id"
-    t.string   "rol",         :limit => 16
+    t.string   "rol",           :limit => 16
     t.string   "file"
+    t.integer  "resource_id"
+    t.string   "resource_type", :limit => 64
   end
 
   create_table "authorizations", :force => true do |t|
@@ -60,11 +62,12 @@ ActiveRecord::Schema.define(:version => 20110224161851) do
   add_index "boks", ["type"], :name => "index_boks_on_type"
 
   create_table "pages", :force => true do |t|
-    t.string   "title",      :limit => 300
-    t.string   "slug",       :limit => 100
+    t.string   "title",        :limit => 300
+    t.string   "slug",         :limit => 100
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "content_type", :limit => 64
   end
 
   add_index "pages", ["slug"], :name => "index_pages_on_slug"
@@ -85,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20110224161851) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "series_id",                     :default => 1
+    t.integer  "user_id"
   end
 
   create_table "proposals", :force => true do |t|
