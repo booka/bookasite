@@ -1,5 +1,6 @@
 class SeriesController < ApplicationController
-  layout 'grid1140'
+  layout 'grid'
+
   respond_to :html
 
   def index

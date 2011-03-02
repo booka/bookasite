@@ -1,27 +1,31 @@
 <% title @series.title %>
 
-<%= content_for :header do %>
-    <h1><%= @series.title %></h1>
-    <ul class="navigator">
-      <li><%= link_to 'booka', root_path %></li>
-      <% Series.all.each do |serie| %>
-         <span>|</span><li><%= link_to_unless_current serie.title, serie %></li>
+<div class="row24">
+  <div class="col-left">&nbsp;</div>
+  <div id="header" class="col-main">
+    <%= render :partial => 'header' %>
+  </div>
+</div>
+
+<div class="row24">
+  <div id="navigation" class="col-left">
+    <%= link_to image_tag(@series.icon_path, :alt => @series.title), root_path %>
+    <h2>Convocatorias </h2>
+    <ul>
+      <% @series.projects.each do |project| %>
+          <%= content_tag_for :li, project do %>
+              <h3><%= link_to project.title, project %></h3>
+          <% end %>
       <% end %>
     </ul>
-<% end %>
+  </div>
+  <div class="col-center">
+    <%= render_body @series %>
+  </div>
+  <div id="info" class="col-right">
+    la derecha
+  </div>
+</div>
 
-<%= content_for :navigation do %>
-    <%= link_to image_tag(@series.icon_path, :alt => @series.title), @series %>
-    <h2>Convocatorias </h2>
-    <% @series.projects.each do |project| %>
-        <%= div_for project do %>
-            <h3><%= link_to project.title, project %></h3>
-        <% end %>
-    <% end %>
-<% end %>
 
-<%= render_body @series %>
 
-<%= content_for :info do %>
-    que ponemos aquí
-<% end %>

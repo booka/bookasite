@@ -1,0 +1,14 @@
+<%= content_for :navigation do %>
+    <%= link_to image_tag('iconos/booka.jpg') %>
+    <h2>Materiales</h2>
+    <ul>
+      <% @contents.each do |content| %>
+          <%= content_tag_for :li, content do %>
+              <%= link_to content.title, project_content_path(content.project, content),
+                          :"data-page" => bok_path(content.id) %>
+              <div class="property description"><%= content.description %></div>
+              <div class="property authors"><%= content.authors %></div>
+          <% end %>
+      <% end %>
+    </ul>
+<% end %>

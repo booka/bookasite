@@ -1,0 +1,13 @@
+<% title "Materiales - #{@project.title}" %>
+
+<%= content_for :header do %>
+    <h1><%= @project.title %></h1>
+    <ul class="navigator">
+      <li>Intro</li>
+      <span>|</span>
+      <li><%= link_to 'Materiales', project_contents_path(@project) %></li>
+    </ul>
+<% end %>
+
+
+<%= render :partial => 'contents' %>

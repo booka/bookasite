@@ -1,25 +1,10 @@
-<% title(@content ? @content.title : "Materiales - #{@project.title}") %>
-<div class="browser">
-  <h3>Materiales</h3>
-  <ul class="contents">
-    <% @contents.each do |content| %>
-      <li class="content">
-        <%= link_to content.title, project_content_path(content.project, content),
-          :"data-page" => bok_path(content.id) %>
-        <div class="property description"><%= content.description %></div>
-        <div class="property authors"><%= content.authors %></div>
-      </li>
-    <% end %>
-  </ul>
+<% title @content.title %>
+
+
+<div class="row24">
+  <div class="grid_6 first">&nbsp;</div>
+  <div class="grid_9">&nbsp;</div>
+  <div class="grid_9 last"><%= render_body @content %></div>
 </div>
-<div class="center">
-  <% if @content %>
-    <div class="page">
-      <%= render 'page' %>
-    </div>
-  <%= like_button %>
-  <%= disqus @content %>
-  <% end %>
-</div>
-<div class="places">
-</div>
+
+

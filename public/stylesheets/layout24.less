@@ -1,0 +1,79 @@
+/** VARIABLES **/
+@c-blue: #29256a;
+@c-gray: #a0a1b5;
+@c-green: #0f0;
+
+@font-title: 'Tinos', arial, serif;
+@font-subtitle: 'Tahoma', arial, sans-serif;
+@font-body: 'PT Sans Narrow', arial, serif;
+
+@b-dot: 2px dotted @c-blue;
+
+/** HELPERS **/
+
+
+/** ELEMENTS **/
+html {
+  color: @c-blue;
+  font-family: @font-body;
+}
+
+h1, h2, h3 {font-family: @font-title; line-height:1em; font-style: italic;margin: 0.5 0 0 0;border-bottom: 2px dotted @c-blue;}
+h1 {font-size:80px;}
+h4 {font-family: @font-subtitle;letter-spacing: 0.05em;}
+a {color: @c-blue; text-decoration:none;border-bottom:none;}
+li {border:0;list-style: none;}
+
+
+/** HEADER **/
+#header {
+    .navigator {width: 100%; overflow: hidden;}
+    .navigator li {float: left; color: @c-green;}
+    .navigator span {display:block;float:left; padding:0 0.5em;}
+
+    h2 {font-size:28px;margin-top:2em;padding-bottom:5px;font-style:normal;}
+
+    margin-bottom: 60px;
+}
+
+#middle {margin-top: 3em;}
+
+/** NAVIGATION **/
+#navigation h2 {margin-top: 2em; border-bottom: @b-dot; font-variant: small-caps; font-size: 18px; padding-bottom: 0.2em;}
+#navigation ul li {border-bottom: @b-dot; padding: 0.7em 0;}
+#navigation ul li h3 {font-size: 20px; border:0;}
+
+#title h1 {font-family:@font-title; font-size:30px;margin: 10px 0;}
+
+/** BODY **/
+.body {
+    font-family: @font-body; font-size:16px;
+
+    p {margin: 7px 0;}
+
+    h2 {margin-top: 1em;}
+}
+
+/** CONTACT **/
+#contact {margin-top: 2em; margin-bottom: 2em; padding: 0.5em 0;
+    border-top: @b-dot; line-height: 1.5em;
+    font-family: 'Georgia', sans-serif; font-size: 12px; color: fadeout(@c-blue, 20%); }
+
+/* Layout for mobile version */
+
+@media handheld, only screen and (max-width: 767px) {
+}
+
+
+/* Provide higher res assets for iPhone 4 */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+
+/* An example of how to override an image with one twice the size for iPhone 4. Specify the original pixel size with background-size.
+.download {
+background: url(../img/downarrow@2x.png) no-repeat;
+background-size: 27px 28px;
+}
+*/
+
+}

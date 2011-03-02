@@ -1,22 +1,31 @@
-<%= content_for :header do %>
-    <h1>booka</h1>
-    <h2>plataforma editorial abierta</h2>
-<% end %>
+<% title @page.title %>
 
-<%= content_for :navigation do %>
-<%= image_tag 'iconos/booka.jpg', :alt => 'booka' %>
+<div class="row24">
+  <div class="col-left">&nbsp;</div>
+  <div id="header" class="col-main">
+    <h1>booka</h1>
+    <h4>plataforma editorial abierta</h4>
+  </div>
+</div>
+
+<div class="row24">
+  <div id="navigation" class="col-left">
+    <%= link_to image_tag('iconos/booka.png'), root_path %>
     <h2>Series</h2>
+    <ul>
     <% @series.each do |serie| %>
-        <%= div_for serie do %>
+        <%= content_tag_for :li, serie do %>
             <h3><%= link_to serie.title, serie %></h3>
         <% end %>
     <% end %>
-<% end %>
-
-<% title @page.title %>
-
-<%= @page.body_rendered %>
-
-<%= content_for :info do %>
+    </ul>
+  </div>
+  <div class="col-center">
+    <%= @page.body_rendered %>
+  </div>
+  <div id="info" class="col-right">
+    la derecha
     <%= @info.body_rendered %>
-<% end %>
+  </div>
+</div>
+

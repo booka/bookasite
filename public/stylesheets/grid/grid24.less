@@ -1,0 +1,62 @@
+/*
+Copyright (c) 2010, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.8.2r1
+*/
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+
+
+@w: 4%;
+@s: 1.2%;
+
+.row24 {width: 100%;margin: 0 auto;overflow: hidden;}
+img, object, embed {max-width: 100%;}
+
+.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9,.col10, .col11, .col12, .col13, .col14, .col15, .col16, .col17,.col18, .col19, .col20, .col21, .col22, .col23, .col24 {
+    margin: 0 0.6%; float: left;
+}
+.last {margin-right: 0px;}
+
+
+.col1 {width: @w - @s;}
+.col2 {width: 2 * @w - @s;}
+.col3 {width: 3 * @w - @s;}
+.col4 {width: 4 * @w - @s;}
+.col5 {width: 5 * @w - @s;}
+.col6 {width: 6 * @w - @s;}
+.col7 {width: 7 * @w - @s;}
+.col8 {width: 8 * @w - @s;}
+.col9 {width: 9 * @w - @s;}
+.col10 {width: 10 * @w - @s;}
+.col11 {width: 11 * @w - @s;}
+.col12 {width: 12 * @w - @s;}
+.col13 {width: 13 * @w - @s;}
+.col14 {width: 14 * @w - @s;}
+.col15 {width: 15 * @w - @s;}
+.col16 {width: 16 * @w - @s;}
+.col17 {width: 17 * @w - @s;}
+.col18 {width: 18 * @w - @s;}
+.col19 {width: 19 * @w - @s;}
+.col20 {width: 20 * @w - @s;}
+.col21 {width: 21 * @w - @s;}
+.col22 {width: 22 * @w - @s;}
+.col23 {width: 23 * @w - @s;}
+.col24 {width: 24 * @w - @s;}
+
+/** LAYOUT **/
+#page {max-width: 1140px; margin: 0 auto;}
+.col-left {.col4; margin-right:4%;}
+.col-main {.col20;}
+.col-center {.col14;}
+.col-right {.col6;}
+
+/* Layout for mobile version */
+@media handheld, only screen and (max-width: 767px) {
+    .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9,.col10, .col11, .col12, .col13, .col14, .col15, .col16, .col17,.col18, .col19, .col20, .col21, .col22, .col23, .col24,
+    .col-left, .col-main, .col-center, .col-right
+    {
+        float: none;
+        width: 94%;
+    }
+}

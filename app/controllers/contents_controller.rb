@@ -1,8 +1,9 @@
 class ContentsController < ApplicationController
+  layout 'grid'
+
   def index
     @project = Project.find(params[:project_id])
     @contents = @project.contents
-    render :action => 'show'
   end
 
   def show

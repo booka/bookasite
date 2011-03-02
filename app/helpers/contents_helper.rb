@@ -2,9 +2,9 @@ module ContentsHelper
 
   def render_body(model)
     if model.content_type == 'text/html'
-      model.body.html_safe
+      content_tag :div, model.body.html_safe, :class => 'body'
     else
-      model.body
+      content_tag :div, model.body, :class => 'body'
     end
   end
 
