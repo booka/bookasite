@@ -1,0 +1,8 @@
+<% if @project == @resource %>
+    <h3><%= breadcrumbs @project, 'Ficheros' %></h3>
+<% else %>
+    <h3><%= breadcrumbs @project, @resource, 'Ficheros' %></h3>
+<% end %>
+
+<%= title "Editar fichero de '#{@resource.title}'" %>
+<%= render 'form' %>

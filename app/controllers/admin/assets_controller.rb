@@ -2,11 +2,30 @@ class Admin::AssetsController < Admin::AdminController
   before_filter :load_resources
   respond_to :html
 
+  def new
+    @asset = @resource.assets.build
+    respond_with @asset
+  end
+
+  def edit
+    @asset = @resource.assets.find params[:id]
+    respond_with @asset
+  end
+
   def create
     params[:asset][:user_id] = current_user.id
-    asset = @resource.assets.build(params[:asset])
-    flash[:notice] = "Fichero subido" if asset.save
-    respond_with(asset, :location => (resource? ? [:admin, @project, @resource] : [:admin, @project]))
+    params[:asset][:project_id] = @project.id
+    @asset = @resource.assets.build(params[:asset])
+    flash[:notice] = "Fichero subido" if @asset.save
+    url = resource? ? [:admin, @project, @resource] : [:admin, @project]
+    respond_with(@asset, :location => url)
+  end
+
+  def destroy
+    @asset = @resource.assets.find params[:id]
+    flash[:notice] = "Fichero borrado" if @asset.destroy
+    url = resource? ? [:admin, @project, @resource] : [:admin, @project]
+    respond_with(@asset, :location => url)
   end
 
 

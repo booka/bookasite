@@ -22,12 +22,16 @@
       <% @contents.each do |content| %>
           <%= content_tag_for :li, content do %>
               <h3><%= link_to content.title, [@project, content] %></h3>
+
               <div class="authors"><%= content.authors %></div>
           <% end %>
       <% end %>
     </ul>
   </div>
   <div class="col-center-left">
+    <% @content.assets.each do |asset| %>
+        <%= image_tag asset.file.url %>
+    <% end %>
     &nbsp;
   </div>
   <div class="col-center-right">
@@ -35,6 +39,7 @@
 
     <h2><%= @content.authors %></h2>
     <%= render_body @content %>
+    &nbsp;
   </div>
 </div>
 

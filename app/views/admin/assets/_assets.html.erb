@@ -12,6 +12,7 @@
     <td>Título</td>
     <td>Descripción</td>
     <td>Propietario</td>
+    <td>Asociado a</td>
     <td>Enlace</td>
     <td></td>
   </tr>
@@ -22,11 +23,18 @@
         <td class="title"><%= link_to asset.title, [:admin, @project, asset] %></td>
         <td><%= asset.description %></td>
         <td><%= asset.user.name %></td>
+        <td><%= asset.resource.title if asset.resource %></td>
         <td><%= link_to asset.file.url, asset.file.url %></td>
         <td class="actions">
-          <%= link_to 'Editar', [:edit, :admin, @project, asset], :method => :get %>
-          <%= link_to 'Borrar', [:admin, @project, asset], :method => :delete,
-                      :confirm => "Quieres borrar el fichero '#{asset.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+          <% if @resource == @project %>
+              <%= link_to 'Editar', [:edit, :admin, @project, asset], :method => :get %>
+              <%= link_to 'Borrar', [:admin, @project, asset], :method => :delete,
+                          :confirm => "Quieres borrar el fichero '#{asset.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+          <% else %>
+              <%= link_to 'Editar', [:edit, :admin, @project, @resource, asset], :method => :get %>
+              <%= link_to 'Borrar', [:admin, @project, @resource, asset], :method => :delete,
+                          :confirm => "Quieres borrar el fichero '#{asset.title}'!! No se puede volver atrás!!. ¿Segura?" %>
+          <% end %>
         </td>
       </tr>
   <% end %>

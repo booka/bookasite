@@ -7,7 +7,7 @@
 @font-subtitle: 'Tahoma', arial, sans-serif;
 @font-body: 'PT Sans Narrow', arial, serif;
 
-@b-dot: 2px dotted @c-blue;
+@b-dot: 1px dotted @c-blue;
 
 /** HELPERS **/
 
@@ -18,7 +18,7 @@ html {
   font-family: @font-body;
 }
 
-h1, h2, h3 {font-family: @font-title; line-height:1em; font-style: italic;margin: 0.5 0 0 0;border-bottom: 2px dotted @c-blue;}
+h1, h2, h3 {font-family: @font-title; line-height:1em; font-style: italic;margin: 0.5 0 0 0;border-bottom: @b-dot;}
 h1 {font-size:80px;}
 h4 {font-family: @font-subtitle;letter-spacing: 0.05em;}
 a {color: @c-blue; text-decoration:none;border-bottom:none;}
@@ -40,6 +40,7 @@ li {border:0;list-style: none;}
 
 /** NAVIGATION **/
 #navigation h2 {margin-top: 2em; border-bottom: @b-dot; font-variant: small-caps; font-size: 18px; padding-bottom: 0.2em;}
+#navigation ul {margin-bottom: 1em;}
 #navigation ul li {border-bottom: @b-dot; padding: 0.7em 0;}
 #navigation ul li h3 {font-size: 20px; border:0;}
 
