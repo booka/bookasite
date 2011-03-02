@@ -198,7 +198,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ZenTest
   acts_as_list
   autotest
   autotest-rails

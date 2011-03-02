@@ -26,7 +26,6 @@ group :development, :test do
   gem "rspec-rails", ">= 2.0.0.beta"
   gem "remarkable_activerecord"
   gem "faker"
-  gem "ZenTest"
   gem "autotest"
   gem "autotest-rails"
   gem "rails3-generators"
