@@ -13,16 +13,17 @@
     <%= link_to image_tag('iconos/booka.png'), root_path %>
     <h2>Series</h2>
     <ul>
-    <% @series.each do |serie| %>
-        <%= content_tag_for :li, serie do %>
-            <h3><%= link_to serie.title, serie %></h3>
-        <% end %>
-    <% end %>
+      <% @series.each do |serie| %>
+          <%= content_tag_for :li, serie do %>
+              <h3><%= link_to serie.title, serie %></h3>
+          <% end %>
+      <% end %>
     </ul>
     <%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>
   </div>
   <div class="col-center">
     <%= render_body @page %>
+    <%= disqus @page %>
   </div>
   <div id="info" class="col-right">
     <%= render_body @info %>
