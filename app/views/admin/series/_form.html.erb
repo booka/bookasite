@@ -3,6 +3,7 @@
     <%= form.input :title %>
     <%= form.input :icon_path %>
     <%= form.input :content_type, :collection => [['html', 'text/html']], :include_blank => false %>
+    <%= form.input :page_id, :collection => Page.all.map {|p| [p.title, p.id]} %>
     <%= form.input :body %>
   </div>
   <div class="controls">

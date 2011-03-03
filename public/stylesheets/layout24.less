@@ -2,6 +2,7 @@
 @c-blue: #29256a;
 @c-gray: #a0a1b5;
 @c-green: #0f0;
+@c-link: fadeout(@c-blue, 20%);
 
 @font-title: 'Tinos', arial, serif;
 @font-subtitle: 'Tahoma', arial, sans-serif;
@@ -21,7 +22,8 @@ html {
 h1, h2, h3 {font-family: @font-title; line-height:1em; font-style: italic;margin: 0.5 0 0 0;border-bottom: @b-dot;}
 h1 {font-size:80px;}
 h4 {font-family: @font-subtitle;letter-spacing: 0.05em;}
-a {color: @c-blue; text-decoration:none;border-bottom:none;}
+a {color: @c-link; text-decoration:none;border-bottom:none;}
+a:hover {color: @c-blue;}
 li {border:0;list-style: none;}
 
 
@@ -52,11 +54,20 @@ li {border:0;list-style: none;}
     h2 {padding-bottom: 5px;}
 }
 .body {
+    width: 95%;
     font-family: @font-body; font-size:16px;
     p {margin: 7px 0;}
-    h1, h2 {border-bottom:none;}
+    h1, h2 {font-size: 18px; border-bottom:none;}
     h2 {margin-top: 1em;}
 }
+
+#info .body {
+    h1, h2 {font-style:normal; border-bottom: @b-dot; padding-bottom: 0.3em; margin-bottom: 0.7em;}
+    h1 {font-size: 18px; }
+    h2 {font-size: 14px; }
+}
+
+
 
 /** CONTACT **/
 #contact {margin-top: 2em; margin-bottom: 2em; padding: 0.5em 0;

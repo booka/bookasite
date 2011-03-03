@@ -22,10 +22,10 @@
     <%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>
   </div>
   <div class="col-center">
-    <%= @page.body_rendered %>
+    <%= render_body @page %>
   </div>
   <div id="info" class="col-right">
-    <%= @info.body_rendered %>
+    <%= render_body @info %>
   </div>
 </div>
 

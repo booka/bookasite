@@ -21,14 +21,15 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 group :development, :test do
   gem 'mysql2'
-  gem 'webrat'
-  gem "rspec"
-  gem "rspec-rails", ">= 2.0.0.beta"
+#  gem 'webrat'
+#  gem "rspec"
+#  gem "rspec-rails", ">= 2.0.0.beta"
   gem "remarkable_activerecord"
   gem "faker"
-  gem "autotest"
-  gem "autotest-rails"
+#  gem "ZenTest", ''
+#  gem "autotest"
+#  gem "autotest-rails"
   gem "rails3-generators"
-  gem 'factory_girl_rails'
+#  gem 'factory_girl_rails'
   gem "taps"
 end

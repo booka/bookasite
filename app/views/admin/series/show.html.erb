@@ -2,6 +2,7 @@
 <%= title @series.title %>
 <ul class="properties">
   <li>Icono: <%= @series.icon_path %></li>
+  <li>Página del lateral: <%= link_to(@series.page.title, [:admin, @series.page]) if @series.page %></li>
 </ul>
 <div class="actions">
   <%= link_to 'Editar', edit_admin_series_path(@series), :method => :get %>
