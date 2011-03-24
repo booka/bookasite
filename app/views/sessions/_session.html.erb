@@ -1,0 +1,7 @@
+<div id="session">
+  <% if current_user %>
+      Hola, <%= current_user.name %>
+  <% else %>
+      <%= link_to 'Iniciar sesión', login_path %>
+  <% end %>
+</div>

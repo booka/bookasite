@@ -1,15 +1,32 @@
-<div class="center">
-  <div class="page">
-    <%= title 'Identificarse' %>
+
+<div class="row24">
+  <div class="col-left">&nbsp;
+  </div>
+  <div id="header" class="col-main">
+    <h1>booka</h1>
+    <h4>iniciar sesión</h4>
+  </div>
+</div>
+
+
+<div class="row24">
+  <div class="col-left">&nbsp;</div>
+  <div class="col-center">
     <p>Para identificarse en booka no hace falta crear una cuenta nueva: simplemente
       usa la identidad de cualquiera de estos servicios (se añadirán más
       próximamente).</p>
     <p>La única información que se solicita a ese servicio es tu nombre y correo electrónico:
       <b>ninguna</b> otra información es accesible por plataformabooka.net, por lo que la
       privacidad está garantizada.</p>
-    <p>
-      <%= link_to 'Entrar con mi cuenta de google (gmail, etcétera)', '/auth/google' %><br/>
-      <%= link_to 'Entrar con mi cuenta de OpenId', '/auth/open_id' %><br/>
-    </p>
+    <div class="authorizations">
+      <a href="/auth/google">
+        Identifícate usando tu<br/> cuenta de Google<br/>
+        <%= image_tag('https://github.com/intridea/authbuttons/raw/master/png/google_64.png') %>
+      </a>
+      <a href="/auth/twitter">
+        Identifícate usando tu<br/> cuenta de Twitter<br/>
+        <%= image_tag('https://github.com/intridea/authbuttons/raw/master/png/twitter_64.png') %>
+      </a>
+    </div>
   </div>
 </div>
