@@ -1,5 +1,5 @@
 class SeriesController < ApplicationController
-  layout 'grid'
+  layout 'public'
 
   respond_to :html
 

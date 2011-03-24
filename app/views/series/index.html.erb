@@ -23,7 +23,7 @@
     </ul>
     <%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>
   </div>
-  <div class="col-center">
+  <div class="col-center editable" data-page="<%= @page.id %>">
     <%= render_body @page %>
     <%= disqus @page %>
   </div>

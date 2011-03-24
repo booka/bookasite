@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  layout 'grid'
+  layout 'public'
 
   def new
   end

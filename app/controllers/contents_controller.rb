@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-  layout 'grid'
+  layout 'public'
 
   def index
     @project = Project.find(params[:project_id])

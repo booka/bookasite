@@ -1,5 +1,5 @@
 class CallsController < ApplicationController
-  layout 'grid'
+  layout 'public'
 
   def show
     @calls = Call.all
