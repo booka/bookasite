@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
-  layout 'grid'
   before_filter :load_project
+  layout 'public'
 
   def index
     redirect_to [@project, @project.contents.first]

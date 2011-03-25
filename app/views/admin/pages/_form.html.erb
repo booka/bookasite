@@ -3,7 +3,7 @@
     <%= form.input :title %>
     <%= form.input :slug %>
     <%= form.input :content_type, :collection => [['html', 'text/html']], :include_blank => false %>
-    <%= form.input :body %>
+    <%= form.input :body, :input_html => {:class => 'editable'} %>
   </div>
   <div class="controls">
     <%= form.submit %><%= link_to 'Cancelar', (@page.new_record? ? admin_pages_path : [:admin, @page])%>

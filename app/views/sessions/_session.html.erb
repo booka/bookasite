@@ -1,6 +1,8 @@
 <div id="session">
   <% if current_user %>
-      Hola, <%= current_user.name %>
+      Hola, <%= current_user.name %><br/>
+      <%= link_to 'Salir', logout_path %>
+
   <% else %>
       <%= link_to 'Iniciar sesión', login_path %>
   <% end %>

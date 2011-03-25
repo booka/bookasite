@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  layout 'grid'
+  layout 'public'
 
   def new
   end
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth = request.env['rack.auth']
+    auth = request.env['omniauth.auth']
     unless @auth = Authorization.find_from_auth(auth)
       @auth = Authorization.create_from_auth(auth, current_user) 
     end

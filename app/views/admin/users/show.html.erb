@@ -16,3 +16,11 @@
 <h2><%= link_to 'Permisos', [:admin, @user, :permissions] %></h2>
 <div class="actions"><%= link_to 'Añadir permiso', [:new, :admin, @user, :permission] %></div>
 <%= render :partial => '/admin/permissions/permission', :collection => @user.permissions %>
+
+<h2>Authorizaciones</h2>
+<% @user.authorizations.each do |auth| %>
+    <div class="model"><%= auth.uid %></div>
+<% end %>
+
+<h2>Boks</h2>
+<%= render :partial => '/admin/boks/bok', :collection => @user.boks %>

@@ -3,7 +3,8 @@
     <div class="property"><%= permission.user.name %></div>
     <div class="property"><%= permission.project.title %></div>
     <div class="property"><%= permission.level %></div>
-    <div class="actions"><%= link_to 'Editar', [:edit, :admin, permission.user, permission] %>
+    <div class="actions">
+      <%= link_to 'Editar', [:edit, :admin, permission.user, permission] %>
+    </div>
   </div>
-
 </div>

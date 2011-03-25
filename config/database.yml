@@ -25,4 +25,5 @@ production:
   username: root
   password: db4root
   database: Bookasite
+  host: localhost
 
