@@ -1,0 +1,9 @@
+<h2>Series</h2>
+<ul>
+  <% series.each do |serie| %>
+      <%= content_tag_for :li, serie do %>
+          <h3><%= link_to serie.title, serie %></h3>
+      <% end %>
+  <% end %>
+</ul>
+<%= link_to image_tag('logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok'), 'http://www.edicionesvibok.net' %>

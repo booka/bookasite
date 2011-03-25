@@ -1,4 +1,7 @@
-<%= link_to image_tag('iconos/booka.png'), root_path %>
+(en vez de éste, debería ir un logitipo que indique
+que estamos en la zona de edición)
+<%= link_to image_tag('iconos/booka.png'), [@project, :asambleas]%>
+
 <h2>Reuniones</h2>
 <ul>
   <% asambleas.each do |asamblea| %>
@@ -11,4 +14,3 @@
   <%= link_to 'Añadir una reunión', [:new, @project, :asamblea] %>
 </div>
 
-<%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>

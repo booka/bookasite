@@ -5,17 +5,9 @@
 <% end %>
 
 <div class="row24">
-  <div id="navigation" class="col-left">
+  <div id="browser" class="col-left">
     <%= link_to image_tag(@series.icon_path, :alt => @series.title), root_path %>
-    <h2>Convocatorias </h2>
-    <ul>
-      <% @series.projects.each do |project| %>
-          <%= content_tag_for :li, project do %>
-              <h3><%= link_to project.title, project %></h3>
-          <% end %>
-      <% end %>
-    </ul>
-    <%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>
+    <%= render_browser :projects, @series.projects %>
 
   </div>
   <div class="col-center">

@@ -1,0 +1,8 @@
+<%= simple_form_for [@project, @asamblea] do |form| %>
+    <%= form.input :title %>
+    <%= form.input :body %>
+    <div class="controls">
+      <%= form.submit %>
+      <%= link_to 'Cancel', (@asamblea.new_record? ? [@project, :asambleas] : [@project, @asamblea]) %>
+    </div>
+<% end %>

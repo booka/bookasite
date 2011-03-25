@@ -1,0 +1,9 @@
+<h2>Convocatorias </h2>
+<ul>
+  <% projects.each do |project| %>
+      <%= content_tag_for :li, project do %>
+          <h3><%= link_to project.title, project %></h3>
+      <% end %>
+  <% end %>
+</ul>
+<%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>

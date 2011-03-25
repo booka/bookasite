@@ -19,8 +19,8 @@ html {
   font-family: @font-body;
 }
 
-h1, h2, h3 {font-family: @font-title; line-height:1em; font-style: italic;margin: 0.5 0 0 0;border-bottom: @b-dot;}
-h1 {font-size:80px;}
+h1, h2, h3 {font-family: @font-title; line-height:1em; font-style: italic;margin: 0.5 0 0 0;}
+h1 {font-size: 30px;}
 h4 {font-family: @font-subtitle;letter-spacing: 0.05em;}
 a {color: @c-link; text-decoration:none;border-bottom:none;}
 a:hover {color: @c-blue;}
@@ -34,9 +34,9 @@ li {border:0;list-style: none;}
     .navigator {width: 100%; overflow: hidden;}
     .navigator li {float: left; color: @c-green;}
     .navigator span {display:block;float:left; padding:0 0.5em;}
-
+    h1, h2, h3 {border-bottom: @b-dot;}
+    h1 {font-size:80px;}
     h2 {font-size:28px;margin-top:2em;padding-bottom:5px;font-style:normal;}
-
     margin-bottom: 60px;
 }
 
@@ -51,10 +51,10 @@ div.authorizations a {display: block; float: left;padding-right:10px; text-align
 
 
 /** NAVIGATION **/
-#navigation h2 {margin-top: 2em; border-bottom: @b-dot; font-variant: small-caps; font-size: 18px; padding-bottom: 0.2em;}
-#navigation ul {margin-bottom: 1em;}
-#navigation ul li {border-bottom: @b-dot; padding: 0.7em 0;}
-#navigation ul li h3 {font-size: 20px; border:0;}
+#browser h2 {margin-top: 2em; border-bottom: @b-dot; font-variant: small-caps; font-size: 18px; padding-bottom: 0.2em;}
+#browser ul {margin-bottom: 1em;}
+#browser ul li {border-bottom: @b-dot; padding: 0.7em 0;}
+#browser ul li h3 {font-size: 20px; border:0;}
 
 #title h1 {font-family:@font-title; font-size:30px;margin: 10px 0;}
 
@@ -78,7 +78,23 @@ div.authorizations a {display: block; float: left;padding-right:10px; text-align
     h2 {font-size: 14px; }
 }
 
+/** BROWSER **/
 
+
+
+/** ACTIONS **/
+div.actions {width: 100%; overflow: hidden; margin: 5px 0;}
+div.actions a {display:block;float:left;padding:2px 5px;border-radius:3px;
+    background-color:fadeout(@c-blue,80%); margin-right:5px;}
+div.actions a:hover {background-color:fadeout(@c-green,80%);}
+
+/** FORMS **/
+form div.input {display: block;}
+form div.input label {display: block; font-weight:bold;}
+form div.input span.hint {display: block;color: fadeout(@c-blue, 50%);}
+form div.input input, form div.input textarea {width: 90%;
+    padding:2px;border: 1px solid @c-blue; border-radius: 2px;}
+form div.controls {margin-top: 10px;}
 
 /** CONTACT **/
 #contact {margin-top: 2em; margin-bottom: 2em; padding: 0.5em 0;

@@ -2,13 +2,15 @@
 <%= render_top :asambleas %>
 
 <div class="row24">
-  <div class="col-left">
+  <div id="browser" class="col-left">
     <%= render_browser :asambleas, @project.asambleas %>
   </div>
   <div class="col-center">
-    <h2>Reunión <%= @asamblea.title %></h2>
+    <h1>Reunión '<%= @asamblea.title %>'</h1>
+    <%= render_body @asamblea %>
     <div class="actions">
-      <%= link_to 'Crear tema', [:new, @project, @asamblea, :topic] %>
+      <%= link_to 'Editar reuinón', [:edit, @project, @asamblea] %>
+      <%= link_to 'Añadir un tema', [:new, @project, @asamblea, :topic] %>
     </div>
   </div>
 </div>

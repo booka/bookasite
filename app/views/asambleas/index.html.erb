@@ -3,10 +3,18 @@
 <%= render_top :asambleas %>
 
 <div class="row24">
-  <div id="navigation" class="col-left">
+  <div id="browser" class="col-left">
     <%= render_browser :asambleas, @asambleas %>
   </div>
   <div class="col-center">
+    <h1>Mesa de edición</h1>
+    <p>La Mesa de edición es la zona en la que podemos discutir y llegar a decisiones
+    sobre la edición del libro</p>
+    <p>Las decisiones se toman en <b>reuniones</b>. Puedes crear una nueva reunión o ver las
+    que ya están creadas en la lista de la izquierda.</p>
+    <div class="actions">
+      <%= link_to 'Crear una nueva reunión', [:new, @project, :asamblea] %>
+    </div>
   </div>
   <div id="info" class="col-right">
   </div>

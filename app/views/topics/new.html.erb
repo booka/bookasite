@@ -1,0 +1,21 @@
+<% title 'Añadir tema de discusión' %>
+
+<%= render_top :asambleas %>
+
+<div class="row24">
+<div class="col-left">
+  <%= render_browser :topics, @topics %>
+</div>
+<div class="col-center">
+  <h1>Añadir tema de discusión</h1>
+  <%= simple_form_for [@project, @asamblea, @topic] do |form| %>
+      <%= form.input :title %>
+      <%= form.input :body %>
+  <div class="controls">
+    <%= form.submit %>
+    <%= link_to 'Cancelar', [@project, @asamblea] %>
+  </div>
+  <% end  %>
+</div>
+<div class="col-right"></div>
+</div>
