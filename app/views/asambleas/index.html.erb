@@ -1,25 +1,10 @@
 <% title 'Reuniones' %>
 
-<%= render_top do %>
-    <h1><%= @project.title %></h1>
-<% end %>
+<%= render_top :asambleas %>
 
 <div class="row24">
   <div id="navigation" class="col-left">
-    <%= link_to image_tag('iconos/booka.png'), root_path %>
-    <h2>Reuniones</h2>
-    <ul>
-      <% @asambleas.each do |asamblea| %>
-          <%= content_tag_for :li, asamblea do %>
-              <h3><%= link_to asamblea.title, asamblea %></h3>
-          <% end %>
-      <% end %>
-    </ul>
-    <div class="actions">
-      <%= link_to 'Añadir una reunión' %>
-    </div>
-
-    <%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>
+    <%= render_browser :asambleas, @asambleas %>
   </div>
   <div class="col-center">
   </div>

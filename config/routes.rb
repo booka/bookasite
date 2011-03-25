@@ -3,9 +3,11 @@ Bookasite::Application.routes.draw do
 
   # PUBLIC
   scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
-    resources :projects, :path => 'bookas' do
+    resources :projects, :path => 'b' do
       resources :contents, :path => 'materiales'
-      resources :asambleas, :path => 'decisiones'
+      resources :asambleas, :path => 'edicion' do
+        resources :topics, :path => 't'
+      end
       resource :call, :path => "convocatoria"
       resource :proposal, :path => 'propuesta'
     end

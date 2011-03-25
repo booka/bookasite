@@ -28,13 +28,14 @@ class Project < ActiveRecord::Base
     title ? "#{id}-#{title.parameterize}" : id.to_s
   end
 
+  def create_asamblea(params = {})
+    params = {:user => self.user, :title => self.title}.merge(params)
+    self.asambleas.create(params)
+  end
+
   private
   def create_call
     self.calls.create(:user => self.user, :title => self.title)
   end
 
-  def create_asamblea(params = {})
-    params = {:user => self.user, :title => self.title}.merge(params)
-    self.asambleas.create(params)
-  end
 end

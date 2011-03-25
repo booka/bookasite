@@ -1,0 +1,17 @@
+<%= render_top :asambleas %>
+
+<div class="row24">
+  <div class="col-left">
+    <%= render_browser :asambleas, @project.asambleas %>
+  </div>
+  <div class="col-center">
+    <h2>Añadir una nueva reunión</h2>
+    <%= simple_form_for [@project, @asamblea] do |form| %>
+        <%= form.input :title %>
+        <div class="controls">
+          <%= form.submit %>
+        </div>
+    <% end %>
+  </div>
+  <div class="col-right"></div>
+</div>

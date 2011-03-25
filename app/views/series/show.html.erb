@@ -1,12 +1,8 @@
 <% title @series.title %>
 
-<div class="row24">
-  <div class="col-left">&nbsp;</div>
-  <div id="header" class="col-main">
-    <%= render :partial => 'header' %>
-
-  </div>
-</div>
+<%= render_top do %>
+    <%= render :partial => 'series/header', :locals => {:series => @series} %>
+<% end %>
 
 <div class="row24">
   <div id="navigation" class="col-left">

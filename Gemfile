@@ -33,4 +33,5 @@ group :development, :test do
 #  gem 'factory_girl_rails'
   gem "taps"
   gem "capistrano"
+  gem "rails_best_practices"
 end

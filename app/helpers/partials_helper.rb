@@ -1,8 +1,12 @@
 module PartialsHelper
 
-  def render_top(&block)
+  def render_browser(name, collection)
+    render :partial => "/#{name}/browser", :locals => {name => collection}
+  end
+
+  def render_top(current = :call, &block)
     content_for(:body, &block)
-    render :file => 'layouts/top'
+    render :file => 'layouts/top', :locals => {:current => current}
   end
 
   def render_project_nav(project, current)

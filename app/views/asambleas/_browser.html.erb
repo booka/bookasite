@@ -1,0 +1,14 @@
+<%= link_to image_tag('iconos/booka.png'), root_path %>
+<h2>Reuniones</h2>
+<ul>
+  <% asambleas.each do |asamblea| %>
+      <%= content_tag_for :li, asamblea do %>
+          <h3><%= link_to asamblea.title, [asamblea.project, asamblea] %></h3>
+      <% end %>
+  <% end %>
+</ul>
+<div class="actions">
+  <%= link_to 'Añadir una reunión', [:new, @project, :asamblea] %>
+</div>
+
+<%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>

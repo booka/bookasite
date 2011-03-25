@@ -1,7 +1,5 @@
 <ul class="navigator">
-
   <li><%= link_to_if current != :call, 'INTRO', [project, :contents] %></li>  <span>|</span>
   <li><%= link_to_if current != :contents,  'MATERIALES', [project, :contents] %></li>  <span>|</span>
-  <li><%= link_to_if current != :asambleas,  'DECISIONES', [project, :asambleas] %></li>  <span>|</span>
-
+  <li><%= link_to_if current != :asambleas,  'EDICIÓN', [project, :asambleas] %></li>  <span>|</span>
 </ul>
