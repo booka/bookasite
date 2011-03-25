@@ -1,19 +1,6 @@
 <% title @content.title %>
 
-<div class="row24">
-  <div class="col-left">&nbsp;</div>
-  <div id="header" class="col-main">
-    <%= render :partial => 'series/header' %>
-    <h2><%= @project.title %></h2>
-    <ul class="navigator">
-      <li><%= link_to 'INTRO', project_call_path(@project) %></li>
-      <span>|</span>
-      <li>MATERIALES</li>
-    </ul>
-
-  </div>
-</div>
-
+<%= render_top %>
 <div class="row24">
   <div id="navigation" class="col-left">
     <%= link_to image_tag('iconos/libro.png'), @project %>

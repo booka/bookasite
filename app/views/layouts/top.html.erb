@@ -1,0 +1,12 @@
+<div class="row24">
+  <div class="col-left">
+    <%= render 'sessions/session' %>
+  </div>
+  <div id="header" class="col-main">
+    <%= render(:partial => 'series/header') if @series.respond_to? :new_record? %>
+    <% if @project %>
+        <h2><%= @project.title %></h2>
+        <%= render_project_nav(@project, :call) %>
+    <% end %>
+  </div>
+</div>

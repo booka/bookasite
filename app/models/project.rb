@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
   has_many :proposals
   has_many :assets
   has_many :permissions
+  has_many :asambleas
 
   validates :series_id, :presence => true
   validates :title, :presence => true
@@ -30,5 +31,10 @@ class Project < ActiveRecord::Base
   private
   def create_call
     self.calls.create(:user => self.user, :title => self.title)
+  end
+
+  def create_asamblea(params = {})
+    params = {:user => self.user, :title => self.title}.merge(params)
+    self.asambleas.create(params)
   end
 end

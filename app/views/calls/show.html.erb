@@ -1,18 +1,8 @@
 <% title @call.title %>
 
-<div class="row24">
-  <div class="col-left">&nbsp;</div>
-  <div id="header" class="col-main">
-    <%= render :partial => 'series/header' %>
-
+<%= render_top do %>
     <h2><%= @call.title %></h2>
-    <ul class="navigator">
-      <li>INTRO</li>
-      <span>|</span>
-      <li><%= link_to 'MATERIALES', project_contents_path(@project) %></li>
-    </ul>
-  </div>
-</div>
+<% end %>
 
 <div class="row24">
   <div id="navigation" class="col-left">

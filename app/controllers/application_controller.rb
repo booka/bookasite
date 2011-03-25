@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include AuthModule
-  
+  layout 'grid'
+
   helper_method :current_user, :signed_in?
   
   protected

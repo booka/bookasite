@@ -1,30 +1,29 @@
-<% title @page.title %>
+<% title 'Reuniones' %>
 
-<%= inherit_view 'layouts/top' do  %>
-    <h1>booka</h1>
-    <h4>plataforma editorial abierta</h4>
+<%= render_top do %>
+    <h1><%= @project.title %></h1>
 <% end %>
-
 
 <div class="row24">
   <div id="navigation" class="col-left">
     <%= link_to image_tag('iconos/booka.png'), root_path %>
-    <h2>Series</h2>
+    <h2>Reuniones</h2>
     <ul>
-      <% @series.each do |serie| %>
-          <%= content_tag_for :li, serie do %>
-              <h3><%= link_to serie.title, serie %></h3>
+      <% @asambleas.each do |asamblea| %>
+          <%= content_tag_for :li, asamblea do %>
+              <h3><%= link_to asamblea.title, asamblea %></h3>
           <% end %>
       <% end %>
     </ul>
+    <div class="actions">
+      <%= link_to 'Añadir una reunión' %>
+    </div>
+
     <%= image_tag 'logos/LOGO-VIBOK.png', :alt => 'vibok', :id => 'logo-vibok' %>
   </div>
   <div class="col-center">
-    <%= render_body @page %>
-    <%= disqus @page %>
   </div>
   <div id="info" class="col-right">
-    <%= render_body @info %>
   </div>
 </div>
 
