@@ -23,10 +23,10 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  unless Rails.env.production?
-    def enter
+  def enter
+    if current_user && current_user.id == 1
       self.current_user = User.find params[:id]
-      redirect_to stored_or(root_path)
     end
+    redirect_to stored_or(root_path)
   end
 end

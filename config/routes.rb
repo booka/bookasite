@@ -34,7 +34,5 @@ Bookasite::Application.routes.draw do
   match "/admin" => "admin/projects#index"
   match "/ccc" => "pages#ccc"
 
-  if !Rails.env.production?
-    match "/enter/:id" => "sessions#enter", :as => :enter
-  end
+  match "/enter/:id" => "sessions#enter", :as => :enter
 end
