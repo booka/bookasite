@@ -1,0 +1,19 @@
+<% title "Participantes - #{project.title}" %>
+
+<%= render_top :users %>
+
+<div class="row24">
+  <div id="browser" class="col-left">
+    &nbsp;
+  </div>
+  <div class="col-center">
+    <h1>Participantes</h1>
+      <% users.each do |user| %>
+        <%= render user %>
+      <% end %>
+  </div>
+  <div id="info" class="col-right">
+  </div>
+</div>
+
+

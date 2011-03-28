@@ -1,16 +1,27 @@
-
+<% title asamblea.title %>
 <%= render_top :asambleas %>
 
 <div class="row24">
   <div id="browser" class="col-left">
-    <%= render_browser :asambleas, @project.asambleas %>
+    <%= render_browser :asambleas, project.asambleas %>
   </div>
-  <div class="col-center">
-    <h1>Reunión '<%= @asamblea.title %>'</h1>
-    <%= render_body @asamblea %>
+  <div class="col-center app">
+    <h1>Reunión '<%= asamblea.title %>'</h1>
+    <ul class="properties">
+      <li><label>Fecha de inicio:</label><%= asamblea.begin_date %></li>
+      <li><label>Fecha de finalización:</label><%= asamblea.end_date %></li>
+    </ul>
+    <%= render_body asamblea %>
     <div class="actions">
-      <%= link_to 'Editar reuinón', [:edit, @project, @asamblea] %>
-      <%= link_to 'Añadir un tema', [:new, @project, @asamblea, :topic] %>
+      <%= link_to 'Editar propiedades de esta reuinón', [:edit, project, asamblea] %>
+    </div>
+    <h2>Orden del día</h2>
+      <% asamblea.topics.each do |topic| %>
+        <%= render topic %>
+      <% end %>
+
+    <div class="actions">
+      <%= link_to 'Añadir un tema al orden del día', [:new, project, asamblea, :topic] %>
     </div>
   </div>
 </div>

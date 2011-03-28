@@ -1,8 +1,8 @@
-<h2>Materiales</h2>
-<ul>
+<ul class="browser">
+  <h2>Materiales</h2>
   <% contents.each do |content| %>
       <%= content_tag_for :li, content do %>
-          <h3><%= link_to content.title, [@project, content] %></h3>
+          <h3><%= link_to content.title, [project, content] %></h3>
           <div class="authors"><%= content.authors %></div>
       <% end %>
   <% end %>

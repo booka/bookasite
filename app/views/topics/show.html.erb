@@ -1,0 +1,27 @@
+<% title topic.title %>
+
+<%= render_top :asambleas %>
+
+<div class="row24">
+<div class="col-left">
+  <%= render_browser :topics, topics %>
+</div>
+<div class="col-center app">
+  <h1><%= topic.title %></h1>
+  <%= render_body topic %>
+  <div class="actions">
+    <%= link_to 'Editar', [:edit, project, asamblea, topic] %>
+  </div>
+  <h2>Comentarios</h2>
+  <div class="inline_form">
+    <h3><a href="#" class="expander"><span>+</span>Añadir comentario</a></h3>
+    <%= render :partial => 'comments/form' %>
+  </div>
+  <h2>Propuestas</h2>
+  <div class="inline_form">
+    <h3><a href="#" class="expander"><span>+</span>Añadir propuesta</a></h3>
+    <%= render :partial => 'answers/form' %>
+  </div>
+</div>
+<div class="col-right"></div>
+</div>

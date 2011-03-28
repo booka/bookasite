@@ -1,13 +1,30 @@
 (function($) {
 
+    var InlineForms = {
+        init : function() {
+            $(".inline_form form").hide();
+            $(".inline_form a.expander").click(function() {
+                var form = $(this).parents('.inline_form').find("form");
+                if (form.is(':visible')) {
+                    $("span", this).text('+');
+                    form.slideUp();
+                } else {
+                    $("span", this).text('-');
+                    form.slideDown();
+                }
+                return false;
+            });
+        }
+    };
+
     function initEditor() {
         $("#edit_content").click(function() {
-           $(".editable").aloha();
+            $(".editable").aloha();
         });
     }
 
     $(function() {
-
+        InlineForms.init();
         initEditor();
 
         if (false && history && history.pushState) {

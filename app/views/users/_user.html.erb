@@ -1,0 +1,6 @@
+<%= div_for user, :class => 'model' do %>
+    <%= image_tag avatar_url(user) %>
+    <ul class="properties">
+      <li><label>Nombre:</label><%= user.name %></li>
+    </ul>
+<% end %>

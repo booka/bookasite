@@ -1,5 +1,5 @@
-<h2>Convocatorias </h2>
-<ul>
+<ul class="browser">
+  <h2>Convocatorias </h2>
   <% calls.each do |project| %>
       <%= content_tag_for :li, project do %>
           <h3><%= link_to project.title, [project , :call] %></h3>

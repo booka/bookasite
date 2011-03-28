@@ -19,8 +19,9 @@ html {
   font-family: @font-body;
 }
 
-h1, h2, h3 {font-family: @font-title; line-height:1em; font-style: italic;margin: 0.5 0 0 0;}
+h1, h2, h3 {font-family: @font-title; line-height:1em; font-style: italic;margin: 0;}
 h1 {font-size: 30px;}
+h2 {font-size: 20px;}
 h4 {font-family: @font-subtitle;letter-spacing: 0.05em;}
 a {color: @c-link; text-decoration:none;border-bottom:none;}
 a:hover {color: @c-blue;}
@@ -51,12 +52,31 @@ div.authorizations a {display: block; float: left;padding-right:10px; text-align
 
 
 /** NAVIGATION **/
-#browser h2 {margin-top: 2em; border-bottom: @b-dot; font-variant: small-caps; font-size: 18px; padding-bottom: 0.2em;}
-#browser ul {margin-bottom: 1em;}
-#browser ul li {border-bottom: @b-dot; padding: 0.7em 0;}
-#browser ul li h3 {font-size: 20px; border:0;}
+ul.browser h2 {margin-top: 0em; border-bottom: @b-dot; font-variant: small-caps; font-size: 18px; padding-bottom: 0.2em;}
+ul.browser {margin-bottom: 1em;}
+ul.browser li {border-bottom: @b-dot; padding: 0.7em 0;}
+ul.browser li h3 {font-size: 20px; border:0;}
 
 #title h1 {font-family:@font-title; font-size:30px;margin: 10px 0;}
+
+/** APPLICATION **/
+.app h2 {margin-top: 1em;}
+.app .inline_form {margin: 1em; border: 1px solid fadeout(@c-blue, 70%); padding: 1em;}
+.app .inline_form form {font-size: 90%; margin-top: 1em;}
+.app .inline_form a.expander span {padding-right:0.5em;}
+ol li {list-style:decimal;}
+
+/** MODELS **/
+ul.properties {margin-left: 1em; font-weight:bold;}
+ul.properties label {font-weight:normal; padding-right:0.5em;}
+
+
+div.model {width: 100%; overflow: hidden; margin: 10px 0;}
+div.user img {float: left; margin-right:1em;}
+
+div.permission {border-bottom: @b-dot;}
+div.permission .actions {font-size:90%;}
+div.permission div.user {margin: 5px 0;}
 
 /** BODY **/
 .comments {width: 95%; margin-top: 50px; border-top: @b-dot; padding-top: 10px;}
@@ -95,6 +115,7 @@ form div.input span.hint {display: block;color: fadeout(@c-blue, 50%);}
 form div.input input, form div.input textarea {width: 90%;
     padding:2px;border: 1px solid @c-blue; border-radius: 2px;}
 form div.controls {margin-top: 10px;}
+form input[type=submit] {margin-right: 0.5em;}
 
 /** CONTACT **/
 #contact {margin-top: 2em; margin-bottom: 2em; padding: 0.5em 0;

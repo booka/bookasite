@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class AsambleasControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "should get edit" do
+    get :edit
+    assert_response :success
   end
 end

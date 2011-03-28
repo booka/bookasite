@@ -4,6 +4,7 @@ Bookasite::Application.routes.draw do
   # PUBLIC
   scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
     resources :projects, :path => 'b' do
+      resources :permissions, :path => 'participantes'
       resources :contents, :path => 'materiales'
       resources :asambleas, :path => 'edicion' do
         resources :topics, :path => 't'
@@ -12,6 +13,10 @@ Bookasite::Application.routes.draw do
       resource :proposal, :path => 'propuesta'
     end
     resources :series
+    resources :topics do
+      resources :answers
+      resources :comments
+    end
   end
 
   # AJAX

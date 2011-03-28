@@ -1,29 +1,29 @@
-<% title @content.title %>
+<% title content.title %>
 
 <%= render_top :contents %>
 <div class="row24">
   <div id="browser" class="col-left">
-    <%= link_to image_tag('iconos/libro.png'), @project %>
-    <%= render_browser :contents, @contents %>
+    <%= link_to image_tag('iconos/libro.png'), project %>
+    <%= render_browser :contents, contents %>
   </div>
   <div class="col-center-left">
-    <% @content.assets.each do |asset| %>
+    <% content.assets.each do |asset| %>
         <%= image_tag asset.file.url %>
     <% end %>
     &nbsp;
   </div>
   <div class="col-center-right">
-    <h1><%= @content.title %></h1>
+    <h1><%= content.title %></h1>
 
-    <h2><%= @content.authors %></h2>
-    <%= render_body @content %>
+    <h2><%= content.authors %></h2>
+    <%= render_body content %>
     &nbsp;
   </div>
 </div>
 <div class="row24">
   <div class="col-left">&nbsp;</div>
   <div class="col-main">
-    <%= disqus @content %>
+    <%= disqus content %>
   </div>
 </div>
 

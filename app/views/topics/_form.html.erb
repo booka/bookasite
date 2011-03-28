@@ -1,0 +1,8 @@
+<%= simple_form_for [project, asamblea, topic] do |form| %>
+    <%= form.input :title %>
+    <%= form.input :body %>
+    <div class="controls">
+      <%= form.submit %>
+      <%= link_to 'Cancelar', [project, asamblea] %>
+    </div>
+<% end  %>

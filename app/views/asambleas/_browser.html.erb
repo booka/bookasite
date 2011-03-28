@@ -1,9 +1,9 @@
 (en vez de éste, debería ir un logitipo que indique
 que estamos en la zona de edición)
-<%= link_to image_tag('iconos/booka.png'), [@project, :asambleas]%>
+<%= link_to image_tag('iconos/booka.png'), [project, :asambleas]%>
 
-<h2>Reuniones</h2>
-<ul>
+<ul class="browser">
+  <h2>Reuniones</h2>
   <% asambleas.each do |asamblea| %>
       <%= content_tag_for :li, asamblea do %>
           <h3><%= link_to asamblea.title, [asamblea.project, asamblea] %></h3>
@@ -11,6 +11,5 @@ que estamos en la zona de edición)
   <% end %>
 </ul>
 <div class="actions">
-  <%= link_to 'Añadir una reunión', [:new, @project, :asamblea] %>
+  <%= link_to 'Añadir una reunión', [:new, project, :asamblea] %>
 </div>
-

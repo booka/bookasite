@@ -1,0 +1,4 @@
+<%= div_for topic, :class => 'model' do %>
+    <h3><%= link_to topic.title, [project, asamblea, topic] %></h3>
+    <%= render_body topic %>
+<% end %>

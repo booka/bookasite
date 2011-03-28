@@ -1,1 +1,11 @@
-<h2>Temas</h2>
+<ul class="browser">
+  <h2><%= link_to asamblea.title, [project, asamblea] %></h2>
+  <% topics.each do |topic| %>
+      <%= content_tag_for :li, topic do %>
+          <h3><%= link_to topic.title, [project, asamblea, topic] %></h3>
+      <% end %>
+  <% end %>
+</ul>
+<div class="actions">
+  <%= link_to 'Añadir un tema', [:new, project, asamblea, :topic] %>
+</div>

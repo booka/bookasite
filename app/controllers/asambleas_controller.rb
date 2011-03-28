@@ -1,36 +1,31 @@
 class AsambleasController < ApplicationController
+  before_filter :require_user, :except => [:show, :index]
   respond_to :html
-  before_filter :load_project
+  expose(:project)
+  expose(:asambleas) { project.asambleas }
+  expose(:asamblea)
 
   def index
-    @asambleas = @project.asambleas
-    respond_with @asambleas
   end
 
   def new
-    @asamblea = Asamblea.new
-    respond_with @asamblea
   end
 
   def show
-    find_asamblea
-    respond_with @asamblea
   end
 
   def edit
-    find_asamblea
-    respond_with @asamblea
   end
 
   def create
-    @asamblea = @project.create_asamblea(params[:asamblea])
-    respond_with @asamblea, :location => [@project, @asamblea]
+    params[:asamblea][:user_id] = current_user.id
+    asamblea = project.asambleas.create(params[:asamblea])
+    respond_with asamblea, :location => [project, asamblea]
   end
 
   def update
-    find_asamblea
-    @asamblea.update_attributes(params[:asamblea])
-    respond_with @asamblea, :location => [@project, @asamblea]
+    asamblea.update_attributes(params[:asamblea])
+    respond_with @asamblea, :location => [project, asamblea]
   end
 
   protected

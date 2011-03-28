@@ -3,6 +3,13 @@ es:
   edicion: 'edición'
   contenido:  'contenido'
 
+  permission:
+    level:
+      read: 'leer'
+      update: 'modificar'
+      manage: 'administrar'
+
+
   activity:
     action:
       create: 'creado'

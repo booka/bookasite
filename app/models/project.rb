@@ -1,7 +1,7 @@
 # Un Booka
 class Project < ActiveRecord::Base
   serialize :properties
-  belongs_to :series
+  belongs_to :serie
   belongs_to :user
   has_many :calls, :order => 'position DESC'
   has_many :contents, :order => 'position'
@@ -26,11 +26,6 @@ class Project < ActiveRecord::Base
 
   def to_param
     title ? "#{id}-#{title.parameterize}" : id.to_s
-  end
-
-  def create_asamblea(params = {})
-    params = {:user => self.user, :title => self.title}.merge(params)
-    self.asambleas.create(params)
   end
 
   private

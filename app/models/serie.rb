@@ -1,4 +1,5 @@
-class Series < ActiveRecord::Base
+class Serie < ActiveRecord::Base
+  set_table_name 'series'
   has_many :projects
   belongs_to :page
   validates :title, :presence => true

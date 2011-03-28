@@ -4,18 +4,12 @@
 
 <div class="row24">
 <div class="col-left">
-  <%= render_browser :topics, @topics %>
+  <%= render_browser :topics, topics %>
 </div>
 <div class="col-center">
-  <h1>Añadir tema de discusión</h1>
-  <%= simple_form_for [@project, @asamblea, @topic] do |form| %>
-      <%= form.input :title %>
-      <%= form.input :body %>
-  <div class="controls">
-    <%= form.submit %>
-    <%= link_to 'Cancelar', [@project, @asamblea] %>
-  </div>
-  <% end  %>
+  <h2>Reunión: <%= link_to asamblea.title, [project, asamblea] %></h2>
+  <h1>Añadir tema al orden del día</h1>
+  <%= render :partial => 'form' %>
 </div>
 <div class="col-right"></div>
 </div>

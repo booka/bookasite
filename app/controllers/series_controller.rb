@@ -1,18 +1,15 @@
 class SeriesController < ApplicationController
-  layout 'public'
-
   respond_to :html
 
-  def index
-    @series = Series.all
-    @page = Page.get('/')
-    @info = Page.get('info')
+  expose(:series) { Serie.all }
+  expose(:serie)
+  # index
+  expose(:page) { Page.get('/') }
+  expose(:info) { Page.get('info') }
 
-    respond_with @series
+  def index
   end
 
   def show
-    @series = Series.find params[:id]
-    respond_with @series
   end
 end

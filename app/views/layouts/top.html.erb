@@ -3,11 +3,11 @@
     <%= render 'sessions/session' %>
   </div>
   <div id="header" class="col-main">
-    <%= render(:partial => 'series/header', :locals => {:series => @project.series}) if @project  %>
+    <%= render(:partial => 'series/header', :locals => {:serie => project.serie}) if project?  %>
     <%= yield :body %>
-    <% if @project %>
-        <h2><%= @project.title %></h2>
-        <%= render_project_nav(@project, current) %>
+    <% if project? %>
+        <h2><%= project.title %></h2>
+        <%= render_project_nav(project, current) %>
     <% end %>
   </div>
 </div>

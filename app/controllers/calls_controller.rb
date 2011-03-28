@@ -1,10 +1,10 @@
 class CallsController < ApplicationController
-  layout 'public'
+  respond_to :html
+  expose(:calls)
+  expose(:project)
+  expose(:call) { project.calls.first}
+  expose(:serie) { project.serie }
 
   def show
-    @calls = Call.all
-    @project = Project.find(params[:project_id])
-    @call = @project.calls.first
-    @series = @project.series
   end
 end

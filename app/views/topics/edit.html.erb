@@ -1,0 +1,15 @@
+<% title 'Añadir tema de discusión' %>
+
+<%= render_top :asambleas %>
+
+<div class="row24">
+<div class="col-left">
+  <%= render_browser :topics, topics %>
+</div>
+<div class="col-center">
+  <h2>Reunión: <%= link_to asamblea.title, [project, asamblea] %></h2>
+  <h1>Editar tema: <%= topic.title %></h1>
+  <%= render :partial => 'form' %>
+</div>
+<div class="col-right"></div>
+</div>

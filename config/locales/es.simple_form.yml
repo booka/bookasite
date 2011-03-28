@@ -50,6 +50,15 @@ es:
       file4: 'Sube un fichero o sustituye al actual'
   helpers:
     submit:
+      answer:
+        create: 'Añadir propuesta'
+        update: 'Editar propuesta'
+      asamblea:
+        create: 'Añadir reunión'
+        update: 'Guardar reunión'
+      topic:
+        create: 'Añadir tema'
+        update: 'Actualizar tema'
       proposal:
         create: 'Añadir propuesta'
         update: 'Guardar propuesta'

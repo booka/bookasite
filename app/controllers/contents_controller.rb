@@ -1,14 +1,14 @@
 class ContentsController < ApplicationController
-  before_filter :load_project
-  layout 'public'
+  expose(:project)
+  #show
+  expose(:serie) { project.serie }
+  expose(:contents) { project.contents }
+  expose(:content)
 
   def index
-    redirect_to [@project, @project.contents.first]
+    redirect_to [project, project.contents.first]
   end
 
   def show
-    @series = @project.series
-    @contents = @project.contents
-    @content = Content.find params[:id]
   end
 end

@@ -1,4 +1,4 @@
-<% title @page.title %>
+<% title page.title %>
 
 <%= render_top do  %>
     <h1>booka</h1>
@@ -9,14 +9,14 @@
 <div class="row24">
   <div id="browser" class="col-left">
     <%= link_to image_tag('iconos/booka.png'), root_path %>
-    <%= render_browser :series, @series %>
+    <%= render_browser :series, series %>
   </div>
-  <div class="col-center editable" data-page="<%= @page.id %>">
-    <%= render_body @page %>
-    <%= disqus @page %>
+  <div class="col-center editable" data-page="<%= page.id %>">
+    <%= render_body page %>
+    <%= disqus page %>
   </div>
   <div id="info" class="col-right">
-    <%= render_body @info %>
+    <%= render_body info %>
   </div>
 </div>
 

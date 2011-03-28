@@ -1,21 +1,21 @@
-<% title @series.title %>
+<% title serie.title %>
 
 <%= render_top do %>
-    <%= render :partial => 'series/header', :locals => {:series => @series} %>
+    <%= render :partial => 'series/header', :locals => {:serie => serie} %>
 <% end %>
 
 <div class="row24">
   <div id="browser" class="col-left">
-    <%= link_to image_tag(@series.icon_path, :alt => @series.title), root_path %>
-    <%= render_browser :projects, @series.projects %>
+    <%= link_to image_tag(serie.icon_path, :alt => serie.title), root_path %>
+    <%= render_browser :projects, serie.projects %>
 
   </div>
   <div class="col-center">
-    <%= render_body @series %>
-    <%= disqus @series %>
+    <%= render_body serie %>
+    <%= disqus serie %>
   </div>
   <div id="info" class="col-right">
-    <%= render_body @series.page %>
+    <%= render_body serie.page %>
   </div>
 </div>
 

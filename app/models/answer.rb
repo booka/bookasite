@@ -1,5 +1,4 @@
-class Answer
-  belongs_to :topic
-  has_many :comments
+class Answer < Bok
+  #belongs_to :topic, :foregin_key => :parent_id
 end
 

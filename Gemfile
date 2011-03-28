@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
 gem 'inherited_resources', '1.1.2'
+gem 'decent_exposure'
 gem "simple_form"
 gem "show_for"
 gem "acts_as_list"
@@ -21,6 +22,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 group :development, :test do
   gem 'mysql2'
+  gem 'test-unit'
 #  gem 'webrat'
 #  gem "rspec"
 #  gem "rspec-rails", ">= 2.0.0.beta"

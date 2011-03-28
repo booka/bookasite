@@ -1,7 +1,7 @@
-<h1><%= series.title %></h1>
+<h1><%= serie.title %></h1>
 <ul class="navigator">
   <li><%= link_to 'booka', root_path %></li>
-  <% Series.all.each do |serie| %>
+  <% Serie.all.each do |serie| %>
       <span>|</span>
       <li><%= link_to_unless_current serie.title, serie %></li>
   <% end %>

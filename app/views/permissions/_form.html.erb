@@ -1,0 +1,14 @@
+<% simple_form_for [project, permission] do |form| %>
+    <div class="inputs">
+      <% if permission.new_record? %>
+          <%= form.association(:user) %>
+      <% else %>
+          <%= render permission.user %>
+          <%= form.hidden_field :user_id %>
+      <% end %>
+      <%= form.input :level, :collection => Permission::LEVELS.map { |l| [l, l] }, :include_blank => false %>
+    </div>
+    <div class="controls">
+      <%= form.submit %><%= link_to 'Cancelar', [project, :permissions] %>
+    </div>
+<% end %>

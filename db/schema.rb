@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303112718) do
+ActiveRecord::Schema.define(:version => 20110328141724) do
 
   create_table "activities", :force => true do |t|
     t.string   "action"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20110303112718) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
+    t.string   "parent_type",  :limit => 32
   end
 
   add_index "boks", ["title"], :name => "index_boks_on_title"
@@ -87,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20110303112718) do
     t.string   "stage_content", :limit => 8,    :default => "closed"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "series_id",                     :default => 1
+    t.integer  "serie_id",                      :default => 1
     t.integer  "user_id"
   end
 
