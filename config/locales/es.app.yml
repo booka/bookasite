@@ -6,8 +6,8 @@ es:
   permission:
     level:
       read: 'leer'
-      update: 'modificar'
-      manage: 'administrar'
+      update: 'Participante'
+      manage: 'Administrador'
 
 
   activity:

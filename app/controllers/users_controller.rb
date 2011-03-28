@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   respond_to :html
-  edit_require_user
+  #edit_require_user
   expose(:project) { params[:project_id] ? Project.find(params[:project_id]) : nil }
 
   # index
@@ -21,5 +21,10 @@ class UsersController < ApplicationController
   def update
     user.update_attributes(params[:user])
     respond_with user, :location => user
+  end
+
+  def destroy
+    user.destroy
+    respond_with user, :location => users_path
   end
 end

@@ -19,12 +19,15 @@
           <li>Participa en <%= user.permissions.count %> bookas</li>
           <li>Ha creado <%= user.boks.count %> entradas</li>
         </ul>
-        <% if can? :update, user %>
-            <div class="actions">
-              <%= link_to 'Modificar', [:edit, user] %>
-            </div>
-        <% end %>
+        <div class="actions">
+          <%= link_to 'Modificar', [:edit, user] if can? :update, user %>
+          <% if can?(:destroy, user) and user.permissions.count == 0 and user.boks.count == 0 %>
+              <%= link_to 'Borrar', user, :method => :delete, :confirm => 'BORRAR USUARIO!?' %>
+          <% end %>
+        </div>
     <% end %>
+    <h2>Booka en los que participa</h2>
+    <%= render user.permissions %>
   </div>
   <div id="info" class="col-right">
     &nbsp;

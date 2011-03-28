@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     roles == 'admin'
   end
 
+  def super?
+    self.roles == 'super'
+  end
+
   def title
     self.name
   end
@@ -18,8 +22,8 @@ class User < ActiveRecord::Base
     name ? "#{id}-#{name.parameterize}" : id.to_s
   end
 
-  def self.find_or_create_from_auth!(hash)
-    user_info = hash['user_info']
+  def self.find_or_create_from_auth!(auth)
+    user_info = auth['user_info']
     email = user_info['email']
     puts "EMAIL #{email}"
     user = User.find_by_email(email)

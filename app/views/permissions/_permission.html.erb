@@ -1,13 +1,21 @@
 <% div_for permission do %>
-    <%= render permission.user %>
-    <h3>Puede <%= t("permission.level.#{permission.level}") %></h3>
-    <div class="actions">
-      <% if can? :edit, project %>
-          <%= link_to 'Modificar nivel de acceso', [:edit, project, permission] %>
-          <%= link_to 'Eliminar participante', [:edit, project, permission] %>
+    <%= render permission.user if project? %>
+    <h3><%= t("permission.level.#{permission.level}") %>
+      <% if !project? %>
+          en <%= link_to permission.project.title, permission.project %>
       <% end %>
-      <% if current_user.roles == 'super' %>
-          <%= link_to 'Entrar!', enter_path(permission.user.id) %>
-      <% end %>
-    </div>
+    </h3>
+    <% if project? %>
+        <div class="actions">
+          <% if can? :edit, project %>
+              <%= link_to 'Modificar nivel de acceso', [:edit, project, permission] %>
+              <%= link_to 'Eliminar participante', [project, permission],
+                :method => :delete, :confirm => 'Esto eliminará el permiso de este participante. ¿Seguro?' %>
+          <% end %>
+          <% if current_user and current_user.roles == 'super' %>
+              <%= link_to 'Entrar!', enter_path(permission.user.id) %>
+          <% end %>
+        </div>
+    <% end %>
+
 <% end %>

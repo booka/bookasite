@@ -28,4 +28,9 @@ class PermissionsController < ApplicationController
     respond_with permission, :location => [project, :permissions]
   end
 
+  def destroy
+    permission.destroy
+    redirect_to [:project, :permissions]
+  end
+
 end

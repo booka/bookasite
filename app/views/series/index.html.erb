@@ -1,8 +1,13 @@
 <% title page.title %>
 
-<%= render_top do  %>
+<%= render_top do %>
     <h1>booka</h1>
     <h4>plataforma editorial abierta</h4>
+    <div class="actions">
+      <% if current_user.super? %>
+          <%= link_to 'Participantes', users_path %>
+      <% end %>
+    </div>
 <% end %>
 
 

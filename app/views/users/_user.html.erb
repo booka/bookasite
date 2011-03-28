@@ -1,5 +1,5 @@
 <%= div_for user, :class => 'model' do %>
-    <%= image_tag avatar_url(user) %>
+    <%= image_tag avatar_url(user, 32) %>
     <ul class="properties">
       <li><%= link_to user.name, user %></li>
     </ul>

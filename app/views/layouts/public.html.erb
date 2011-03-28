@@ -20,10 +20,10 @@
 
 <div id="page">
   <% flash.each do |name, msg| %>
-	<%= content_tag :div, :id => "flash_#{name}" do %>
-		<%= msg %>
-	<% end %>
-<% end %>
+      <%= content_tag :div, :id => "flash_#{name}" do %>
+          <%= msg %>
+      <% end %>
+  <% end %>
 
   <%= yield %>
   <div class="row24">
@@ -38,9 +38,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript">!window.jQuery && document.write('<script src="/javascripts/jquery-1.4.4.min.js"><\/script>')</script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
-<%= javascript_include_tag 'public.js' %>
-
-
+<%= javascript_include_tag 'rails.js', 'public.js' %>
 </body>
 
 </html>

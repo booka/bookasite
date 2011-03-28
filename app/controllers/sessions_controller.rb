@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  layout 'public'
-
   def new
   end
 
@@ -11,7 +9,8 @@ class SessionsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
     unless @auth = Authorization.find_from_auth(auth)
-      @auth = Authorization.create_from_auth(auth, current_user) 
+      user = User.find_or_create_from_auth!(auth)
+      @auth = Authorization.create_from_auth(auth, user)
     end
 
     self.current_user = @auth.user
