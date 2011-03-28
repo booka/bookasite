@@ -7,4 +7,12 @@ class CallsController < ApplicationController
 
   def show
   end
+
+  def edit
+  end
+
+  def update
+    call.update_attributes(params[:call])
+    respond_with call, :location => [project, call]
+  end
 end

@@ -1,0 +1,3 @@
+class Agreement < Bok
+
+end

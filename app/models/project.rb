@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
   has_many :permissions
   has_many :asambleas
 
-  validates :series_id, :presence => true
+  validates :serie_id, :presence => true
   validates :title, :presence => true
   validates :user_id, :presence =>  true
 

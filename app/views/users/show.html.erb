@@ -1,0 +1,32 @@
+<% title user.name %>
+
+<%= render_top do %>
+    <h1>Participantes</h1>
+    <h2><%= user.name %></h2>
+<% end %>
+
+<div class="row24">
+  <div id="browser" class="col-left">
+    &nbsp;
+  </div>
+  <div class="col-center">
+    <%= div_for user, :class => 'model' do %>
+        <%= image_tag avatar_url(user, 96) %>
+        <ul class="properties">
+          <li><label>Nombre:</label><%= user.name %></li>
+          <li><label>Email:</label><%= user.email %></li>
+          <li><label>Rol:</label><%= user.roles %></li>
+          <li>Participa en <%= user.permissions.count %> bookas</li>
+          <li>Ha creado <%= user.boks.count %> entradas</li>
+        </ul>
+        <% if can? :update, user %>
+            <div class="actions">
+              <%= link_to 'Modificar', [:edit, user] %>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+  <div id="info" class="col-right">
+    &nbsp;
+  </div>
+</div>

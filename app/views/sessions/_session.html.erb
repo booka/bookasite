@@ -1,8 +1,11 @@
 <div id="session">
   <% if current_user %>
-      Hola, <%= current_user.name %><br/>
-      <%= link_to 'Salir', logout_path %>
-
+      Hola, <%= link_to current_user.name, current_user %>
+      <br/>
+      <%= link_to 'Salir', logout_path %><br/>
+      <% if current_user.admin? %>
+          <%= link_to '> Participantes', users_path %>
+      <% end %>
   <% else %>
       <%= link_to 'Iniciar sesión', login_path %>
   <% end %>

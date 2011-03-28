@@ -1,5 +1,8 @@
 <ul class="browser">
-  <h2>Convocatorias </h2>
+  <h2>Títulos</h2>
+  <% if can? :manage, Project %>
+      <%= link_to 'Añadir título' %>
+  <% end %>
   <% projects.each do |project| %>
       <%= content_tag_for :li, project do %>
           <h3><%= link_to project.title, project %></h3>

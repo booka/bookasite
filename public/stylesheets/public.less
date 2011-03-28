@@ -1,7 +1,9 @@
 /** VARIABLES **/
 @c-blue: #29256a;
+@c-blue-lt: fadeout(@c-blue,80%);
 @c-gray: #a0a1b5;
 @c-green: #0f0;
+@c-green-lt: fadeout(@c-green,30%);
 @c-link: fadeout(@c-blue, 20%);
 
 @font-title: 'Tinos', arial, serif;
@@ -54,6 +56,7 @@ div.authorizations a {display: block; float: left;padding-right:10px; text-align
 /** NAVIGATION **/
 ul.browser h2 {margin-top: 0em; border-bottom: @b-dot; font-variant: small-caps; font-size: 18px; padding-bottom: 0.2em;}
 ul.browser {margin-bottom: 1em;}
+ul.browser > a {color: @c-green;}
 ul.browser li {border-bottom: @b-dot; padding: 0.7em 0;}
 ul.browser li h3 {font-size: 20px; border:0;}
 
@@ -61,22 +64,34 @@ ul.browser li h3 {font-size: 20px; border:0;}
 
 /** APPLICATION **/
 .app h2 {margin-top: 1em;}
-.app .inline_form {margin: 1em; border: 1px solid fadeout(@c-blue, 70%); padding: 1em;}
+.app h2.first {margin-top:0;}
+.app .inline_form {}
 .app .inline_form form {font-size: 90%; margin-top: 1em;}
 .app .inline_form a.expander span {padding-right:0.5em;}
 ol li {list-style:decimal;}
+.app a {}
 
 /** MODELS **/
-ul.properties {margin-left: 1em; font-weight:bold;}
+div.inline {margin:1em 5%; width: 90%; }
+
+ul.properties a {color: @c-gray; }
+ul.properties a:hover {color: @c-green;}
+ul.properties {margin-left: 1em;}
 ul.properties label {font-weight:normal; padding-right:0.5em;}
 
-
 div.model {width: 100%; overflow: hidden; margin: 10px 0;}
+div.model p b a {font-weight:normal;color: @c-gray;}
+div.model p b a:hover {font-weight:normal;color: @c-green;}
+div.model .body {background-color: @c-blue-lt; padding:2px 4px; border-radius:2px;}
+
 div.user img {float: left; margin-right:1em;}
 
-div.permission {border-bottom: @b-dot;}
+div.permission {margin: 1em 0;}
 div.permission .actions {font-size:90%;}
 div.permission div.user {margin: 5px 0;}
+
+div.answer {margin: 1em; border-bottom: 1px dotted fadeout(@c-blue, 30%); padding: 0.5em;}
+div.answer h3 {margin: 10px 0; font-weight:bold;}
 
 /** BODY **/
 .comments {width: 95%; margin-top: 50px; border-top: @b-dot; padding-top: 10px;}
@@ -99,13 +114,15 @@ div.permission div.user {margin: 5px 0;}
 }
 
 /** BROWSER **/
+#icon {}
 
-
+/** OUTLINE **/
+ul.outline li {margin: 3px 0 3px 10px;}
 
 /** ACTIONS **/
 div.actions {width: 100%; overflow: hidden; margin: 5px 0;}
-div.actions a {display:block;float:left;padding:2px 5px;border-radius:3px;
-    background-color:fadeout(@c-blue,80%); margin-right:5px;}
+div.actions a {display:block;float:left;padding:2px 5px;border-radius:3px; margin-right:5px;
+    color:@c-green;}
 div.actions a:hover {background-color:fadeout(@c-green,80%);}
 
 /** FORMS **/
@@ -114,6 +131,7 @@ form div.input label {display: block; font-weight:bold;}
 form div.input span.hint {display: block;color: fadeout(@c-blue, 50%);}
 form div.input input, form div.input textarea {width: 90%;
     padding:2px;border: 1px solid @c-blue; border-radius: 2px;}
+form textarea {height: 4em;}
 form div.controls {margin-top: 10px;}
 form input[type=submit] {margin-right: 0.5em;}
 

@@ -1,0 +1,11 @@
+<%= simple_form_for(user) do |form| %>
+  <div class="inputs">
+    <%= form.input :name %>
+    <%= form.input :email %>
+    <%= form.input :roles %>
+    <%= form.input :avatar_url %>
+  </div>
+  <div class="controls">
+    <%= form.submit %><%= link_to 'Cancelar', (user.new_record? ? users_path : user)%>
+  </div>
+<% end %>

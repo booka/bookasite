@@ -1,0 +1,14 @@
+<%= div_for answer, :class => 'model' do %>
+    <p>Propuesta de <b><%= answer.user.name %></b> hace <%= time_ago_in_words answer.created_at %>:</p>
+    <h3><%= answer.title %></h3>
+    <%= render_body answer %>
+    <div class="inline">
+      <%= render answer.comments %>
+      <% if can? :update, answer %>
+          <div class="inline_form">
+            <a href="#" class="expander"><span>+</span>Comentar propuesta</a>
+            <%= render :partial => 'comments/form', :locals => {:parent => answer} %>
+          </div>
+      <% end %>
+    </div>
+<% end %>

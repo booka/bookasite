@@ -5,7 +5,8 @@ gem 'inherited_resources', '1.1.2'
 gem 'decent_exposure'
 gem "simple_form"
 gem "show_for"
-gem "acts_as_list"
+gem 'ranked-model'
+#gem "acts_as_list"
 gem 'table_for_collection'
 # gem "table_for"
 gem "cancan"

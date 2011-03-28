@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  layout 'grid1140'
+  respond_to :html
+  expose(:projects)
+  expose(:project)
 
   def index
     redirect_to root_path
@@ -8,4 +10,13 @@ class ProjectsController < ApplicationController
   def show
     redirect_to project_call_path(params[:id])
   end
+
+  def edit
+  end
+
+  def update
+    project.update_attributes(params[:project])
+    respond_with project, :location => project
+  end
+
 end

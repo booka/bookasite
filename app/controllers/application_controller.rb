@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def project?
-    self.respond_to? :project
+    self.respond_to?(:project) and self.project.present?
   end
 
   def self.edit_require_user

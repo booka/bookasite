@@ -1,0 +1,11 @@
+<%= simple_form_for(call, :url => [project, :call]) do |form| %>
+  <div class="inputs">
+    <%= form.input :title %>
+    <%= form.input :description %>
+    <%= form.input :content_type, :collection => [['html', 'text/html']], :include_blank => false %>
+    <%= form.input :body %>
+  </div>
+  <div class="controls">
+    <%= form.submit %><%= link_to 'Cancelar', (project.new_record? ? projects_path : project)%>
+  </div>
+<% end %>

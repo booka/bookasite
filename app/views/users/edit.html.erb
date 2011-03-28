@@ -1,0 +1,18 @@
+<% title "Modificar #{user.name}" %>
+
+<%= render_top do %>
+    <h1>Participantes</h1>
+    <h2><%= user.name %></h2>
+<% end %>
+
+<div class="row24">
+  <div id="browser" class="col-left">
+    &nbsp;
+  </div>
+  <div class="col-center">
+    <%= render :partial => 'form' %>
+  </div>
+  <div id="info" class="col-right">
+    &nbsp;
+  </div>
+</div>

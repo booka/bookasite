@@ -8,16 +8,7 @@
   </div>
   <div class="col-center">
     <h1>Participantes</h1>
-    <% permissions.each do |permission| %>
-        <% div_for permission do %>
-            <h3>Puede <%= t("permission.level.#{permission.level}") %></h3>
-            <%= render permission.user %>
-            <div class="actions">
-              <%= link_to 'Modificar nivel de acceso', [:edit, project, permission] %>
-              <%= link_to 'Eliminar participante', [:edit, project, permission] %>
-            </div>
-        <% end %>
-    <% end %>
+    <%= render permissions %>
     <div class="actions">
       <% if can?(:admin, project) %>
           <%= link_to 'Añadir participante', [:new, project, :permission] %>

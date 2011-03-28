@@ -1,7 +1,9 @@
 # Base class for other types
 class Bok < ActiveRecord::Base
-  acts_as_list :scope => "project_id"
+  include RankedModel
+  ranks :position, :with_same => :parent_id
   serialize :properties
+  before_save :ensure_parent
 
   belongs_to :user
   belongs_to :project, :class_name => 'Project'
@@ -38,5 +40,9 @@ class Bok < ActiveRecord::Base
       self.properties = {} if self.properties.blank?
       self.properties[name] = value
     end
+  end
+
+  def ensure_parent
+    self.parent = self.project if self.parent.blank?
   end
 end

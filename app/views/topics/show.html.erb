@@ -3,25 +3,70 @@
 <%= render_top :asambleas %>
 
 <div class="row24">
-<div class="col-left">
-  <%= render_browser :topics, topics %>
-</div>
-<div class="col-center app">
-  <h1><%= topic.title %></h1>
-  <%= render_body topic %>
-  <div class="actions">
-    <%= link_to 'Editar', [:edit, project, asamblea, topic] %>
+  <div class="col-left">
+    <%= render_browser :topics, topics %>
   </div>
-  <h2>Comentarios</h2>
-  <div class="inline_form">
-    <h3><a href="#" class="expander"><span>+</span>Añadir comentario</a></h3>
-    <%= render :partial => 'comments/form' %>
+  <div class="col-center app">
+    <%= div_for topic, :class => 'model' do %>
+        <p><b>Tema</b> de la reunión '<%= link_to asamblea.title, [project, asamblea] %>'
+          creado <b><%= topic.user.name %></b> hace <%= time_ago_in_words topic.created_at %>:<br/></p>
+        <br/>
+        <h1><%= topic.title %></h1>
+        <%= render_body topic %>
+        <% if can? :update, topic %>
+            <div class="actions">
+              <%= link_to 'Modificar tema', [:edit, project, asamblea, topic] %>
+            </div>
+        <% end %>
+        <div class="inline">
+          <%= render topic.comments %>
+          <% if can? :update, topic %>
+              <div class="inline_form">
+                <a href="#" class="expander"><span>+</span>Comentar tema</a>
+                <%= render :partial => 'comments/form', :locals => {:parent => topic} %>
+              </div>
+          <% end %>
+        </div>
+        <a name="answers"></a>
+
+        <h2>Propuestas</h2>
+        <div class="inline">
+        <%= render topic.answers %>
+        <% if can? :update, topic %>
+            <div class="inline_form">
+              <a href="#" class="expander"><span>+</span>Añadir una propuesta a este tema</a>
+              <%= render :partial => 'answers/form' %>
+            </div>
+        <% end %>
+        <a name="agreements"></a>
+        </div>
+
+        <h2>Acuerdos</h2>
+
+        <div class="inline">
+          <%= render topic.agreements %>
+          <% if can? :update, topic %>
+              <div class="inline_form">
+                <a href="#" class="expander"><span>+</span>Añadir un acuerdo a este tema</a>
+                <%#= render :partial => 'answers/form' %>
+              </div>
+          <% end %>
+        </div>
+
+        <a name="tasks"></a>
+        <h2>Tareas</h2>
+        <div class="inline">
+          <%= render topic.tasks %>
+          <% if can? :update, topic %>
+              <div class="inline_form">
+                <a href="#" class="expander"><span>+</span>Añadir una tarea a este tema</a>
+                <%#= render :partial => 'answers/form' %>
+              </div>
+          <% end %>
+        </div>
+    <% end %>
   </div>
-  <h2>Propuestas</h2>
-  <div class="inline_form">
-    <h3><a href="#" class="expander"><span>+</span>Añadir propuesta</a></h3>
-    <%= render :partial => 'answers/form' %>
+  <div class="col-right">
+    <%= render :partial => 'outline' %>
   </div>
-</div>
-<div class="col-right"></div>
 </div>

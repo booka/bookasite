@@ -19,6 +19,12 @@
 <body>
 
 <div id="page">
+  <% flash.each do |name, msg| %>
+	<%= content_tag :div, :id => "flash_#{name}" do %>
+		<%= msg %>
+	<% end %>
+<% end %>
+
   <%= yield %>
   <div class="row24">
     <div class="col-left">&nbsp;</div>

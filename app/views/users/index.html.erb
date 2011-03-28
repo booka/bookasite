@@ -1,6 +1,10 @@
-<% title "Participantes - #{project.title}" %>
+<% title "Participantes" %>
 
-<%= render_top :users %>
+<%= render_top :users do %>
+    <% unless project? %>
+        <h1>Participantes</h1>
+    <% end %>
+<% end %>
 
 <div class="row24">
   <div id="browser" class="col-left">
