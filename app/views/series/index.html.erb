@@ -4,7 +4,7 @@
     <h1>booka</h1>
     <h4>plataforma editorial abierta</h4>
     <div class="actions">
-      <% if current_user.super? %>
+      <% if current_user && current_user.super? %>
           <%= link_to 'Participantes', users_path %>
       <% end %>
     </div>

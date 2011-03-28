@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   end
 
   def super?
-    self.roles == 'super'
+    self.id == 1 || self.roles == 'super'
   end
 
   def title
