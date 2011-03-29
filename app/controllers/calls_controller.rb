@@ -6,6 +6,9 @@ class CallsController < ApplicationController
   expose(:serie) { project.serie }
 
   def index
+  end
+
+  def view
     render :action => :show
   end
 

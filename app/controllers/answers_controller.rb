@@ -1,4 +1,10 @@
 class AnswersController < ApplicationController
+
+  def show
+    answer = Answer.find params[:id]
+    redirect_to [answer.asamblea.project, answer.asamblea, answer.topic]
+  end
+
   def create
     topic = Topic.find params[:topic_id]
     asamblea = topic.asamblea

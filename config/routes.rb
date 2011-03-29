@@ -25,6 +25,8 @@ Bookasite::Application.routes.draw do
       resources :asambleas, :only => :show
       resources :calls, :only => :show
       resources :contents, :only => :show
+      resources :comments, :only => :show
+      resources :answers, :only => :show
     end
 
     resources :projects, :path => '' do
@@ -33,10 +35,13 @@ Bookasite::Application.routes.draw do
       resources :asambleas, :path => 'edicion' do
         resources :topics, :path => 't'
       end
-      resource :call, :path => 'intro'
-      resources :calls, :path => "intros"
-      resource :proposal, :path => 'propuesta'
-      resources :proposasl, :path => 'propuestas'
+      resources :calls, :path => "intro" do
+        get :view, :on => :collection, :path => 'ver'
+      end
+      resources :proposals, :path => 'propuestas' do
+        get :view, :on => :collection, :path => 'ver'
+      end
+
     end
     resources :series
 

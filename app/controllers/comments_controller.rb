@@ -1,4 +1,14 @@
 class CommentsController < ApplicationController
+  def show
+    comment = Comment.find params[:id]
+    if comment.parent_id == comment.project_id
+      redirect_to [comment.project, comment]
+    else
+      redirect_to [comment.project, comment.parent.asamblea, comment.parent]
+    end
+  end
+
+
   def create
     if params[:topic_id].present?
       parent = Topic.find params[:topic_id]
