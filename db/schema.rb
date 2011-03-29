@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110329004734) do
+ActiveRecord::Schema.define(:version => 20110329013433) do
 
   create_table "activities", :force => true do |t|
     t.string   "action"
@@ -62,6 +62,21 @@ ActiveRecord::Schema.define(:version => 20110329004734) do
 
   add_index "boks", ["title"], :name => "index_boks_on_title"
   add_index "boks", ["type"], :name => "index_boks_on_type"
+
+  create_table "jobs", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.integer  "bok_id"
+    t.string   "bok_type"
+    t.string   "name",        :limit => 100
+    t.string   "options",     :limit => 1024
+    t.datetime "start_after"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.integer  "priority",                    :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", :force => true do |t|
     t.string   "title",        :limit => 300

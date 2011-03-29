@@ -1,9 +1,20 @@
 Bookasite::Application.routes.draw do
   root :to => 'series#index'
 
+  # AJAX
+  resources :boks
+
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/cerrar" => "sessions#destroy", :as => :logout
+  match "/identificarse" => "sessions#new", :as => :login
+  match "/enter/:id" => "sessions#enter", :as => :enter
+  match "/work" => "jobs#work", :as => :work
+
   # PUBLIC
   scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
     resources :users, :path => 'participantes'
+    resources :jobs, :path => 'trabajos'
+    resources :activities, :path => 'actividad'
 
     resources :projects, :path => '' do
       resources :permissions, :path => 'participantes'
@@ -25,14 +36,5 @@ Bookasite::Application.routes.draw do
     end
   end
 
-  # AJAX
-  resources :boks
 
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/cerrar" => "sessions#destroy", :as => :logout
-  match "/identificarse" => "sessions#new", :as => :login
-  match "/admin" => "admin/projects#index"
-  match "/ccc" => "pages#ccc"
-
-  match "/enter/:id" => "sessions#enter", :as => :enter
 end

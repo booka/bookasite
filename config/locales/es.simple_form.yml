@@ -73,3 +73,5 @@ es:
         create: 'Crear artículo'
       permission:
         create: 'Crear permiso'
+      job:
+        create: 'Lanzar trabajo'

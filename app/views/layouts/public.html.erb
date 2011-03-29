@@ -18,6 +18,7 @@
 
 <body>
 
+<%= render :partial => '/layouts/admin' %>
 <div id="page">
   <% flash.each do |name, msg| %>
       <%= content_tag :div, :id => "flash_#{name}" do %>
