@@ -1,9 +1,9 @@
 <%= link_to image_tag('iconos/libro.png'), [project, :asambleas]%>
 
 <ul class="browser">
-  <h2>Reuniones</h2>
+  <h2>Foros</h2>
   <% if can? :update, project %>
-      <%= link_to 'Añadir una reunión', [:new, project, :asamblea] %>
+      <%= link_to 'Añadir un foro', [:new, project, :asamblea] %>
   <% end %>
   <% asambleas.each do |asamblea| %>
       <%= content_tag_for :li, asamblea do %>

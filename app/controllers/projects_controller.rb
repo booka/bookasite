@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   respond_to :html
   expose(:projects)
-  expose(:project)
+  expose(:project) { Project.find_by_slug(params[:id])}
 
   def index
     redirect_to root_path

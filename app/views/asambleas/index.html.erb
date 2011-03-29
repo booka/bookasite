@@ -12,12 +12,17 @@
     <p>La Mesa de edición es la zona en la que podemos discutir y llegar a decisiones
       sobre la edición del libro</p>
 
-    <p>Las decisiones se toman en <b>reuniones</b>. Puedes crear una nueva reunión o ver las
+    <p>Las decisiones se toman en <b>foros</b>. Puedes crear una nueva reunión o ver las
       que ya están creadas en la lista de la izquierda.</p>
-    <h2>Reuniones</h2>
+    <h2>Foros</h2>
     <% asambleas.each do |asamblea| %>
         <%= render asamblea %>
     <% end %>
+    <div class="actions">
+      <% if can? :update, project %>
+          <%= link_to 'Añadir un foro', [:new, project, :asamblea] %>
+      <% end %>
+    </div>
   </div>
   <div id="info" class="col-right">
   </div>

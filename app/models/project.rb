@@ -12,9 +12,14 @@ class Project < ActiveRecord::Base
 
   validates :serie_id, :presence => true
   validates :title, :presence => true
+  validates :slug, :presence => true
   validates :user_id, :presence =>  true
 
   after_create :create_call
+
+  def self.get(id)
+    Project.find_by_slug(id)
+  end
 
   # find or build a project user proposal
   def proposal(rol, user)
@@ -25,7 +30,7 @@ class Project < ActiveRecord::Base
   end
 
   def to_param
-    title ? "#{id}-#{title.parameterize}" : id.to_s
+    slug ? slug.parameterize : id.to_s
   end
 
   private

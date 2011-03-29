@@ -1,4 +1,4 @@
-<h1><%= serie.title %></h1>
+<%= content_tag (project? ? :h2 : :h1), serie.title %>
 <ul class="navigator">
   <li><%= link_to 'booka', root_path %></li>
   <% Serie.all.each do |serie| %>

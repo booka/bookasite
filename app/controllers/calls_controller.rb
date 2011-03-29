@@ -1,7 +1,7 @@
 class CallsController < ApplicationController
   respond_to :html
   expose(:calls)
-  expose(:project)
+  expose(:project) { Project.get(params[:project_id]) }
   expose(:call) { project.calls.first}
   expose(:serie) { project.serie }
 

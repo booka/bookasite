@@ -7,8 +7,8 @@
   <%= render_browser :topics, topics %>
 </div>
 <div class="col-center">
-  <h2>Reunión: <%= link_to asamblea.title, [project, asamblea] %></h2>
-  <h1>Editar tema: <%= topic.title %></h1>
+  <h2>Foro: <%= link_to asamblea.title, [project, asamblea] %></h2>
+  <h1><%= topic.title %></h1>
   <%= render :partial => 'form' %>
 </div>
 <div class="col-right"></div>

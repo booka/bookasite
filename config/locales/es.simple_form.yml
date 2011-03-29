@@ -35,6 +35,12 @@ es:
         project: "Booka"
         user: "Participante"
         level: "Acceso"
+      asamblea:
+        title: 'Nombre'
+        body: 'Objetivo del foro'
+      topic:
+        title: 'Tema'
+        body: 'Asunto'
       
 
     hints:
@@ -43,36 +49,27 @@ es:
       authors: 'Por favor, indica todas las personas que tienen autoría'
       title: '300 caracteres como máximo'
       description: 'Haz un resúmen. 500 caracteres máximo'
-      slug: 'En esta dirección se mostrará esta página. Por ejemplo /ayuda ser podrá leer en http://plataformabooka.net/ayuda'
+      slug: 'Es la dirección url donde aparecerá, por ej: "ayuda" se convertirá en http://plataformabooka.net/ayuda'
       file1: 'Sube un fichero o sustituye al actual'
       file2: 'Sube un fichero o sustituye al actual'
       file3: 'Sube un fichero o sustituye al actual'
       file4: 'Sube un fichero o sustituye al actual'
   helpers:
     submit:
+      update: 'Actualizar'
       answer:
         create: 'Añadir propuesta'
-        update: 'Editar propuesta'
       asamblea:
-        create: 'Añadir reunión'
-        update: 'Guardar reunión'
+        create: 'Añadir foro'
       topic:
         create: 'Añadir tema'
-        update: 'Actualizar tema'
       proposal:
         create: 'Añadir propuesta'
-        update: 'Guardar propuesta'
       call:
         create: 'Crear convocatoria'
-        update: 'Guardar convocatoria'
-      user:
-        update: 'Guardar participante'
       project:
         create: 'Crear booka'
-        update: 'Guardar booka'
       content:
         create: 'Crear artículo'
-        update: 'Guardar artículo'
       permission:
         create: 'Crear permiso'
-        update: 'Guardar permiso'

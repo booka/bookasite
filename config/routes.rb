@@ -5,7 +5,7 @@ Bookasite::Application.routes.draw do
   scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
     resources :users, :path => 'participantes'
 
-    resources :projects, :path => 'b' do
+    resources :projects, :path => '' do
       resources :permissions, :path => 'participantes'
       resources :contents, :path => 'materiales'
       resources :asambleas, :path => 'edicion' do
