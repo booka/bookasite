@@ -10,11 +10,13 @@
   </div>
   <div class="col-center">
     <table>
-      <% activity_subscriptions.each do |subscription| %>
+      <% asubs.each do |asub| %>
           <tr>
-          <td><%= subscription.user.name %></td>
-          <td><%= subscription.activity.body %></td>
-          <td><%= subscription.notified %></td>
+            <td><%= asub.activity.activity_at %></td>
+            <td><%= asub.user.name %></td>
+            <td><%= asub.activity.action %></td>
+            <td><%= asub.activity.project.title %></td>
+            <td><%= asub.notified %></td>
           </tr>
       <% end %>
     </table>

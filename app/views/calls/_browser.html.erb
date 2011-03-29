@@ -2,7 +2,7 @@
   <h2>Títulos</h2>
   <% calls.each do |project| %>
       <%= content_tag_for :li, project do %>
-          <h3><%= link_to project.title, [project , :call] %></h3>
+          <h3><%= link_to project.title, [project , :calls] %></h3>
       <% end %>
   <% end %>
 </ul>

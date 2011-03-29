@@ -6,19 +6,16 @@ class ReuseActivity < ActiveRecord::Migration
       t.belongs_to :user
       t.belongs_to :resource, :polymorphic => true
       t.boolean :notified, :default => false
-      t.text :body
-      t.timestamps
+      t.string :action, :limit => 64
+      t.string :url, :limit => 300
+      t.string :link, :limit => 200
+      t.datetime :created_at
+      t.datetime :activity_at
     end
 
-    create_table :activity_subscriptions do |t|
-      t.belongs_to :user
-      t.belongs_to :activity
-      t.boolean :notified, :default => false
-    end
   end
 
   def self.down
-    drop_table :activity_subscriptions
     drop_table :activities
     create_table :activities do |t|
       t.string :action

@@ -5,7 +5,15 @@ class CallsController < ApplicationController
   expose(:call) { project.calls.first}
   expose(:serie) { project.serie }
 
+  def index
+    render :action => :show
+  end
+
   def show
+    if params[:project_id].blank?
+      call = Call.find params[:id]
+      redirect_to [call.project,call]
+    end
   end
 
   def edit

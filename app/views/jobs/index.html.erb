@@ -23,16 +23,6 @@
     <% end %>
     <br/>
 
-    <h2>Lanzar</h2>
-    <%= simple_form_for Job.new(:name => 'system.nothing') do |form| %>
-        <%= form.input :name %>
-        <%= form.input :priority %>
-        <div class="controls">
-          <%= form.submit %>
-        </div>
-    <% end %>
-    <br/>
-
     <h2>Cola</h2>
     <table>
       <%= render jobs %>
@@ -48,6 +38,16 @@
           <td><%= l var.created_at, :format => :short %></td>
       <% end %>
     </table>
+    <br/>
+
+    <h2>Lanzar</h2>
+    <%= simple_form_for(Job.new) do |form| %>
+        <%= form.input :name %>
+        <%= form.input :priority %>
+        <div class="controls">
+          <%= form.submit %>
+        </div>
+    <% end %>
     <br/>
 
     <h2>Completados</h2>

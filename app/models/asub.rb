@@ -1,4 +1,4 @@
-class ActivitySubscription < ActiveRecord::Base
+class Asub < ActiveRecord::Base
   belongs_to :activity
   belongs_to :user
 

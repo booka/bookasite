@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :authorizations, :dependent => :destroy
   has_many :permissions, :dependent => :destroy
   has_many :boks, :dependent => :destroy
+  has_many :asubs, :order => 'created_at ASC', :dependent => :destroy
 
   validates :name, :presence => true
   validates :email, :presence => true

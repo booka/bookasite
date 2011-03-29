@@ -11,6 +11,10 @@ class TopicsController < ApplicationController
   expose(:comment) { topic.comments.build }
 
   def show
+    if params[:project_id].blank?
+      topic = Topic.find params[:id]
+      redirect_to project_asamblea_topic_path(topic.asamblea.project, topic.asamblea, topic)
+    end
   end
 
   def new

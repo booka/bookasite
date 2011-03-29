@@ -29,10 +29,13 @@
           <% end %>
         </div>
     <% end %>
-    <h2>Booka en los que participa</h2>
-    <%= render user.permissions %>
+    <% if current_user and (current_user.super? or current_user == user) %>
+        <h2>Actividad en tus bookas</h2>
+        <%= render user.asubs %>
+    <% end %>
   </div>
   <div id="info" class="col-right">
-    &nbsp;
+    <h2>Bookas</h2>
+    <%= render user.permissions %>
   </div>
 </div>

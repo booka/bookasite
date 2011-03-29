@@ -1,5 +1,6 @@
 <tr class="<%= cycle('even', 'odd') %>">
-  <td><%= activity.body %></td>
+  <td><%= activity.url %></td>
+  <td><%= activity.action %></td>
   <td><%= activity.project.title if activity.project %></td>
   <td><%= activity.user.name if activity.user %></td>
   <td><%= activity.notified ? 'x' : 'o' %></td>

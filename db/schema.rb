@@ -10,23 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110329124439) do
+ActiveRecord::Schema.define(:version => 20110329164940) do
 
   create_table "activities", :force => true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.boolean  "notified",      :default => false
-    t.text     "body"
+    t.boolean  "notified",                     :default => false
+    t.string   "action",        :limit => 64
+    t.string   "url",           :limit => 300
+    t.string   "link",          :limit => 200
     t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "activity_subscriptions", :force => true do |t|
-    t.integer "user_id"
-    t.integer "activity_id"
-    t.boolean "notified",    :default => false
+    t.datetime "activity_at"
   end
 
   create_table "app_vars", :force => true do |t|
@@ -49,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20110329124439) do
     t.string   "file"
     t.integer  "resource_id"
     t.string   "resource_type", :limit => 64
+  end
+
+  create_table "asubs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.boolean  "notified",    :default => false
+    t.datetime "created_at"
   end
 
   create_table "authorizations", :force => true do |t|

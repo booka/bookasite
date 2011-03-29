@@ -11,7 +11,7 @@
     <%= render_body call %>
     <div class="actions">
       <% if can? :update, call %>
-          <%= link_to 'Editar introducción', [:edit, project, :call] %>
+          <%= link_to 'Editar introducción', [:edit, project, call] %>
       <% end %>
     </div>
     <%= disqus call %>

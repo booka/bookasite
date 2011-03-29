@@ -10,9 +10,14 @@ class Worker
   end
 
   work 'jobs.clear' do |job|
-    Job.completed.destroy_all
+    Job.destroy_all
   end
 
+  work 'activity.update' do |job|
+    activity_clear(job)
+    activity_create(job)
+    asub_create(job)
+  end
 
   work 'activity.create' do |job|
     var = AppVar.get('activity.version.id')
@@ -20,7 +25,6 @@ class Worker
 
     total = 0
     Version.where("id > ?", last_id).order('id ASC').all.each do |version|
-      puts "VERSION #{version.id} - #{version.event}"
       Activity.create_from_version(version)
       last_id = version.id
       total += 1
@@ -31,11 +35,11 @@ class Worker
 
   work 'activity.clear' do |job|
     AppVar.get('activity.version.id').destroy
-    ActivitySubscription.destroy_all
+    Asub.destroy_all
     Activity.destroy_all
   end
 
-  work 'activity.subscriptions' do |job|
+  work 'asub.create' do |job|
     activities_count = 0
     subscriptions_count = 0
     Activity.where(:notified => false).all.each do |activity|

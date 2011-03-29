@@ -10,5 +10,9 @@ class ContentsController < ApplicationController
   end
 
   def show
+    if params[:project_id].blank?
+      content = Content.find params[:id]
+      redirect_to [content.project, content]
+    end
   end
 end

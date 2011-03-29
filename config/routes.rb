@@ -12,11 +12,20 @@ Bookasite::Application.routes.draw do
 
   # PUBLIC
   scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
-    resources :users, :path => 'participantes'
-    resources :jobs, :path => 'trabajos'
-    resources :activities, :path => 'actividad'
-    resources :versions, :path => 'versiones'
-    resources :activity_subscriptions, :path => 'subscripciones'
+    scope "/admin" do
+      resources :users, :path => 'participantes'
+      resources :jobs, :path => 'trabajos'
+      resources :activities, :path => 'actividad'
+      resources :versions, :path => 'versiones'
+      resources :asubs, :path => 'subscripciones'
+    end
+
+    scope "/models" do
+      resources :topics, :only => :show
+      resources :asambleas, :only => :show
+      resources :calls, :only => :show
+      resources :contents, :only => :show
+    end
 
     resources :projects, :path => '' do
       resources :permissions, :path => 'participantes'
@@ -24,8 +33,10 @@ Bookasite::Application.routes.draw do
       resources :asambleas, :path => 'edicion' do
         resources :topics, :path => 't'
       end
-      resource :call, :path => "intro"
+      resource :call, :path => 'intro'
+      resources :calls, :path => "intros"
       resource :proposal, :path => 'propuesta'
+      resources :proposasl, :path => 'propuestas'
     end
     resources :series
 

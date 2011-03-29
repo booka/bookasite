@@ -13,6 +13,10 @@ class AsambleasController < ApplicationController
   end
 
   def show
+    if params[:project_id].blank?
+      asamblea = Asamblea.find params[:id]
+      redirect_to [asamblea.project,asamblea]
+    end
   end
 
   def edit

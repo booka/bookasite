@@ -2,7 +2,7 @@
   <% if can? :admin, project %>
       <li><%= link_to_if current != :admin, 'ADMIN', [:edit, project] %></li>  <span>|</span>
   <% end %>
-  <li><%= link_to_if current != :call, 'INTRO', [project, :contents] %></li>  <span>|</span>
+  <li><%= link_to_if current != :call, 'INTRO', [project, :call] %></li>  <span>|</span>
   <li><%= link_to_if current != :contents,  'MATERIALES', [project, :contents] %></li>  <span>|</span>
   <li><%= link_to_if current != :asambleas,  'EDICIÓN', [project, :asambleas] %></li>  <span>|</span>
   <li><%= link_to_if current != :permissions,  'PARTICIPANTES', [project, :permissions] %></li>  <span>|</span>

@@ -21,3 +21,8 @@ es:
       Proposal: 'una propuesta'
       Content: 'un contenido'
       UserSession: 'una sesión de usuario'
+      User: 'un usuario'
+      Asamblea: 'un foro'
+      Topic: 'un tema de discusón'
+      Call: 'una introducción'
+      Answer: 'una propuesta a debatir'

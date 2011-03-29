@@ -1,0 +1,11 @@
+<%= div_for asub, :class => 'model' do %>
+    <% activity = asub.activity %>
+
+    <%= image_tag avatar_url(activity.user, 40) %>
+    <ul class="properties">
+      <li><%= link_to activity.user.name, activity.user %> hace
+        <%= distance_of_time_in_words_to_now activity.activity_at %> ha
+        <b><%= link_to activity.action, activity.url %></b></li>
+      <li>en <%= link_to activity.project.title, activity.project %> </li>
+    </ul>
+<% end %>
