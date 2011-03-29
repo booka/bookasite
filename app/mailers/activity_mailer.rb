@@ -3,6 +3,6 @@ class ActivityMailer < ActionMailer::Base
 
   def activity_report_email
     @activities = Activity.all
-    mail(:to => User.first.email, :subject => "[Booka] Activity Report #{Time.mow}")
+    mail(:to => User.first.email, :subject => "[Booka] Activity Report #{Time.now}")
   end
 end
