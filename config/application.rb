@@ -28,7 +28,7 @@ module Bookasite
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-   config.i18n.default_locale = :es
+    config.i18n.default_locale = :es
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
@@ -38,5 +38,16 @@ module Bookasite
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        :address => "smtp.gmail.com",
+        :port => 587,
+        :domain => 'plataformabooka.net',
+        :user_name => 'info@plataformabooka.net',
+        :password => 'bookainfo',
+        :authentication => 'plain',
+        :enable_starttls_auto => true
+    }
   end
 end

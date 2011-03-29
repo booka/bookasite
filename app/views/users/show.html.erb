@@ -24,6 +24,9 @@
           <% if can?(:destroy, user) and user.permissions.count == 0 and user.boks.count == 0 %>
               <%= link_to 'Borrar', user, :method => :delete, :confirm => 'BORRAR USUARIO!?' %>
           <% end %>
+          <% if current_user and current_user.roles == 'super' %>
+              <%= link_to 'Entrar!', enter_path(user.id) %>
+          <% end %>
         </div>
     <% end %>
     <h2>Booka en los que participa</h2>

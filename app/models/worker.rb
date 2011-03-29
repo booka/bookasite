@@ -4,23 +4,41 @@ class Worker
   end
 
   work 'activity.report' do |job|
-    puts("Epa!")
-    puts("Time #{job.created_at}")
+    ActivityMailer.activity_report_email.deliver
+    Activity.destroy_all
+  end
+
+  work 'system.fail' do |job|
+    true
+  end
+
+  work 'system.nothing' do |job|
+
   end
 
   def initialize(job)
     @job = job
-    @output = ''
+    @output = []
   end
 
   def puts(text)
-    @output = @output + '\n' + text
+    @output << text
+  end
+
+  def output
+    @output
+  end
+
+  def job
+    @job
   end
 
   def execute
-    puts "JOB: #{@job.name}"
-    self.send @job.name.gsub(/\./, '_'), @job
-    @output
+    job.update_attribute(:started_at, Time.now)
+    puts "JOB: #{job.name} #{job.created_at}"
+    self.send(job.name.gsub(/\./, '_'), job)
+    job.update_attribute(:finished_at, Time.now)
+    puts "TIME: #{job.finished_at - job.started_at}"
   end
 
 

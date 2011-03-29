@@ -1,5 +1,6 @@
 <div id="session">
   <%= link_to 'Plataformabooka.net', root_path %><br/>
+  <%= link_to 'Ayuda', '/booka' %><br/>
   <% if current_user %>
       Hola, <%= link_to current_user.name, current_user %>
       <br/>
@@ -11,5 +12,4 @@
       <%= link_to 'Iniciar sesión', login_path %>
       <br/>
   <% end %>
-  <%= link_to 'Ayuda', '/booka' %><br/>
 </div>

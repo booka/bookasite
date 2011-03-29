@@ -1,14 +1,17 @@
 class JobsController < ApplicationController
-  expose(:jobs) { Job.all }
+  expose(:jobs) { Job.queue }
   expose(:job)
 
   def index
   end
 
   def work
-    job = Job.first
-    worker = Worker.new(job)
-    render :text => worker.execute
+    job = Job.queue.first
+    if job
+      worker = Worker.new(job)
+      flash[:worker_output] = worker.output if worker.execute
+    end
+    redirect_to jobs_path
   end
 
   def create

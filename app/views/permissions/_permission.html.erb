@@ -12,9 +12,6 @@
               <%= link_to 'Eliminar participante', [project, permission],
                 :method => :delete, :confirm => 'Esto eliminará el permiso de este participante. ¿Seguro?' %>
           <% end %>
-          <% if current_user and current_user.roles == 'super' %>
-              <%= link_to 'Entrar!', enter_path(permission.user.id) %>
-          <% end %>
         </div>
     <% end %>
 

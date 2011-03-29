@@ -1,5 +1,6 @@
 class PermissionsController < ApplicationController
   respond_to :html
+  after_filter { |controller| Activity.register(controller, current_user, permission) }
   expose(:project) { Project.get(params[:project_id])}
 
   #index
