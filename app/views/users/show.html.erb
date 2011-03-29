@@ -9,7 +9,7 @@
   <div id="browser" class="col-left">
     &nbsp;
   </div>
-  <div class="col-center">
+  <div class="col-center-left">
     <%= div_for user, :class => 'model' do %>
         <%= image_tag avatar_url(user, 96) %>
         <ul class="properties">
@@ -34,7 +34,7 @@
         <%= render user.asubs %>
     <% end %>
   </div>
-  <div id="info" class="col-right">
+  <div id="info" class="col-center-right">
     <h2>Bookas</h2>
     <%= render user.permissions %>
   </div>
