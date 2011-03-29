@@ -1,6 +1,6 @@
 class PermissionsController < ApplicationController
   respond_to :html
-  expose(:project)
+  expose(:project) { Project.get(params[:project_id])}
 
   #index
   expose(:permissions) { project.permissions }

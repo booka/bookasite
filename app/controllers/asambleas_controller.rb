@@ -1,7 +1,8 @@
 class AsambleasController < ApplicationController
   before_filter :require_user, :except => [:show, :index]
   respond_to :html
-  expose(:project)
+
+  expose(:project) { Project.get params[:project_id] }
   expose(:asambleas) { project.asambleas }
   expose(:asamblea)
 

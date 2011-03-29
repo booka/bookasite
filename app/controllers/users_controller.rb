@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   respond_to :html
   #edit_require_user
-  expose(:project) { params[:project_id] ? Project.find(params[:project_id]) : nil }
+  expose(:project) { params[:project_id] ? Project.get(params[:project_id]) : nil }
 
   # index
   expose(:users) { project.present? ? project.users : User.all }

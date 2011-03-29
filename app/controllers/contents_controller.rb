@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-  expose(:project)
+  expose(:project) { Project.get params[:project_id] }
   #show
   expose(:serie) { project.serie }
   expose(:contents) { project.contents }
