@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_paper_trail
+
   has_many :authorizations, :dependent => :destroy
   has_many :permissions, :dependent => :destroy
   has_many :boks, :dependent => :destroy

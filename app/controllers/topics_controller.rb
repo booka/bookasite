@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   edit_require_user
   respond_to :html
-  expose(:project)
+  expose(:project) { Project.get(params[:project_id])}
   expose(:asamblea)
   expose(:topics) { asamblea.topics }
   expose(:topic)

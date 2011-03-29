@@ -9,9 +9,9 @@
     &nbsp;
   </div>
   <div class="col-center">
-    <%= form_for Job.new(:name => 'activity.report') do |form| %>
+    <%= form_for Job.new(:name => 'activity.subscriptions') do |form| %>
         <%= form.hidden_field :name %>
-        <%= form.submit %>
+        <%= form.submit 'Crear notificaciones' %>
     <% end %>
     <table>
       <%= render activities %>

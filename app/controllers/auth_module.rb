@@ -5,6 +5,15 @@ module AuthModule
     @current_user ||= User.find_by_id(session[:user_id])
   end
 
+  def require_super
+    if current_user
+      raise CanCan::AccessDenied unless current_user.super?
+    elsif
+      store_location
+      redirect_to login_path
+    end
+  end
+
   def require_user
     unless current_user
       store_location

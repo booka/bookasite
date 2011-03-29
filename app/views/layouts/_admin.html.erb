@@ -1,8 +1,9 @@
 <% if current_user && current_user.super? %>
     <div id="admin">
       <%= link_to 'Participantes', users_path %>
+      <%= link_to 'Versiones', versions_path %>
       <%= link_to 'Actividad', activities_path %>
-      |
+      <%= link_to 'Suscriptiones', activity_subscriptions_path %>
       <%= link_to 'Trabajos', jobs_path %>
 
     </div>

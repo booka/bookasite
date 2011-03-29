@@ -1,5 +1,9 @@
 # Un Booka
 class Project < ActiveRecord::Base
+  has_paper_trail(:meta => {
+      :project_id => Proc.new { |project| project.id }
+  })
+
   serialize :properties
   belongs_to :serie
   belongs_to :user

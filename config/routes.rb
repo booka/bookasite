@@ -15,6 +15,8 @@ Bookasite::Application.routes.draw do
     resources :users, :path => 'participantes'
     resources :jobs, :path => 'trabajos'
     resources :activities, :path => 'actividad'
+    resources :versions, :path => 'versiones'
+    resources :activity_subscriptions, :path => 'subscripciones'
 
     resources :projects, :path => '' do
       resources :permissions, :path => 'participantes'

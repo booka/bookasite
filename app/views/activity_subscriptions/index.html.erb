@@ -1,0 +1,24 @@
+<% title "Subscripciones" %>
+
+<%= render_top :users do %>
+    <h1>Subscripciones</h1>
+<% end %>
+
+<div class="row24">
+  <div id="browser" class="col-left">
+    &nbsp;
+  </div>
+  <div class="col-center">
+    <table>
+      <% activity_subscriptions.each do |subscription| %>
+          <tr>
+          <td><%= subscription.user.name %></td>
+          <td><%= subscription.activity.body %></td>
+          <td><%= subscription.notified %></td>
+          </tr>
+      <% end %>
+    </table>
+    <div id="info" class="col-right">
+    </div>
+  </div>
+</div>

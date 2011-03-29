@@ -15,6 +15,8 @@ gem 'omniauth'
 gem 'carrierwave'
 gem 'fog'
 gem 'easy_http_cache'
+gem 'paper_trail', '~> 2'
+
 
 # Bundle edge Rails instead: gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -24,6 +26,9 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 group :development, :test do
   gem 'mysql2'
   gem 'test-unit'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
 #  gem 'webrat'
 #  gem "rspec"
 #  gem "rspec-rails", ">= 2.0.0.beta"

@@ -10,16 +10,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110329013433) do
+ActiveRecord::Schema.define(:version => 20110329124439) do
 
   create_table "activities", :force => true do |t|
-    t.string   "action"
-    t.string   "model"
-    t.integer  "model_id"
+    t.integer  "project_id"
     t.integer  "user_id"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.boolean  "notified",      :default => false
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "project_id"
+  end
+
+  create_table "activity_subscriptions", :force => true do |t|
+    t.integer "user_id"
+    t.integer "activity_id"
+    t.boolean "notified",    :default => false
+  end
+
+  create_table "app_vars", :force => true do |t|
+    t.string   "name",       :limit => 64
+    t.integer  "count",                    :default => 0
+    t.integer  "value",                    :default => 0
+    t.string   "data",       :limit => 16
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "assets", :force => true do |t|
@@ -145,5 +161,18 @@ ActiveRecord::Schema.define(:version => 20110329013433) do
     t.string   "email",      :limit => 300
     t.string   "avatar_url", :limit => 300
   end
+
+  create_table "versions", :force => true do |t|
+    t.string   "item_type",                :null => false
+    t.integer  "item_id",                  :null => false
+    t.string   "event",                    :null => false
+    t.string   "whodunnit"
+    t.string   "bok_type",   :limit => 16
+    t.integer  "project_id"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
 end

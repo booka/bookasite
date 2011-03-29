@@ -1,10 +1,14 @@
 class Permission < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
-  
+
   validates :project_id, :presence => true, :uniqueness => {:scope => :user_id}
   validates :user_id, :presence => true, :uniqueness => {:scope => :project_id}
-  
+
+  has_paper_trail(:meta => {
+      :project_id => Proc.new { |bok| bok.project_id }
+  })
+
   LEVELS = [:read, :update, :manage]
 
   def self.of(user, project)

@@ -5,17 +5,18 @@ es:
 
   permission:
     level:
-      read: 'leer'
+      read: 'Suscriptor'
       update: 'Participante'
       manage: 'Administrador'
 
 
   activity:
     action:
-      create: 'creado'
+      create: 'añadido'
       update: 'modificado'
       destroy: 'borrado'
     model:
+      Permission: 'un colaborador'
       Asset: 'un fichero'
       Proposal: 'una propuesta'
       Content: 'un contenido'

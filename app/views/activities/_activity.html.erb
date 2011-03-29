@@ -1,10 +1,7 @@
 <tr class="<%= cycle('even', 'odd') %>">
+  <td><%= activity.body %></td>
+  <td><%= activity.project.title if activity.project %></td>
+  <td><%= activity.user.name if activity.user %></td>
+  <td><%= activity.notified ? 'x' : 'o' %></td>
   <td><%= time_ago_in_words activity.created_at %></td>
-  <td>
-    <%= activity.user ? link_to(activity.user.name, user_path(activity.user)) : 'Alguien' %> ha
-    <%= t "activity.action.#{activity.action}" %> <%= t "activity.model.#{activity.model}" %>
-    <% if activity.project %>
-        en <%= link_to "'#{activity.project.title}'", project_path(activity.project) %>
-    <% end %>
-  </td>
 </tr>

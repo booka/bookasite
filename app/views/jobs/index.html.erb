@@ -10,17 +10,19 @@
   </div>
   <div class="col-center">
     <h2>Resultado</h2>
+
     <div class="actions">
-        <%= link_to 'Siguiente', work_path %>
+      <%= link_to 'Siguiente', work_path %>
     </div>
     <% if flash[:worker_output] %>
         <ul>
           <% flash[:worker_output].each do |line| %>
-            <li><%= line %></li>
+              <li><%= line %></li>
           <% end %>
         </ul>
     <% end %>
     <br/>
+
     <h2>Lanzar</h2>
     <%= simple_form_for Job.new(:name => 'system.nothing') do |form| %>
         <%= form.input :name %>
@@ -30,19 +32,29 @@
         </div>
     <% end %>
     <br/>
+
     <h2>Cola</h2>
     <table>
-      <% jobs.each do |job| %>
-          <tr class="<%= cycle('even', 'odd') %>">
-            <td><%= job.priority %></td>
-            <td><%= job.name %></td>
-            <td><%= job.user.name %></td>
-            <td><%= time_ago_in_words job.created_at %></td>
-            <td><%= job.started_at %></td>
-            <td><%= job.finished_at %></td>
-          </tr>
+      <%= render jobs %>
+    </table>
+    <br/>
+    <h2>Variables</h2>
+    <table>
+      <% app_vars.each do |var| %>
+          <td><%= var.name %></td>
+          <td><%= var.value %></td>
+          <td>'<%= var.data %>'</td>
+          <td>(<%= var.count %>)</td>
+          <td><%= l var.created_at, :format => :short %></td>
       <% end %>
     </table>
+    <br/>
+
+    <h2>Completados</h2>
+    <table>
+      <%= render finished %>
+    </table>
+
   </div>
   <div id="info" class="col-right">
   </div>

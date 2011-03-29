@@ -1,5 +1,10 @@
 # Base class for other types
 class Bok < ActiveRecord::Base
+  has_paper_trail(:meta => {
+      :bok_type => Proc.new { |bok| bok.type },
+      :project_id => Proc.new { |bok| bok.project_id }
+  })
+
   include RankedModel
   ranks :position, :with_same => :parent_id
   serialize :properties

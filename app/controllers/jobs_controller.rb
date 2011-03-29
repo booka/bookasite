@@ -1,6 +1,9 @@
 class JobsController < ApplicationController
+  before_filter :require_super
   expose(:jobs) { Job.queue }
+  expose(:finished) { Job.completed }
   expose(:job)
+  expose(:app_vars) { AppVar.all }
 
   def index
   end

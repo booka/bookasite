@@ -1,6 +1,7 @@
 # Una página, de información, de ayuda
 # Se pueden editar por lxs administradorxs
 class Page < ActiveRecord::Base
+  has_paper_trail
 
   def self.get(slug)
     Page.find_by_slug(slug) || Page.new

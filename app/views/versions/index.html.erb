@@ -1,0 +1,35 @@
+<% title "Versiones" %>
+
+<%= render_top :users do %>
+    <h1>Versiones</h1>
+<% end %>
+
+<div class="row24">
+  <div id="browser" class="col-left">
+    &nbsp;
+  </div>
+  <div class="col-center">
+    <%= form_for Job.new(:name => 'activity.report') do |form| %>
+        <%= form.hidden_field :name %>
+        <%= form.submit 'Crear actividad' %>
+    <% end %>
+    <table>
+      <% versions.each do |version| %>
+          <tr class="<%= cycle('even', 'odd') %>">
+            <td><%= version.id %></td>
+            <td><%= version.created_at %></td>
+            <td><%= version.event %></td>
+            <td><%= version.item_id %></td>
+            <td><%= version.item_type %></td>
+            <td><%= version.bok_type %></td>
+            <td>p:<%= version.project_id %></td>
+            <td>u:<%= version.whodunnit %></td>
+            <td><%= version.object %></td>
+          </tr>
+      <% end %>
+    </table>
+
+    <div id="info" class="col-right">
+    </div>
+  </div>
+</div>

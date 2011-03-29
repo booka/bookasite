@@ -1,0 +1,8 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td><%= job.priority %></td>
+  <td><%= job.name %></td>
+  <td><%= job.user.name %></td>
+  <td><%= time_ago_in_words job.created_at %></td>
+  <td><%= job.started_at %></td>
+  <td><%= job.finished_at %></td>
+</tr>
