@@ -1,7 +1,7 @@
 <ul class="browser">
   <h2>Series</h2>
   <% if can? :manage, Serie %>
-      <%= link_to 'Crear una serie' %>
+      <%= link_to 'Crear una serie', new_series_path, :id => "new_serie_link" %>
   <% end %>
   <% series.each do |serie| %>
       <%= content_tag_for :li, serie do %>

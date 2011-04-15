@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   respond_to :html
-  #edit_require_user
+  before_filter :require_admin, :only => 'index'
+
   expose(:project) { params[:project_id] ? Project.get(params[:project_id]) : nil }
 
   # index

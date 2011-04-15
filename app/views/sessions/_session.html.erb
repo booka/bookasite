@@ -4,12 +4,12 @@
   <% if current_user %>
       Hola, <%= link_to current_user.name, current_user %>
       <br/>
-      <%= link_to 'Salir', logout_path %><br/>
+      <%= link_to 'Salir', logout_path, :id => 'logout_link' %><br/>
       <% if current_user.admin? %>
           <%= link_to '> Participantes', users_path %>
       <% end %>
   <% else %>
-      <%= link_to 'Iniciar sesión', login_path %>
+      <%= link_to 'Iniciar sesión', login_path, :id => 'login_link' %>
       <br/>
   <% end %>
 </div>

@@ -26,6 +26,7 @@
           <% end %>
           <% if current_user and current_user.roles == 'super' %>
               <%= link_to 'Entrar!', enter_path(user.id) %>
+              <%= link_to 'Enviar invitación', new_user_invitation_path(user) %>
           <% end %>
         </div>
     <% end %>

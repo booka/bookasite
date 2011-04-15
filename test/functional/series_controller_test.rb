@@ -1,26 +1,29 @@
 require 'test_helper'
-require 'capybara'
-require 'capybara/dsl'
-require 'database_cleaner'
 
-Capybara.app = Bookasite::Application
-Capybara.default_driver = :rack_test
-DatabaseCleaner.strategy = :truncation
 
-class SeriesControllerTest < ActionController::TestCase
-  include Capybara
-  self.use_transactional_fixtures = false
+class SeriesControllerTest < ControllerTest
 
   setup do
-    DatabaseCleaner.start
     @serie1 = Serie.create(:title => 'serie1', :icon_path => 'icon.png')
   end
 
-  teardown do
-    DatabaseCleaner.clean
+  test 'should GET index' do
+    visit series_index_path
+    assert_response :success
   end
 
-  test 'should get series' do
+  test 'index should have add link if privilegies are enough' do
+    visit series_index_path
+    assert page.has_no_link? 'new_serie_link'
+
+    user = User.create(:name => 'admin', :email => 'admin@admin', :roles => 'admin')
+    visit enter_path(user.id)
+    visit series_index_path
+    assert page.has_link? 'new_serie_link'
+  end
+
+
+  test 'should GET show' do
     visit series_path(@serie1)
     assert_response :success
     assert page.has_content?('serie1')
