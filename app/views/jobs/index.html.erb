@@ -42,7 +42,7 @@
 
     <h2>Lanzar</h2>
     <%= simple_form_for(Job.new) do |form| %>
-        <%= form.input :name %>
+        <%= form.input :name, :collection => Worker.definitions, :include_blank => false %>
         <%= form.input :priority %>
         <div class="controls">
           <%= form.submit %>

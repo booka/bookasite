@@ -1,12 +1,9 @@
 class Worker
+  cattr_reader :definitions
   def self.work(name, &block)
     @@definitions ||= []
     @@definitions << name
     define_method(name.gsub(/\./, '_'), &block)
-  end
-
-  work 'all' do |job|
-    @@definitions.each { |name| puts name }
   end
 
   work 'jobs.clear' do |job|
@@ -16,7 +13,7 @@ class Worker
   work 'activity.update' do |job|
     activity_clear(job)
     activity_create(job)
-    asub_create(job)
+    notifications_create(job)
   end
 
   work 'activity.create' do |job|
@@ -35,11 +32,11 @@ class Worker
 
   work 'activity.clear' do |job|
     AppVar.get('activity.version.id').destroy
-    Asub.destroy_all
+    Notification.destroy_all
     Activity.destroy_all
   end
 
-  work 'asub.create' do |job|
+  work 'notifications.create' do |job|
     activities_count = 0
     subscriptions_count = 0
     Activity.where(:notified => false).all.each do |activity|

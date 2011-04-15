@@ -47,13 +47,6 @@ ActiveRecord::Schema.define(:version => 20110329164940) do
     t.string   "resource_type", :limit => 64
   end
 
-  create_table "asubs", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "activity_id"
-    t.boolean  "notified",    :default => false
-    t.datetime "created_at"
-  end
-
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
@@ -95,6 +88,13 @@ ActiveRecord::Schema.define(:version => 20110329164940) do
     t.integer  "priority",                    :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.boolean  "notified",    :default => false
+    t.datetime "created_at"
   end
 
   create_table "pages", :force => true do |t|

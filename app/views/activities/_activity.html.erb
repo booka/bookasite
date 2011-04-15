@@ -4,5 +4,5 @@
   <td><%= activity.project.title if activity.project %></td>
   <td><%= activity.user.name if activity.user %></td>
   <td><%= activity.notified ? 'x' : 'o' %></td>
-  <td><%= time_ago_in_words activity.created_at %></td>
+  <td><%= time_ago_in_words activity.activity_at %></td>
 </tr>

@@ -16,7 +16,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'easy_http_cache'
 gem 'paper_trail', '~> 2'
-
+gem 'exception_notification', :require => 'exception_notifier'
 
 # Bundle edge Rails instead: gem 'rails', :git => 'git://github.com/rails/rails.git'
 

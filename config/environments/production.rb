@@ -50,6 +50,11 @@ Bookasite::Application.configure do
 #      :enable_starttls_auto => true
 #  }
 
+  config.middleware.use ExceptionNotifier,
+                        :email_prefix => "[Bookasite] ",
+                        :sender_address => %{"Bookasite errors" <errors@plataformabooka.net>},
+                        :exception_recipients => %w{danigb@gmail.com}
+
 
   # 1and1
   config.action_mailer.delivery_method = :smtp

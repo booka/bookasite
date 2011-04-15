@@ -32,7 +32,7 @@
     <% end %>
     <% if current_user and (current_user.super? or current_user == user) %>
         <h2>Actividad en tus bookas</h2>
-        <%= render user.asubs %>
+        <%= render user.notifications %>
     <% end %>
   </div>
   <div id="info" class="col-center-right">

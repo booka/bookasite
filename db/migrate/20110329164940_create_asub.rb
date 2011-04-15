@@ -1,6 +1,6 @@
 class CreateAsub < ActiveRecord::Migration
   def self.up
-    create_table :asubs do |t|
+    create_table :notifications do |t|
       t.belongs_to :user
       t.belongs_to :activity
       t.boolean :notified, :default => false
@@ -9,6 +9,6 @@ class CreateAsub < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :asubs
+    drop_table :notifications
   end
 end

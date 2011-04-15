@@ -1,0 +1,32 @@
+
+<%= render_top :users do %>
+    <%= title "Notificaciones" %>
+<% end %>
+
+<div class="row24">
+  <div id="browser" class="col-left">
+    &nbsp;
+  </div>
+  <div class="col-center">
+    <table>
+      <tr>
+        <th>Fecha del evento</th>
+        <th>Persona a notificar</th>
+        <th>Acción del evento</th>
+        <th>Proyecto</th>
+        <th>Notificado?</th>
+      </tr>
+      <% notifications.each do |notification| %>
+          <tr>
+            <td><%= time_ago_in_words notification.activity.activity_at %></td>
+            <td><%= notification.user.name %></td>
+            <td><%= notification.activity.action %></td>
+            <td><%= notification.activity.project.title %></td>
+            <td><%= notification.notified %></td>
+          </tr>
+      <% end %>
+    </table>
+    <div id="info" class="col-right">
+    </div>
+  </div>
+</div>

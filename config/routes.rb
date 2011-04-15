@@ -20,7 +20,7 @@ Bookasite::Application.routes.draw do
       resources :jobs, :path => 'trabajos'
       resources :activities, :path => 'actividad'
       resources :versions, :path => 'versiones'
-      resources :asubs, :path => 'subscripciones'
+      resources :notifications, :path => 'subscripciones'
     end
 
     scope "/models" do

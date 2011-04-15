@@ -26,7 +26,7 @@ class Activity < ActiveRecord::Base
     subscriptions = []
     if self.project.present?
       self.project.permissions.all.each do |permission|
-        subscriptions << Asub.create!(:activity => self, :user => permission.user)
+        subscriptions << Notification.create!(:activity => self, :user => permission.user)
       end
     end
     subscriptions
