@@ -9,9 +9,10 @@ Bookasite::Application.routes.draw do
   match "/identificarse" => "sessions#new", :as => :login
   match "/enter/:id" => "sessions#enter", :as => :enter
   match "/work" => "jobs#work", :as => :work
+  match "/admin" => "admin/versions#index"
 
   # PUBLIC
-  scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
+    scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
     scope "/admin" do
       resources :users, :path => 'participantes'
       resources :jobs, :path => 'trabajos'
@@ -29,6 +30,17 @@ Bookasite::Application.routes.draw do
       resources :answers, :only => :show
     end
 
+    resources :series
+
+    resources :topics do
+      resources :answers
+      resources :comments
+    end
+    resources :answers do
+      resources :comments
+    end
+
+
     resources :projects, :path => '' do
       resources :permissions, :path => 'participantes'
       resources :contents, :path => 'materiales'
@@ -42,15 +54,6 @@ Bookasite::Application.routes.draw do
         get :view, :on => :collection, :path => 'ver'
       end
 
-    end
-    resources :series
-
-    resources :topics do
-      resources :answers
-      resources :comments
-    end
-    resources :answers do
-      resources :comments
     end
   end
 

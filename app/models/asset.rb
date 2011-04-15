@@ -9,7 +9,6 @@ class Asset < ActiveRecord::Base
   validates :title, :presence => true
 
   mount_uploader :file, AssetUploader
-  
 #  has_attached_file :asset,
 #    :styles => {:thumb=> "100x100#", :small  => "400x400>" },
 #    :storage => :s3,

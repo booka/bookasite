@@ -29,9 +29,6 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
-#  gem 'webrat'
-#  gem "rspec"
-#  gem "rspec-rails", ">= 2.0.0.beta"
   gem "remarkable_activerecord"
   gem "faker"
 #  gem "ZenTest", ''
