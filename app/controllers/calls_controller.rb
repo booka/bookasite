@@ -6,6 +6,7 @@ class CallsController < ApplicationController
   expose(:serie) { project.serie }
 
   def index
+    redirect_to [project, call]
   end
 
   def view
