@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110329164940) do
+ActiveRecord::Schema.define(:version => 20110502204718) do
 
   create_table "activities", :force => true do |t|
     t.integer  "project_id"
@@ -70,8 +70,10 @@ ActiveRecord::Schema.define(:version => 20110329164940) do
     t.datetime "updated_at"
     t.integer  "parent_id"
     t.string   "parent_type",  :limit => 32
+    t.string   "ancestry"
   end
 
+  add_index "boks", ["ancestry"], :name => "index_boks_on_ancestry"
   add_index "boks", ["title"], :name => "index_boks_on_title"
   add_index "boks", ["type"], :name => "index_boks_on_type"
 

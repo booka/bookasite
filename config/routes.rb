@@ -16,6 +16,7 @@ Bookasite::Application.routes.draw do
     scope "/admin" do
       resources :users, :path => 'participantes' do
         resources :invitations, :path => 'invitaciones'
+        resources :email_notifications, :path => 'email', :only => :create
       end
       resources :jobs, :path => 'trabajos'
       resources :activities, :path => 'actividad'

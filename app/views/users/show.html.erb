@@ -10,6 +10,18 @@
     &nbsp;
   </div>
   <div class="col-center-left">
+    <%= button_group do %>
+        <%= button_link_to 'Modificar', [:edit, user] if can? :update, user %>
+        <% if can?(:destroy, user) and user.permissions.count == 0 and user.boks.count == 0 %>
+            <%= button_link_to 'Borrar', user, :method => :delete, :confirm => 'BORRAR USUARIO!?' %>
+        <% end %>
+        <% if current_user and current_user.roles == 'super' %>
+            <%= button_link_to 'Entrar!', enter_path(user.id) %>
+            <%= button_link_to 'Enviar invitación', new_user_invitation_path(user) %>
+            <%= button_link_to 'Notificar por email', user_email_notifications_path(user), :method => :post %>
+        <% end %>
+    <% end %>
+
     <%= div_for user, :class => 'model' do %>
         <%= image_tag avatar_url(user, 96) %>
         <ul class="properties">
@@ -20,19 +32,11 @@
           <li>Ha creado <%= user.boks.count %> entradas</li>
         </ul>
         <div class="actions">
-          <%= link_to 'Modificar', [:edit, user] if can? :update, user %>
-          <% if can?(:destroy, user) and user.permissions.count == 0 and user.boks.count == 0 %>
-              <%= link_to 'Borrar', user, :method => :delete, :confirm => 'BORRAR USUARIO!?' %>
-          <% end %>
-          <% if current_user and current_user.roles == 'super' %>
-              <%= link_to 'Entrar!', enter_path(user.id) %>
-              <%= link_to 'Enviar invitación', new_user_invitation_path(user) %>
-          <% end %>
         </div>
     <% end %>
     <% if current_user and (current_user.super? or current_user == user) %>
         <h2>Actividad en tus bookas</h2>
-        <%= render user.notifications %>
+        <%= render user.notifications.pending %>
     <% end %>
   </div>
   <div id="info" class="col-center-right">

@@ -17,6 +17,8 @@ gem 'fog'
 gem 'easy_http_cache'
 gem 'paper_trail', '~> 2'
 gem 'exception_notification', :require => 'exception_notifier'
+gem 'ancestry'
+gem 'css3buttons'
 
 # Bundle edge Rails instead: gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -24,6 +26,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 
 group :development, :test do
+#  gem "mongrel"
   gem 'mysql2'
   gem 'test-unit'
   gem 'capybara'

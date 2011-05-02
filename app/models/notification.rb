@@ -4,4 +4,7 @@ class Notification < ActiveRecord::Base
 
   validates :activity_id, :presence => true
   validates :user_id, :presence => true
+
+  scope :pending, where("notified != ?", true)
+  scope :notified, where("notified = ?", true)
 end
