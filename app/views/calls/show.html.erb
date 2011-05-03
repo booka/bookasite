@@ -1,7 +1,10 @@
 <% title call.title %>
 
-<%= render_top %>
-
+<%= render_top do %>
+    <%= button_group do %>
+        <%= button_link_to('Editar introducción', [:edit, project, call]) if can? :update, call %>
+    <% end %>
+<% end %>
 <div class="row24">
   <div id="browser" class="col-left">
     <%= link_to image_tag(serie.icon_path, :alt => serie.title), serie %>
@@ -9,11 +12,6 @@
   </div>
   <div class="col-center">
     <%= render_body call %>
-    <div class="actions">
-      <% if can? :update, call %>
-          <%= link_to 'Editar introducción', [:edit, project, call] %>
-      <% end %>
-    </div>
     <%= disqus call %>
   </div>
   <div id="info" class="col-right">

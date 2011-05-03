@@ -3,6 +3,12 @@
 <%= render_top do %>
     <h1>booka</h1>
     <h4>plataforma editorial abierta</h4>
+    <%= button_group do %>
+        <% if can? :manage, Serie %>
+            <%= add_button_link_to 'Crear una serie', new_series_path, :id => "new_serie_link" %>
+        <% end %>
+        <%= edit_button_link_to('Editar página', edit_page_path(page)) if can? :edit, page %>
+    <% end %>
 <% end %>
 
 

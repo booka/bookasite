@@ -14,6 +14,7 @@ Bookasite::Application.routes.draw do
   # PUBLIC
     scope(:path_names => {:new => "nuevo", :edit => "editar"}) do
     scope "/admin" do
+      resources :pages, :path => 'paginas'
       resources :users, :path => 'participantes' do
         resources :invitations, :path => 'invitaciones'
         resources :email_notifications, :path => 'email', :only => :create

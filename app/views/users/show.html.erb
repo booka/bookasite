@@ -3,13 +3,6 @@
 <%= render_top do %>
     <h1>Participantes</h1>
     <h2><%= user.name %></h2>
-<% end %>
-
-<div class="row24">
-  <div id="browser" class="col-left">
-    &nbsp;
-  </div>
-  <div class="col-center-left">
     <%= button_group do %>
         <%= button_link_to 'Modificar', [:edit, user] if can? :update, user %>
         <% if can?(:destroy, user) and user.permissions.count == 0 and user.boks.count == 0 %>
@@ -21,6 +14,14 @@
             <%= button_link_to 'Notificar por email', user_email_notifications_path(user), :method => :post %>
         <% end %>
     <% end %>
+<% end %>
+
+<div class="row24">
+  <div id="browser" class="col-left">
+    &nbsp;
+  </div>
+  <div class="col-center-left">
+
 
     <%= div_for user, :class => 'model' do %>
         <%= image_tag avatar_url(user, 96) %>

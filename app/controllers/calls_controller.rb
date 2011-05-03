@@ -25,6 +25,7 @@ class CallsController < ApplicationController
 
   def update
     call.update_attributes(params[:call])
+    Job.create_activity(call, :update, current_user)
     respond_with call, :location => [project, call]
   end
 end

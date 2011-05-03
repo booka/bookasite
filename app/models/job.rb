@@ -12,4 +12,16 @@ class Job < ActiveRecord::Base
   validates :name, :presence => true
   validates :user_id, :presence => true
 
+  def self.create_activity(bok, action, user)
+    Job.create(:name => 'activity.create', :options => {:action => action},
+               :bok => bok, :project => bok.project, :user => user,
+               :priority => 5)
+  end
+
+  def self.notify_user(user)
+    unless Job.queue.where(:name => 'notify.user', :user_id => user.id).first
+      Job.create(:name => 'notify.user', :user => user, :priority => 1)
+    end
+  end
+
 end

@@ -19,6 +19,7 @@ gem 'paper_trail', '~> 2'
 gem 'exception_notification', :require => 'exception_notifier'
 gem 'ancestry'
 gem 'css3buttons'
+gem 'girl_friday'
 
 # Bundle edge Rails instead: gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -41,5 +42,6 @@ group :development, :test do
 #  gem 'factory_girl_rails'
   gem "taps"
   gem "capistrano"
+  gem "passenger"
   gem "rails_best_practices"
 end

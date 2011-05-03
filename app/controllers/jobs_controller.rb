@@ -9,11 +9,13 @@ class JobsController < ApplicationController
   end
 
   def work
-    job = Job.queue.first
-    if job
+    out = []
+
+    Job.queue.each do |job|
       worker = Worker.new(job)
-      flash[:worker_output] = worker.output if worker.execute
+      out.concat worker.output if worker.execute
     end
+    flash[:worker_output] = out
     redirect_to jobs_path
   end
 

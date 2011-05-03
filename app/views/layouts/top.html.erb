@@ -4,10 +4,10 @@
   </div>
   <div id="header" class="col-main">
     <%= render(:partial => 'series/header', :locals => {:serie => project.serie}) if project?  %>
-    <%= yield :body %>
     <% if project? %>
         <h1><%= project.title %></h1>
         <%= render_project_nav(project, current) %>
     <% end %>
+    <%= yield :body %>
   </div>
 </div>

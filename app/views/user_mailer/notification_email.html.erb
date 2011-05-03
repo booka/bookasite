@@ -2,15 +2,15 @@
 <p>Estos son los cambios que se han producido en tus bookas: </p>
 <table>
   <% @notifications.each do |notification| %>
-  <tr>
-    <% activity = notification.activity %>
-    <td><%= image_tag @avatar_url, :alt => 'avatar' %></td>
-    <td><%= link_to activity.user.name, user_url(activity.user, :host => @host) %> hace
-        <%= distance_of_time_in_words_to_now activity.activity_at %> ha
-        <b><%= link_to activity.action, "#{@host}/#{activity.url}" %></b>
-    </td>
-    <td>en <%= link_to activity.project.title, activity.project %></td>
-  </tr>
+      <tr>
+        <% activity = notification.activity %>
+        <td><%= image_tag @avatar_url, :alt => 'avatar' %></td>
+        <td><%= link_to activity.user.name, user_url(activity.user, :host => @host) %> hace
+          <%= distance_of_time_in_words_to_now activity.activity_at %> ha
+          <b><%= link_to activity.action, "#{@host}#{activity.url}" %></b><br/>
+          en <%= link_to activity.project.title, activity.project %>
+        </td>
+      </tr>
   <% end %>
 
 </table>

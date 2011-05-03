@@ -2,6 +2,9 @@
 
 <%= render_top :users do %>
     <h1>Trabajos</h1>
+    <%= button_group do %>
+        <%= clock_button_link_to 'Ejecutar trabajos en cola', work_path %>
+    <% end %>
 <% end %>
 
 <div class="row24">
@@ -11,9 +14,6 @@
   <div class="col-center">
     <h2>Resultado</h2>
 
-    <div class="actions">
-      <%= link_to 'Siguiente', work_path %>
-    </div>
     <% if flash[:worker_output] %>
         <ul>
           <% flash[:worker_output].each do |line| %>
@@ -28,6 +28,7 @@
       <%= render jobs %>
     </table>
     <br/>
+
     <h2>Variables</h2>
     <table>
       <% app_vars.each do |var| %>

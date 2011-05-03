@@ -6,6 +6,6 @@
     <%= form.input :body %>
   </div>
   <div class="controls">
-    <%= form.submit %><%= link_to 'Cancelar', (project.new_record? ? projects_path : project)%>
+    <%= approve_button_submit_tag 'Modificar' %><%= link_to 'Cancelar', (project.new_record? ? projects_path : project)%>
   </div>
 <% end %>

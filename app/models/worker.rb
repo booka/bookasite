@@ -1,10 +1,25 @@
 class Worker
   cattr_reader :definitions
+
   def self.work(name, &block)
     @@definitions ||= []
     @@definitions << name
     define_method(name.gsub(/\./, '_'), &block)
   end
+
+  work 'activity.create' do |job|
+    bok = job.bok
+    activity = Activity.create_from_bok(bok, job.options[:action], job.user)
+    activity.notify.each do |notification|
+      Job.notify_user(notification.user)
+    end
+  end
+
+  work 'notify.user' do |job|
+    false
+  end
+
+  #### OLD
 
   work 'jobs.clear' do |job|
     Job.destroy_all
@@ -16,7 +31,7 @@ class Worker
     notifications_create(job)
   end
 
-  work 'activity.create' do |job|
+  work 'activities.create' do |job|
     var = AppVar.get('activity.version.id')
     last_id = var.value
 
@@ -82,9 +97,11 @@ class Worker
     Job.transaction do
       job.update_attribute(:started_at, Time.now)
       puts "JOB: #{job.name} #{job.created_at}"
-      self.send(job.name.gsub(/\./, '_'), job)
-      job.update_attribute(:finished_at, Time.now)
-      puts "TIME: #{job.finished_at - job.started_at}"
+      success = self.send(job.name.gsub(/\./, '_'), job)
+      if success
+        job.update_attribute(:finished_at, Time.now)
+        puts "TIME: #{job.finished_at - job.started_at}"
+      end
     end
   end
 
